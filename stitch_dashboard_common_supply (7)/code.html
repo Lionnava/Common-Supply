@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vincular a Mi Tienda</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen">
+<div class="relative flex h-auto min-h-screen w-full max-w-[430px] mx-auto flex-col bg-background-light dark:bg-background-dark overflow-x-hidden shadow-2xl">
+<!-- TopAppBar -->
+<div class="flex items-center bg-white dark:bg-slate-900 p-4 pb-2 justify-between sticky top-0 z-50 border-b border-gray-100 dark:border-slate-800">
+<div class="text-[#111418] dark:text-white flex size-12 shrink-0 items-center justify-start cursor-pointer">
+<span class="material-symbols-outlined">arrow_back_ios</span>
+</div>
+<h2 class="text-[#111418] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-12">Vincular a Mi Tienda</h2>
+</div>
+<div class="flex flex-col gap-2 pt-4">
+<!-- Search & Scan Section -->
+<div class="px-4 py-3 flex gap-2 items-center">
+<label class="flex flex-col min-w-40 h-12 flex-1">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-[#617589] dark:text-slate-400 flex border-none bg-white dark:bg-slate-800 items-center justify-center pl-4 rounded-l-lg border-r-0">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111418] dark:text-white focus:outline-0 focus:ring-0 border-none bg-white dark:bg-slate-800 focus:border-none h-full placeholder:text-[#617589] px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal" placeholder="Buscar por nombre de tienda..." value=""/>
+</div>
+</label>
+<button class="flex size-12 items-center justify-center bg-primary text-white rounded-lg shadow-sm">
+<span class="material-symbols-outlined">qr_code_scanner</span>
+</button>
+</div>
+<!-- SectionHeader: Current Store -->
+<h3 class="text-[#111418] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Mi Tienda Actual</h3>
+<!-- Card: Linked Store -->
+<div class="px-4">
+<div class="flex items-stretch justify-between gap-4 rounded-xl bg-white dark:bg-slate-800 p-4 shadow-sm border border-gray-100 dark:border-slate-700">
+<div class="flex flex-[2_2_0px] flex-col justify-between py-1">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-1">
+<p class="text-[#111418] dark:text-white text-base font-bold leading-tight">Tienda Don Bosco</p>
+<span class="material-symbols-outlined text-primary text-[18px]">verified</span>
+</div>
+<p class="text-[#617589] dark:text-slate-400 text-sm font-normal leading-normal">Conectado recientemente</p>
+</div>
+<button class="mt-4 flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 flex-row-reverse bg-primary/10 text-primary hover:bg-primary/20 transition-colors pr-2 gap-1 text-sm font-semibold leading-normal w-fit">
+<span class="material-symbols-outlined text-[18px]">sync_alt</span>
+<span class="truncate">Cambiar Tienda</span>
+</button>
+</div>
+<div class="w-24 h-24 bg-center bg-no-repeat bg-cover rounded-xl shrink-0" data-alt="Store front logo with groceries" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAA979cgJVKa0OiRXQih3UyEVe9A5qcc3Ryby75m0nXYhPZQ_ugQE28GxqQMyed_vyHXvC7QioSuEmycwCkJhcauipX0ji3XOOb4MfeBUQxyxjEyzIb3ULkklh0dNEhWUjQM4NzXaHOZ-co9jW4FAbRUrNbkbPPhr8xycIIG6wMXC_OnWusZfIO1R9LciBXYE6M101GTK4C9zAdPFIubH9vKBDCR8dL45L2nzUZ1XYFV5w-y4erTLDETm8RT2dGJmA8JjRk2tTqUxTa");'></div>
+</div>
+</div>
+<!-- SectionHeader: Activities -->
+<h3 class="text-[#111418] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-6">Pedidos Pendientes</h3>
+<!-- Horizontal scroll for Pending Orders -->
+<div class="flex overflow-x-auto px-4 pb-4 gap-4 no-scrollbar">
+<div class="min-w-[280px] bg-white dark:bg-slate-800 p-4 rounded-xl border border-gray-100 dark:border-slate-700 shadow-sm">
+<div class="flex justify-between items-start mb-3">
+<div class="bg-primary/10 text-primary px-2 py-1 rounded text-xs font-bold uppercase tracking-wider">En Preparación</div>
+<span class="text-[#617589] text-xs">Hoy, 10:30 AM</span>
+</div>
+<p class="text-[#111418] dark:text-white font-bold text-sm mb-1">Orden #CS-9842</p>
+<p class="text-[#617589] dark:text-slate-400 text-xs">12 artículos • $45.50</p>
+<div class="mt-3 pt-3 border-t border-gray-50 dark:border-slate-700 flex justify-between items-center">
+<span class="text-xs text-primary font-medium">Ver detalles</span>
+<span class="material-symbols-outlined text-primary text-[16px]">chevron_right</span>
+</div>
+</div>
+<div class="min-w-[280px] bg-white dark:bg-slate-800 p-4 rounded-xl border border-gray-100 dark:border-slate-700 shadow-sm opacity-60">
+<div class="flex justify-between items-start mb-3">
+<div class="bg-gray-100 dark:bg-slate-700 text-gray-500 px-2 py-1 rounded text-xs font-bold uppercase tracking-wider">Por Pagar</div>
+<span class="text-[#617589] text-xs">Ayer</span>
+</div>
+<p class="text-[#111418] dark:text-white font-bold text-sm mb-1">Orden #CS-9831</p>
+<p class="text-[#617589] dark:text-slate-400 text-xs">3 artículos • $12.00</p>
+<div class="mt-3 pt-3 border-t border-gray-50 dark:border-slate-700 flex justify-between items-center">
+<span class="text-xs text-gray-400 font-medium">Ver detalles</span>
+<span class="material-symbols-outlined text-gray-400 text-[16px]">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- SectionHeader: Receipts -->
+<div class="flex justify-between items-center px-4 pt-4">
+<h3 class="text-[#111418] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Mis Recibos Digitales</h3>
+<span class="text-primary text-sm font-medium">Ver Todo</span>
+</div>
+<!-- List of Receipts -->
+<div class="px-4 py-2 flex flex-col gap-3">
+<div class="flex items-center gap-4 bg-white dark:bg-slate-800 p-3 rounded-xl border border-gray-100 dark:border-slate-700">
+<div class="size-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">receipt_long</span>
+</div>
+<div class="flex-1">
+<p class="text-[#111418] dark:text-white font-semibold text-sm">Compra Semanal</p>
+<p class="text-[#617589] dark:text-slate-400 text-xs">15 Oct 2023 • 22 productos</p>
+</div>
+<div class="text-right">
+<p class="text-[#111418] dark:text-white font-bold text-sm">$82.40</p>
+<p class="text-green-500 text-[10px] font-bold">PAGADO</p>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-white dark:bg-slate-800 p-3 rounded-xl border border-gray-100 dark:border-slate-700">
+<div class="size-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">receipt_long</span>
+</div>
+<div class="flex-1">
+<p class="text-[#111418] dark:text-white font-semibold text-sm">Frutas y Verduras</p>
+<p class="text-[#617589] dark:text-slate-400 text-xs">12 Oct 2023 • 5 productos</p>
+</div>
+<div class="text-right">
+<p class="text-[#111418] dark:text-white font-bold text-sm">$15.20</p>
+<p class="text-green-500 text-[10px] font-bold">PAGADO</p>
+</div>
+</div>
+</div>
+<!-- iOS Tab Bar Spacer -->
+<div class="h-24"></div>
+</div>
+<!-- Floating Action Button for Scanner (iOS style) -->
+<div class="fixed bottom-6 left-1/2 -translate-x-1/2 w-full max-w-[430px] px-6">
+<button class="w-full bg-primary text-white h-14 rounded-2xl shadow-lg shadow-primary/30 flex items-center justify-center gap-3 font-bold text-base active:scale-95 transition-transform">
+<span class="material-symbols-outlined">qr_code_scanner</span>
+                Escanear Código QR
+            </button>
+</div>
+<!-- Navigation Bar (iOS Style Bottom) -->
+<div class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[430px] bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg border-t border-gray-200 dark:border-slate-800 flex justify-around items-center pt-2 pb-8">
+<div class="flex flex-col items-center gap-1 text-[#617589] dark:text-slate-400">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px]">Inicio</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined">storefront</span>
+<span class="text-[10px] font-medium">Mi Tienda</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-[#617589] dark:text-slate-400">
+<span class="material-symbols-outlined">shopping_basket</span>
+<span class="text-[10px]">Pedidos</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-[#617589] dark:text-slate-400">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px]">Perfil</span>
+</div>
+</div>
+</div>
+</body></html>

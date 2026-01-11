@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vista Previa de Importación</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>body {
+    font-family: "Inter", sans-serif;
+    -webkit-tap-highlight-color: transparent
+    }
+.custom-select-icon {
+    appearance: none;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuAfW0kTNz9ztObJzFVJQAKNVxQX7T8HiWpmdzANwt1LQmWLhFape3SfGJ4IUpMVuaATwNPmokXEZ_RihgGxLKQnJkzepQ4xbs2bgoSeiMrYDv9KkZyXEKcpZbdk_VUjJn7eJloMGymhTkX9C1hG87yUrmVF9wmE5MZ10I6EgK14v7FX9hMKNb1NaKmp8ZEJKPAzPcpAx8RGvQuXfXYkJLJ-6ecKyv7wa1Yt9kYdqd_Wglfnsni0eisD8y2fEor7Fa2L0fsmZhq9l1y5);
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1.25rem
+    }
+.hide-scrollbar::-webkit-scrollbar {
+    display: none
+    }
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none
+    }</style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display min-h-screen pb-32">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center p-4 justify-between max-w-md mx-auto">
+<div class="flex size-10 shrink-0 items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-size: 28px;">inventory_2</span>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-tight flex-1 text-center">Vista Previa</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="text-slate-500 dark:text-[#9dabb9] text-sm font-semibold hover:text-red-500 transition-colors">Cancelar</button>
+</div>
+</div>
+</header>
+<main class="max-w-md mx-auto">
+<!-- Import Summary Stats -->
+<div class="p-4">
+<div class="flex flex-wrap gap-3">
+<div class="flex min-w-[140px] flex-1 flex-col gap-1 rounded-xl p-5 bg-white dark:bg-[#1c2127] border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-green-500 text-sm">add_circle</span>
+<p class="text-slate-500 dark:text-[#9dabb9] text-xs font-medium uppercase tracking-wider">Nuevos</p>
+</div>
+<p class="text-slate-900 dark:text-white text-3xl font-bold">124</p>
+</div>
+<div class="flex min-w-[140px] flex-1 flex-col gap-1 rounded-xl p-5 bg-white dark:bg-[#1c2127] border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-amber-500 text-sm">sync</span>
+<p class="text-slate-500 dark:text-[#9dabb9] text-xs font-medium uppercase tracking-wider">Actualizaciones</p>
+</div>
+<p class="text-slate-900 dark:text-white text-3xl font-bold">12</p>
+</div>
+</div>
+</div>
+<!-- Section Header & Instructions -->
+<div class="px-4 pt-4">
+<h3 class="text-slate-900 dark:text-white text-xl font-bold leading-tight">Mapeo de Columnas</h3>
+<p class="text-slate-500 dark:text-[#9dabb9] text-sm font-normal leading-relaxed mt-1">
+                Asocia las columnas de tu archivo Excel/CSV con los campos de inventario de la tienda.
+            </p>
+</div>
+<!-- Mapping Fields -->
+<div class="px-4 py-4 space-y-4">
+<!-- Field 1 -->
+<div class="flex flex-col gap-2">
+<label class="flex items-center gap-2 text-sm font-semibold text-slate-700 dark:text-slate-300">
+<span class="material-symbols-outlined text-primary text-xs">label</span>
+                    Nombre del Producto
+                </label>
+<select class="custom-select-icon w-full rounded-lg border border-slate-200 dark:border-[#3b4754] bg-white dark:bg-[#1c2127] text-slate-900 dark:text-white h-14 px-4 text-base focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all">
+<option value="col_1">product_name</option>
+<option value="col_2">sku_code</option>
+<option value="col_3">price_val</option>
+</select>
+</div>
+<!-- Field 2 -->
+<div class="flex flex-col gap-2">
+<label class="flex items-center gap-2 text-sm font-semibold text-slate-700 dark:text-slate-300">
+<span class="material-symbols-outlined text-primary text-xs">payments</span>
+                    Precio de Venta
+                </label>
+<select class="custom-select-icon w-full rounded-lg border border-slate-200 dark:border-[#3b4754] bg-white dark:bg-[#1c2127] text-slate-900 dark:text-white h-14 px-4 text-base focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all">
+<option value="">Seleccionar columna...</option>
+<option selected="" value="col_3">retail_price</option>
+<option value="col_4">cost_price</option>
+</select>
+</div>
+<!-- Field 3 -->
+<div class="flex flex-col gap-2">
+<label class="flex items-center gap-2 text-sm font-semibold text-slate-700 dark:text-slate-300">
+<span class="material-symbols-outlined text-primary text-xs">inventory</span>
+                    Stock Disponible
+                </label>
+<select class="custom-select-icon w-full rounded-lg border border-slate-200 dark:border-[#3b4754] bg-white dark:bg-[#1c2127] text-slate-900 dark:text-white h-14 px-4 text-base focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all">
+<option value="col_1">product_name</option>
+<option selected="" value="col_5">quantity_on_hand</option>
+<option value="col_6">minimum_stock</option>
+</select>
+</div>
+<!-- Field 4 -->
+<div class="flex flex-col gap-2">
+<label class="flex items-center gap-2 text-sm font-semibold text-slate-700 dark:text-slate-300">
+<span class="material-symbols-outlined text-primary text-xs">category</span>
+                    Categoría
+                </label>
+<select class="custom-select-icon w-full rounded-lg border border-slate-200 dark:border-[#3b4754] bg-white dark:bg-[#1c2127] text-slate-900 dark:text-white h-14 px-4 text-base focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all">
+<option selected="" value="col_7">department_id</option>
+<option value="col_8">tag_list</option>
+</select>
+</div>
+</div>
+<!-- Preview Table Section -->
+<div class="mt-4">
+<div class="px-4 flex items-center justify-between mb-2">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold">Datos del Archivo</h3>
+<span class="text-[10px] font-bold px-2 py-1 bg-slate-200 dark:bg-slate-800 rounded text-slate-600 dark:text-slate-400 uppercase tracking-tighter">Primeras 5 filas</span>
+</div>
+<div class="overflow-x-auto hide-scrollbar px-4">
+<div class="inline-block min-w-full align-middle">
+<div class="overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<table class="min-w-full divide-y divide-slate-200 dark:divide-slate-800">
+<thead class="bg-slate-50 dark:bg-[#1c2127]">
+<tr>
+<th class="px-4 py-3 text-left text-xs font-bold text-slate-500 dark:text-[#9dabb9] uppercase tracking-wider" scope="col">Nombre</th>
+<th class="px-4 py-3 text-left text-xs font-bold text-slate-500 dark:text-[#9dabb9] uppercase tracking-wider" scope="col">Precio</th>
+<th class="px-4 py-3 text-left text-xs font-bold text-slate-500 dark:text-[#9dabb9] uppercase tracking-wider" scope="col">Stock</th>
+<th class="px-4 py-3 text-left text-xs font-bold text-slate-500 dark:text-[#9dabb9] uppercase tracking-wider" scope="col">Categoría</th>
+</tr>
+</thead>
+<tbody class="bg-white dark:bg-[#111418] divide-y divide-slate-100 dark:divide-slate-800">
+<tr>
+<td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-slate-900 dark:text-white">Leche Deslactosada 1L</td>
+<td class="px-4 py-3 whitespace-nowrap text-sm text-slate-600 dark:text-[#9dabb9]">$1.45</td>
+<td class="px-4 py-3 whitespace-nowrap text-sm text-slate-600 dark:text-[#9dabb9]">24</td>
+<td class="px-4 py-3 whitespace-nowrap text-sm text-slate-600 dark:text-[#9dabb9]">Lácteos</td>
+</tr>
+<tr>
+<td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-slate-900 dark:text-white">Pan Integral Tajado</td>
+<td class="px-4 py-3 whitespace-nowrap text-sm text-slate-600 dark:text-[#9dabb9]">$2.10</td>
+<td class="px-4 py-3 whitespace-nowrap text-sm text-slate-600 dark:text-[#9dabb9]">15</td>
+<td class="px-4 py-3 whitespace-nowrap text-sm text-slate-600 dark:text-[#9dabb9]">Panadería</td>
+</tr>
+<tr>
+<td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-slate-900 dark:text-white">Arroz Blanco 5kg</td>
+<td class="px-4 py-3 whitespace-nowrap text-sm text-slate-600 dark:text-[#9dabb9]">$4.80</td>
+<td class="px-4 py-3 whitespace-nowrap text-sm text-slate-600 dark:text-[#9dabb9]">50</td>
+<td class="px-4 py-3 whitespace-nowrap text-sm text-slate-600 dark:text-[#9dabb9]">Granos</td>
+</tr>
+<tr>
+<td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-slate-900 dark:text-white">Aceite de Oliva 500ml</td>
+<td class="px-4 py-3 whitespace-nowrap text-sm text-slate-600 dark:text-[#9dabb9]">$8.50</td>
+<td class="px-4 py-3 whitespace-nowrap text-sm text-slate-600 dark:text-[#9dabb9]">8</td>
+<td class="px-4 py-3 whitespace-nowrap text-sm text-slate-600 dark:text-[#9dabb9]">Abarrotes</td>
+</tr>
+<tr>
+<td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-slate-900 dark:text-white">Detergente Líquido 2L</td>
+<td class="px-4 py-3 whitespace-nowrap text-sm text-slate-600 dark:text-[#9dabb9]">$6.25</td>
+<td class="px-4 py-3 whitespace-nowrap text-sm text-slate-600 dark:text-[#9dabb9]">12</td>
+<td class="px-4 py-3 whitespace-nowrap text-sm text-slate-600 dark:text-[#9dabb9]">Limpieza</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="px-4 py-2 flex items-center gap-2 justify-center text-slate-400">
+<span class="material-symbols-outlined text-sm">swipe_left</span>
+<span class="text-[10px] font-medium uppercase tracking-widest">Desliza para ver más</span>
+</div>
+</div>
+</main>
+<!-- Fixed Action Button -->
+<footer class="fixed bottom-0 left-0 right-0 bg-white/80 dark:bg-[#111418]/80 backdrop-blur-xl border-t border-slate-200 dark:border-slate-800 p-4 pb-8 safe-area-bottom">
+<div class="max-w-md mx-auto">
+<button class="w-full h-14 bg-primary hover:bg-primary/90 text-white font-bold rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-primary/25 transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined">file_upload</span>
+                Confirmar Importación
+            </button>
+<p class="text-center text-[11px] text-slate-500 dark:text-[#9dabb9] mt-3 px-4">
+                Al confirmar, se procesarán 136 cambios en la base de datos de inventario.
+            </p>
+</div>
+</footer>
+</body></html>

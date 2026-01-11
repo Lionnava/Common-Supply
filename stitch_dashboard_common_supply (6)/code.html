@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Configuración del Negocio (Admin)</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen">
+<div class="max-w-[480px] mx-auto bg-white dark:bg-[#111418] min-h-screen flex flex-col shadow-lg">
+<!-- TopAppBar -->
+<div class="sticky top-0 z-10 flex items-center bg-white dark:bg-[#111418] p-4 border-b border-gray-100 dark:border-gray-800 justify-between">
+<div class="text-[#111418] dark:text-white flex size-10 items-center justify-center cursor-pointer">
+<span class="material-symbols-outlined">arrow_back_ios</span>
+</div>
+<h2 class="text-[#111418] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Configuración</h2>
+<div class="size-10 flex items-center justify-center">
+<!-- Spacer for centering title -->
+</div>
+</div>
+<div class="flex-1 overflow-y-auto pb-10">
+<!-- ProfileHeader / Logo Section -->
+<div class="flex p-6 @container">
+<div class="flex w-full flex-col gap-4 items-center">
+<div class="flex gap-4 flex-col items-center">
+<div class="relative group">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full min-h-32 w-32 border-4 border-white dark:border-gray-800 shadow-sm" data-alt="Modern minimalist circular company logo placeholder" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA4Pgr6rWo_pxeJ3hzL9EHO0nXKuIA8S6k3xVi0PAME5Oc3x4hb8-5zmokHXo47FShpOfQRCs_opGxml8l9ISRSFpiUC7MbTMucHSOoIGI5ZAzW6-jRaIyMdyZRcvCHQiphVvCrM6zYqNajzJme0FKNV3DZyWiAVwn8BpqLaLqb8pqUq6F7FIh1ArH3bkW-MIFEFEeuewhOeyqwi-kTjkhF4mTaomAPqvU7S4WO1TRKxu6CsCuq-uGpfNvU3fj9D8aLQWRGv5Nbjw9i");'>
+</div>
+<div class="absolute bottom-0 right-0 bg-primary text-white p-2 rounded-full shadow-lg cursor-pointer">
+<span class="material-symbols-outlined text-sm">photo_camera</span>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center">
+<p class="text-[#111418] dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em] text-center">Nombre de la Empresa</p>
+<p class="text-primary text-sm font-semibold mt-1">Cambiar logotipo</p>
+</div>
+</div>
+</div>
+</div>
+<!-- SectionHeader: Basic Info -->
+<h3 class="text-[#111418] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Información General</h3>
+<!-- Form Fields -->
+<div class="flex flex-col gap-1">
+<!-- TextField: Name -->
+<div class="flex flex-wrap items-end gap-4 px-4 py-2">
+<label class="flex flex-col min-w-40 flex-1">
+<p class="text-[#111418] dark:text-gray-300 text-sm font-medium leading-normal pb-1.5 px-1">Nombre del Negocio</p>
+<input class="form-input flex w-full rounded-lg text-[#111418] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-[#dbe0e6] dark:border-gray-700 bg-white dark:bg-gray-800 h-12 placeholder:text-[#617589] p-[15px] text-base font-normal" placeholder="Ej. Abarrotes La Esperanza" value="Common Supply Store"/>
+</label>
+</div>
+<!-- TextField: Tax ID -->
+<div class="flex flex-wrap items-end gap-4 px-4 py-2">
+<label class="flex flex-col min-w-40 flex-1">
+<p class="text-[#111418] dark:text-gray-300 text-sm font-medium leading-normal pb-1.5 px-1">Identificación Fiscal (Tax ID)</p>
+<input class="form-input flex w-full rounded-lg text-[#111418] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-[#dbe0e6] dark:border-gray-700 bg-white dark:bg-gray-800 h-12 placeholder:text-[#617589] p-[15px] text-base font-normal" placeholder="Ej. RFC, NIT o RUT" value=""/>
+</label>
+</div>
+<!-- TextField: Address -->
+<div class="flex flex-wrap items-end gap-4 px-4 py-2">
+<label class="flex flex-col min-w-40 flex-1">
+<p class="text-[#111418] dark:text-gray-300 text-sm font-medium leading-normal pb-1.5 px-1">Dirección Física</p>
+<input class="form-input flex w-full rounded-lg text-[#111418] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-[#dbe0e6] dark:border-gray-700 bg-white dark:bg-gray-800 h-12 placeholder:text-[#617589] p-[15px] text-base font-normal" placeholder="Calle, Número, Colonia..." value=""/>
+</label>
+</div>
+</div>
+<!-- Branding Section -->
+<h3 class="text-[#111418] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-6">Identidad de Marca</h3>
+<div class="px-4 py-2">
+<p class="text-[#111418] dark:text-gray-300 text-sm font-medium pb-3">Color de la Marca</p>
+<div class="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
+<div class="w-10 h-10 rounded-full bg-primary border-4 border-white dark:border-gray-800 ring-2 ring-primary cursor-pointer shadow-sm"></div>
+<div class="w-10 h-10 rounded-full bg-orange-500 border-4 border-transparent cursor-pointer shadow-sm"></div>
+<div class="w-10 h-10 rounded-full bg-emerald-500 border-4 border-transparent cursor-pointer shadow-sm"></div>
+<div class="w-10 h-10 rounded-full bg-purple-500 border-4 border-transparent cursor-pointer shadow-sm"></div>
+<div class="w-10 h-10 rounded-full bg-rose-500 border-4 border-transparent cursor-pointer shadow-sm"></div>
+<div class="w-10 h-10 rounded-full bg-gray-900 border-4 border-transparent cursor-pointer shadow-sm"></div>
+</div>
+</div>
+<!-- Store ID & QR Section -->
+<div class="mx-4 mt-8 mb-4 p-5 rounded-xl bg-primary/5 dark:bg-primary/10 border border-primary/20">
+<div class="flex items-center justify-between mb-4">
+<div>
+<h4 class="text-[#111418] dark:text-white font-bold">Enlace de Clientes</h4>
+<p class="text-xs text-[#617589] dark:text-gray-400">Comparte este código para vincular clientes</p>
+</div>
+<span class="material-symbols-outlined text-primary">qr_code_2</span>
+</div>
+<div class="flex flex-col items-center gap-4 py-2">
+<!-- QR Placeholder -->
+<div class="bg-white p-3 rounded-lg shadow-sm border border-gray-100">
+<img class="w-32 h-32" data-alt="Functional QR code for store linking" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFbW0_hffkTZX1IO223cmZfu3l0khYdKsPDnY5bPcd8VfrQn74Dh1kN3Cdhex-wLrPCU5AYtTUG4-0ZLr81Zp3-R7slWU48J0IYAE67RSRhlk1UPB8L-atuQjS3tQGgng1DGdhxgOhrZciaSjAp6uqNzu9JIsAhmzreP5tcusspLCtqZLXINpru3JyC2P98Uk0yNrWnAecCMotf22PjGK_3AknQbke14sRD2Jb-hfATanmZr53WoZvzr8I0S92HBl1PAlHJGD0fTNE"/>
+</div>
+<div class="flex items-center gap-2 bg-white dark:bg-gray-800 px-3 py-1.5 rounded-full border border-gray-200 dark:border-gray-700 shadow-sm">
+<span class="text-xs font-mono font-bold text-gray-500">ID:</span>
+<span class="text-sm font-mono font-bold text-primary tracking-wider uppercase">CS-7842-XP</span>
+<span class="material-symbols-outlined text-gray-400 text-sm cursor-pointer hover:text-primary">content_copy</span>
+</div>
+</div>
+<button class="mt-4 w-full flex items-center justify-center gap-2 bg-white dark:bg-gray-800 text-primary font-bold py-3 rounded-lg border border-primary/30 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-[20px]">share</span>
+<span class="text-sm">Compartir Código QR</span>
+</button>
+</div>
+<!-- Save Action -->
+<div class="px-4 pt-6 pb-12">
+<button class="w-full bg-primary text-white font-bold py-4 rounded-xl shadow-md shadow-primary/20 active:bg-primary/90 active:scale-[0.99] transition-all">
+                    Guardar Cambios
+                </button>
+</div>
+</div>
+</div>
+</body></html>

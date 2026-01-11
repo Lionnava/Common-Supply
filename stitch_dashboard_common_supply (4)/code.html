@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Proveedores y Contabilidad - Common Supply</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .chart-bar { transition: height 0.3s ease; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen text-[#111418] dark:text-white transition-colors">
+<div class="relative flex h-auto min-h-screen w-full max-w-[430px] mx-auto flex-col bg-white dark:bg-[#111418] shadow-2xl overflow-x-hidden">
+<!-- TopAppBar -->
+<div class="flex items-center bg-white dark:bg-[#111418] p-4 pb-2 justify-between sticky top-0 z-20">
+<div class="text-[#111418] dark:text-white flex size-12 shrink-0 items-center justify-start cursor-pointer">
+<span class="material-symbols-outlined text-[28px]">account_circle</span>
+</div>
+<h2 class="text-[#111418] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center font-display">
+                Finanzas
+            </h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex cursor-pointer items-center justify-center rounded-lg h-12 bg-transparent text-[#111418] dark:text-white">
+<span class="material-symbols-outlined text-[24px]">notifications</span>
+</button>
+</div>
+</div>
+<!-- SegmentedButtons -->
+<div class="flex px-4 py-3 sticky top-[68px] bg-white dark:bg-[#111418] z-20 border-b border-gray-100 dark:border-gray-800">
+<div class="flex h-11 flex-1 items-center justify-center rounded-xl bg-[#f0f2f4] dark:bg-gray-800 p-1">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-gray-700 has-[:checked]:shadow-sm has-[:checked]:text-[#111418] dark:has-[:checked]:text-white text-[#617589] dark:text-gray-400 text-sm font-semibold transition-all">
+<span class="truncate">Proveedores</span>
+<input checked="" class="invisible w-0" name="view-toggle" type="radio" value="proveedores"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-gray-700 has-[:checked]:shadow-sm has-[:checked]:text-[#111418] dark:has-[:checked]:text-white text-[#617589] dark:text-gray-400 text-sm font-semibold transition-all">
+<span class="truncate">Contabilidad</span>
+<input class="invisible w-0" name="view-toggle" type="radio" value="contabilidad"/>
+</label>
+</div>
+</div>
+<main class="flex-1 overflow-y-auto">
+<!-- Suppliers Section (Default View) -->
+<div class="block" id="suppliers-view">
+<!-- SearchBar -->
+<div class="px-4 py-3">
+<label class="flex flex-col min-w-40 h-12 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-xl h-full shadow-sm">
+<div class="text-[#617589] flex border-none bg-[#f0f2f4] dark:bg-gray-800 items-center justify-center pl-4 rounded-l-xl">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-r-xl text-[#111418] dark:text-white focus:outline-0 focus:ring-0 border-none bg-[#f0f2f4] dark:bg-gray-800 h-full placeholder:text-[#617589] px-4 pl-2 text-base font-normal leading-normal" placeholder="Buscar proveedores..."/>
+</div>
+</label>
+</div>
+<!-- Debt Overview Card -->
+<div class="px-4 mb-4">
+<div class="bg-primary p-5 rounded-2xl text-white shadow-lg shadow-primary/20">
+<p class="text-white/80 text-sm font-medium">Deuda Total a Proveedores</p>
+<h3 class="text-3xl font-bold mt-1">$4,820.50</h3>
+<div class="flex items-center gap-2 mt-3 bg-white/10 w-fit px-3 py-1 rounded-full text-xs">
+<span class="material-symbols-outlined text-sm">schedule</span>
+                            Vence en 5 días
+                        </div>
+</div>
+</div>
+<!-- List Header -->
+<div class="px-4 py-2 flex justify-between items-center">
+<h3 class="text-[#111418] dark:text-white font-bold text-lg">Activos</h3>
+<button class="text-primary text-sm font-semibold">Ver todos</button>
+</div>
+<!-- ListItems -->
+<div class="flex flex-col">
+<div class="flex items-center gap-4 bg-white dark:bg-transparent px-4 min-h-[80px] py-3 justify-between border-b border-gray-50 dark:border-gray-800">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-14 w-14 border-2 border-primary/10" data-alt="Logotipo de Distribuidora Central" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCL0m__HPGpP0AELnZ48atp3tuuiPAGfkgjo17NzpQRzbpyQn1XCTObkGl07pZIjfMNkBBTwtjObwURp576T3CFEtCz4AbDCDa40qD9joXCVHddqNI8ZkO5lS58rp5htYWKL4Nv-s3aYO0_Yyc47sddshhlb-aXd312KpCZ5o2XUExllIvVX0mAmoSdpanFf8u8TArr2HQ3c7SJ7LsSxwP5nhH45C9kiksosONeRvfvqgri4JQP2HKUeJNEUZQJvX0oUVnqaMK-qxDU");'></div>
+<div class="flex flex-col justify-center">
+<p class="text-[#111418] dark:text-white text-base font-semibold leading-tight">Distribuidora Central</p>
+<p class="text-[#617589] dark:text-gray-400 text-xs font-normal mt-1">Juan Pérez • <span class="text-orange-500 font-medium">Factura #902</span></p>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<p class="text-[#111418] dark:text-white text-base font-bold leading-normal">$1,250.00</p>
+<span class="text-[10px] uppercase tracking-wider text-[#617589] font-bold">Por pagar</span>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-white dark:bg-transparent px-4 min-h-[80px] py-3 justify-between border-b border-gray-50 dark:border-gray-800">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-14 w-14 border-2 border-primary/10" data-alt="Logotipo de Lácteos del Valle" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAIAT0j1JAkA7mItYxVzkliUq_5mS-oIjOE39bibpMYqX84U1qPbmuzUckIoYM8CBs9XyDukfDx_N8dcfm3GBWOLfzmtPyVraLxtaZ8m3gU0jL2Ia9x2wwZcH2I_3JhVc5jL0Aa2OtMD6rOEoFOa-RRCxd6LkqoS63d56lLokh14mOhSJmmYnUwj-lILtMziXfZrBB8uyyan_gA4v6DaZLRuelYhCj6QetdF2LC9yuAmlhc9tYwjQVAcDre82zITjFz2IwqJ4b_eWHn");'></div>
+<div class="flex flex-col justify-center">
+<p class="text-[#111418] dark:text-white text-base font-semibold leading-tight">Lácteos del Valle</p>
+<p class="text-[#617589] dark:text-gray-400 text-xs font-normal mt-1">Maria García • <span class="text-green-500 font-medium">Al día</span></p>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<p class="text-[#111418] dark:text-white text-base font-bold leading-normal">$450.00</p>
+<span class="text-[10px] uppercase tracking-wider text-[#617589] font-bold">Por pagar</span>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-white dark:bg-transparent px-4 min-h-[80px] py-3 justify-between border-b border-gray-50 dark:border-gray-800">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-14 w-14 border-2 border-primary/10" data-alt="Logotipo de Frutas y Verduras Sol" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAetuImiTZ5EGwWMvTLcRFuGtvFTPIebOb9U1UGBxQLdRzUd4imntg_FHSTzjzL27ASqyIRBgoVUkA2pDnMIbOn2cgJ0llgvGS_VUhryxNXUm_148vlCaH4QbkVTmo8WsphRbafksmG9PatZbgHLQTvJTsmAFwcXzX-sCiuT2RXlQk5ySdzLd0KsXy8-8zcS3XTRZ5ebDzhhaCwKDsTPfBTPc1S2GzaM-BfR9Zqyj650ZFslIQuOYo5w7QNx7TzwWI3XsZBshx6U11r");'></div>
+<div class="flex flex-col justify-center">
+<p class="text-[#111418] dark:text-white text-base font-semibold leading-tight">Frutas Frescas Sol</p>
+<p class="text-[#617589] dark:text-gray-400 text-xs font-normal mt-1">Ricardo Luna • <span class="text-red-500 font-medium font-bold">Vencido</span></p>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<p class="text-red-500 text-base font-bold leading-normal">$2,120.00</p>
+<span class="text-[10px] uppercase tracking-wider text-[#617589] font-bold">Crítico</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Accounting Section (Hidden by default in static mockup, but designed here) -->
+<div class="hidden px-4 py-4 animate-in fade-in duration-500" id="accounting-view">
+<h3 class="text-xl font-bold mb-4">Resumen Mensual</h3>
+<!-- P&L Summary Cards -->
+<div class="grid grid-cols-2 gap-4 mb-6">
+<div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-2xl border border-green-100 dark:border-green-800/30">
+<div class="text-green-600 dark:text-green-400 mb-1">
+<span class="material-symbols-outlined">trending_up</span>
+</div>
+<p class="text-xs font-medium text-green-700 dark:text-green-300">Ingresos</p>
+<p class="text-xl font-bold text-green-800 dark:text-green-100">$12,450</p>
+</div>
+<div class="bg-red-50 dark:bg-red-900/20 p-4 rounded-2xl border border-red-100 dark:border-red-800/30">
+<div class="text-red-600 dark:text-red-400 mb-1">
+<span class="material-symbols-outlined">trending_down</span>
+</div>
+<p class="text-xs font-medium text-red-700 dark:text-red-300">Egresos</p>
+<p class="text-xl font-bold text-red-800 dark:text-red-100">$7,630</p>
+</div>
+</div>
+<!-- Simplified P&L Chart -->
+<div class="bg-[#f0f2f4] dark:bg-gray-800/50 p-6 rounded-2xl mb-6">
+<div class="flex justify-between items-end h-32 gap-3">
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full bg-primary/20 rounded-t-lg relative" style="height: 40%"></div>
+<span class="text-[10px] text-gray-400">Sem 1</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full bg-primary/40 rounded-t-lg relative" style="height: 65%"></div>
+<span class="text-[10px] text-gray-400">Sem 2</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full bg-primary/70 rounded-t-lg relative" style="height: 85%"></div>
+<span class="text-[10px] text-gray-400">Sem 3</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full bg-primary rounded-t-lg relative" style="height: 55%">
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-primary">Actual</div>
+</div>
+<span class="text-[10px] text-gray-400">Sem 4</span>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700 flex justify-between items-center">
+<div>
+<p class="text-xs text-gray-500">Utilidad Neta</p>
+<p class="text-lg font-bold text-primary">$4,820.00</p>
+</div>
+<div class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold">
+                            +12% vs mes ant.
+                        </div>
+</div>
+</div>
+<!-- Recent Transactions -->
+<h4 class="font-bold text-sm uppercase tracking-wider text-gray-400 mb-3">Transacciones Recientes</h4>
+<div class="space-y-3">
+<div class="flex justify-between items-center p-3 bg-white dark:bg-gray-800 rounded-xl shadow-sm">
+<div class="flex items-center gap-3">
+<div class="bg-red-100 dark:bg-red-900/30 text-red-600 p-2 rounded-lg">
+<span class="material-symbols-outlined">shopping_cart_checkout</span>
+</div>
+<div>
+<p class="text-sm font-semibold">Pago: Distribuidora Central</p>
+<p class="text-[10px] text-gray-500">Hace 2 horas</p>
+</div>
+</div>
+<p class="text-sm font-bold text-red-500">-$350.00</p>
+</div>
+<div class="flex justify-between items-center p-3 bg-white dark:bg-gray-800 rounded-xl shadow-sm">
+<div class="flex items-center gap-3">
+<div class="bg-green-100 dark:bg-green-900/30 text-green-600 p-2 rounded-lg">
+<span class="material-symbols-outlined">point_of_sale</span>
+</div>
+<div>
+<p class="text-sm font-semibold">Cierre de Caja - Matutino</p>
+<p class="text-[10px] text-gray-500">Hace 5 horas</p>
+</div>
+</div>
+<p class="text-sm font-bold text-green-500">+$1,840.00</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button -->
+<button class="fixed bottom-8 right-8 size-16 bg-primary text-white rounded-full shadow-2xl shadow-primary/40 flex items-center justify-center z-50 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+<!-- Bottom Navigation Bar (iOS Style) -->
+<div class="flex border-t border-gray-100 dark:border-gray-800 h-20 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md px-6 pb-4 pt-2 justify-between">
+<div class="flex flex-col items-center justify-center gap-1 text-gray-400">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="text-[10px]">Inventario</span>
+</div>
+<div class="flex flex-col items-center justify-center gap-1 text-gray-400">
+<span class="material-symbols-outlined">point_of_sale</span>
+<span class="text-[10px]">Ventas</span>
+</div>
+<div class="flex flex-col items-center justify-center gap-1 text-primary">
+<span class="material-symbols-outlined">payments</span>
+<span class="text-[10px] font-bold">Finanzas</span>
+</div>
+<div class="flex flex-col items-center justify-center gap-1 text-gray-400">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px]">Ajustes</span>
+</div>
+</div>
+</div>
+<!-- Script to toggle views -->
+<script>
+        document.querySelectorAll('input[name="view-toggle"]').forEach(radio => {
+            radio.addEventListener('change', (e) => {
+                const providersView = document.getElementById('suppliers-view');
+                const accountingView = document.getElementById('accounting-view');
+                
+                if (e.target.value === 'contabilidad') {
+                    providersView.classList.add('hidden');
+                    accountingView.classList.remove('hidden');
+                } else {
+                    providersView.classList.remove('hidden');
+                    accountingView.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body></html>

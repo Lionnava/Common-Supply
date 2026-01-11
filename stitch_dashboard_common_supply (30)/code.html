@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Predicción de Demanda - Common Supply</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center p-4 justify-between max-w-md mx-auto">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary cursor-pointer">arrow_back_ios</span>
+<h2 class="text-lg font-bold leading-tight tracking-tight">Predicción y Tendencias</h2>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-full transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 flex h-2 w-2 rounded-full bg-red-500"></span>
+</button>
+</div>
+</div>
+</header>
+<main class="max-w-md mx-auto pb-24">
+<!-- Category Tabs -->
+<div class="mt-4 px-4 overflow-x-auto hide-scrollbar">
+<div class="flex gap-2 min-w-max pb-2">
+<button class="px-4 py-2 rounded-full bg-primary text-white text-sm font-semibold">Todo</button>
+<button class="px-4 py-2 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-sm font-medium">Bebidas</button>
+<button class="px-4 py-2 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-sm font-medium">Frutas</button>
+<button class="px-4 py-2 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-sm font-medium">Lácteos</button>
+<button class="px-4 py-2 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-sm font-medium">Carnes</button>
+</div>
+</div>
+<!-- Main Chart Section -->
+<section class="px-4 mt-6">
+<div class="bg-white dark:bg-slate-900 rounded-xl p-5 shadow-sm border border-slate-100 dark:border-slate-800">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Demanda Estimada (Unidades)</p>
+<h3 class="text-3xl font-bold mt-1 tracking-tight">+18.4%</h3>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-emerald-500 text-sm">trending_up</span>
+<p class="text-emerald-500 text-sm font-semibold">Crecimiento previsto</p>
+</div>
+</div>
+<div class="bg-primary/10 px-3 py-1 rounded-full">
+<span class="text-primary text-xs font-bold uppercase tracking-wider">Próximos 30 días</span>
+</div>
+</div>
+<!-- Forecast Chart -->
+<div class="relative h-48 w-full mt-6">
+<svg class="w-full h-full overflow-visible" viewbox="0 0 400 150">
+<!-- Gradient Area -->
+<defs>
+<lineargradient id="chartGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#137fec" stop-opacity="0.3"></stop>
+<stop offset="100%" stop-color="#137fec" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<path d="M0 120 Q 50 110, 80 80 T 150 90 T 220 40 T 300 60 T 400 20 L 400 150 L 0 150 Z" fill="url(#chartGradient)"></path>
+<!-- Main Line -->
+<path d="M0 120 Q 50 110, 80 80 T 150 90 T 220 40 T 300 60 T 400 20" fill="none" stroke="#137fec" stroke-linecap="round" stroke-width="3"></path>
+<!-- Data Point Indicators -->
+<circle cx="220" cy="40" fill="#137fec" r="4"></circle>
+<circle cx="220" cy="40" fill="#137fec" fill-opacity="0.2" r="8"></circle>
+</svg>
+<!-- Chart Legend/Axes -->
+<div class="flex justify-between mt-4 border-t border-slate-100 dark:border-slate-800 pt-3">
+<p class="text-slate-400 text-[11px] font-bold">Semana 1</p>
+<p class="text-slate-400 text-[11px] font-bold">Semana 2</p>
+<p class="text-slate-400 text-[11px] font-bold">Semana 3</p>
+<p class="text-slate-400 text-[11px] font-bold">Semana 4</p>
+</div>
+</div>
+</div>
+</section>
+<!-- AI Insights -->
+<section class="mt-8">
+<div class="flex items-center justify-between px-4 mb-3">
+<h3 class="text-lg font-bold tracking-tight">Sugerencias IA</h3>
+<span class="material-symbols-outlined text-primary text-xl">auto_awesome</span>
+</div>
+<div class="flex overflow-x-auto hide-scrollbar gap-4 px-4 pb-2">
+<!-- Insight Card 1 -->
+<div class="min-w-[280px] bg-primary/10 border border-primary/20 p-4 rounded-xl flex gap-3">
+<div class="size-10 shrink-0 rounded-lg bg-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined">liquor</span>
+</div>
+<div>
+<p class="text-primary font-bold text-sm">Aumentar Stock de Bebidas</p>
+<p class="text-slate-600 dark:text-slate-300 text-xs mt-1 leading-relaxed">Alta demanda proyectada para el próximo fin de semana debido a eventos locales.</p>
+</div>
+</div>
+<!-- Insight Card 2 -->
+<div class="min-w-[280px] bg-amber-500/10 border border-amber-500/20 p-4 rounded-xl flex gap-3">
+<div class="size-10 shrink-0 rounded-lg bg-amber-500 flex items-center justify-center text-white">
+<span class="material-symbols-outlined">priority_high</span>
+</div>
+<div>
+<p class="text-amber-600 dark:text-amber-500 font-bold text-sm">Riesgo de Quiebre: Frutas</p>
+<p class="text-slate-600 dark:text-slate-300 text-xs mt-1 leading-relaxed">El inventario de Manzana Gala se agotará en 4 días al ritmo actual.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Opportunity Products -->
+<section class="mt-8 px-4">
+<h3 class="text-lg font-bold tracking-tight mb-4">Productos de Oportunidad</h3>
+<div class="space-y-3">
+<!-- Product Item 1 -->
+<div class="flex items-center justify-between p-3 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-xl">
+<div class="flex items-center gap-3">
+<div class="size-12 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Bottle of premium craft beer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnjNGHe9dh7Ajj_VIARRNaL4a0GcccTBQw4TVFK08WuJv-tpjSLfRt852xoh8743dnF32RHqCfRZAfCMYsdpxoM1gtiVt2uDonPP57QFD345BsRHG_7oyxIU7rZkVDHZFqbo9Urjc8JWyM3_IODnF-UAJCOUqE7vRprMJq1jvP4cF7KRoIXc__1cdakCUv-Aet4gSH_v6dqCiQhhxJB3xUIe5zPxYS8wzaVrGp5fniW4W99IQmEoI8MEbM9Cf3kA2nWIQeqt6mXxiR"/>
+</div>
+<div>
+<p class="font-bold text-sm">Cerveza Artesanal IPA</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs">Categoría: Bebidas</p>
+</div>
+</div>
+<div class="text-right">
+<div class="flex items-center justify-end text-emerald-500 gap-0.5">
+<span class="material-symbols-outlined text-sm font-bold">arrow_upward</span>
+<span class="text-sm font-bold">+24%</span>
+</div>
+<p class="text-[10px] uppercase font-bold text-slate-400 mt-0.5">Tendencia</p>
+</div>
+</div>
+<!-- Product Item 2 -->
+<div class="flex items-center justify-between p-3 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-xl">
+<div class="flex items-center gap-3">
+<div class="size-12 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Fresh organic kale and greens salad mix" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMAkcRk5yoNIUy7wmG_9xyJGss1NmVtYm-kJSE2WbyoPmn2rtI2-Dojov6dY1y8Us3iT5eQeyxAhruRG2RFWyq2RqbNcAIsJFnppz8OFys1L0OHPXESXdDPzn2f4qqzigP-GK8AD5qTVqaIdHFIwrZw0DaD3lM-DVpVWhYTIxhBFVfDeYn5kcyjuyXXG28iho0ppyR8C86qH5l9FhSn1ZuHHzHTKM4J-Ze924R5LgTim1eRQZAEj2A1Uez4_8Ziha3y1miof7ZQ_if"/>
+</div>
+<div>
+<p class="font-bold text-sm">Mix de Ensaladas Orgánicas</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs">Categoría: Verduras</p>
+</div>
+</div>
+<div class="text-right">
+<div class="flex items-center justify-end text-emerald-500 gap-0.5">
+<span class="material-symbols-outlined text-sm font-bold">arrow_upward</span>
+<span class="text-sm font-bold">+18%</span>
+</div>
+<p class="text-[10px] uppercase font-bold text-slate-400 mt-0.5">Tendencia</p>
+</div>
+</div>
+<!-- Product Item 3 -->
+<div class="flex items-center justify-between p-3 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-xl">
+<div class="flex items-center gap-3">
+<div class="size-12 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Carton of fresh whole milk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBva70pIoi9qxE6wDtPkexPuA4W2013Uox9pkuTciMocbMX1oNBCQuLUA_HqHIewnRaPU37hkaEYUBk5Wo6DCw1-DnkvdIqpDHI7hAH_JMBhrP3IRiBLJoQslA0a8n1Q1HyACGkblgtzkoMQmileAs_uAb-2fgDrML__LxSkBMyzHfvylgVSvp09ysxw9f1dJ4M0ElWGkI4M7h_o3YNJKXy6l4x-V8Cvud1ziRPa4N4Z2nQZB1nEkdL0rYITZcTwNLnNRgOwE5ierYf"/>
+</div>
+<div>
+<p class="font-bold text-sm">Leche Entera 1L</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs">Categoría: Lácteos</p>
+</div>
+</div>
+<div class="text-right">
+<div class="flex items-center justify-end text-emerald-500 gap-0.5">
+<span class="material-symbols-outlined text-sm font-bold">arrow_upward</span>
+<span class="text-sm font-bold">+12%</span>
+</div>
+<p class="text-[10px] uppercase font-bold text-slate-400 mt-0.5">Tendencia</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar (iOS Style) -->
+<nav class="fixed bottom-0 left-0 right-0 bg-white/90 dark:bg-background-dark/90 backdrop-blur-lg border-t border-slate-200 dark:border-slate-800 pb-6 pt-2">
+<div class="max-w-md mx-auto flex justify-around items-center">
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="text-[10px] font-medium">Inventario</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined fill-current" style="font-variation-settings: 'FILL' 1">insights</span>
+<span class="text-[10px] font-bold">Análisis</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="text-[10px] font-medium">Pedidos</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-medium">Ajustes</span>
+</div>
+</div>
+</nav>
+</body></html>

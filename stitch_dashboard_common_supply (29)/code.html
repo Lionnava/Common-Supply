@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Comparativa y Proyecciones Anuales</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .ai-gradient {
+            background: linear-gradient(135deg, rgba(19, 127, 236, 0.2) 0%, rgba(19, 127, 236, 0.05) 100%);
+            border: 1px solid rgba(19, 127, 236, 0.3);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen pb-20">
+<!-- Top Navigation Bar -->
+<div class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="flex items-center p-4 pb-2 justify-between">
+<div class="text-slate-900 dark:text-white flex size-12 shrink-0 items-center cursor-pointer">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center font-display">Comparativa Anual</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-transparent text-slate-900 dark:text-white gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+</div>
+<!-- Navigation Tabs -->
+<div class="pb-1">
+<div class="flex border-b border-slate-200 dark:border-slate-800 px-4 gap-8">
+<a class="flex flex-col items-center justify-center border-b-[3px] border-primary text-primary pb-[13px] pt-4" href="#">
+<p class="text-sm font-bold leading-normal tracking-[0.015em]">Resumen</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[3px] border-transparent text-slate-500 dark:text-slate-400 pb-[13px] pt-4" href="#">
+<p class="text-sm font-bold leading-normal tracking-[0.015em]">Gastos</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[3px] border-transparent text-slate-500 dark:text-slate-400 pb-[13px] pt-4" href="#">
+<p class="text-sm font-bold leading-normal tracking-[0.015em]">Proyecciones</p>
+</a>
+</div>
+</div>
+</div>
+<!-- Main Content -->
+<main class="max-w-md mx-auto">
+<!-- Yearly Performance Summary -->
+<div class="flex flex-wrap gap-4 p-4">
+<div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-xl p-6 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50">
+<div class="flex justify-between items-start">
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium leading-normal">Ingresos Totales (YTD)</p>
+<span class="material-symbols-outlined text-primary text-xl">payments</span>
+</div>
+<p class="text-slate-900 dark:text-white tracking-tight text-3xl font-bold leading-tight">€450,200</p>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[#0bda5b] text-sm font-bold">trending_up</span>
+<p class="text-[#0bda5b] text-sm font-bold leading-normal">+12.4% vs 2023</p>
+</div>
+</div>
+</div>
+<!-- Comparison Chart Section -->
+<div class="px-4 py-2">
+<div class="bg-white dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-slate-800 p-4">
+<div class="flex justify-between items-end mb-6">
+<div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium leading-normal">Rendimiento Mensual</p>
+<p class="text-slate-900 dark:text-white text-xl font-bold leading-tight">2023 vs 2024</p>
+</div>
+<div class="flex gap-2">
+<div class="flex items-center gap-1">
+<div class="w-3 h-3 rounded-full bg-slate-400"></div>
+<span class="text-[10px] text-slate-500">2023</span>
+</div>
+<div class="flex items-center gap-1">
+<div class="w-3 h-3 rounded-full bg-primary"></div>
+<span class="text-[10px] text-slate-500">2024</span>
+</div>
+</div>
+</div>
+<!-- Chart Placeholder -->
+<div class="grid grid-cols-6 gap-4 items-end h-40 px-2">
+<div class="flex flex-col gap-1 items-center h-full justify-end">
+<div class="w-full bg-slate-300 dark:bg-slate-700 rounded-t-sm" style="height: 40%"></div>
+<div class="w-full bg-primary rounded-t-sm" style="height: 55%"></div>
+<p class="text-[10px] text-slate-400 mt-2">ENE</p>
+</div>
+<div class="flex flex-col gap-1 items-center h-full justify-end">
+<div class="w-full bg-slate-300 dark:bg-slate-700 rounded-t-sm" style="height: 35%"></div>
+<div class="w-full bg-primary rounded-t-sm" style="height: 45%"></div>
+<p class="text-[10px] text-slate-400 mt-2">FEB</p>
+</div>
+<div class="flex flex-col gap-1 items-center h-full justify-end">
+<div class="w-full bg-slate-300 dark:bg-slate-700 rounded-t-sm" style="height: 60%"></div>
+<div class="w-full bg-primary rounded-t-sm" style="height: 80%"></div>
+<p class="text-[10px] text-slate-400 mt-2">MAR</p>
+</div>
+<div class="flex flex-col gap-1 items-center h-full justify-end">
+<div class="w-full bg-slate-300 dark:bg-slate-700 rounded-t-sm" style="height: 50%"></div>
+<div class="w-full bg-primary rounded-t-sm" style="height: 65%"></div>
+<p class="text-[10px] text-slate-400 mt-2">ABR</p>
+</div>
+<div class="flex flex-col gap-1 items-center h-full justify-end">
+<div class="w-full bg-slate-300 dark:bg-slate-700 rounded-t-sm" style="height: 45%"></div>
+<div class="w-full bg-primary rounded-t-sm" style="height: 70%"></div>
+<p class="text-[10px] text-slate-400 mt-2">MAY</p>
+</div>
+<div class="flex flex-col gap-1 items-center h-full justify-end">
+<div class="w-full bg-slate-300 dark:bg-slate-700 rounded-t-sm" style="height: 75%"></div>
+<div class="w-full bg-primary rounded-t-sm" style="height: 90%"></div>
+<p class="text-[10px] text-slate-400 mt-2">JUN</p>
+</div>
+</div>
+</div>
+</div>
+<!-- AI Projection Section -->
+<div class="px-4 py-4">
+<div class="ai-gradient rounded-xl p-5 relative overflow-hidden">
+<div class="absolute -right-4 -top-4 opacity-10">
+<span class="material-symbols-outlined text-8xl text-primary">psychology</span>
+</div>
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-primary text-xl">auto_awesome</span>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight font-display">Proyección IA 2025</h2>
+</div>
+<div class="flex items-baseline gap-2 mb-2">
+<p class="text-3xl font-bold text-primary">€518,400</p>
+<p class="text-sm font-semibold text-primary/80">+15.2% est.</p>
+</div>
+<p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                    Basado en tus tendencias históricas, se prevé un crecimiento fuerte en el Q1 de 2025 debido a la optimización de stock en perecederos.
+                </p>
+</div>
+</div>
+<!-- Top Expense Categories -->
+<div>
+<div class="flex items-center justify-between px-4 pb-3 pt-4">
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] font-display">Categorías de Gasto</h2>
+<button class="text-primary text-sm font-semibold">Ver Todo</button>
+</div>
+<div class="px-4 space-y-4">
+<div class="bg-white dark:bg-slate-900/50 p-4 rounded-xl border border-slate-200 dark:border-slate-800">
+<div class="flex justify-between mb-2">
+<div class="flex items-center gap-3">
+<div class="bg-amber-100 dark:bg-amber-900/30 p-2 rounded-lg">
+<span class="material-symbols-outlined text-amber-600 dark:text-amber-400">inventory_2</span>
+</div>
+<span class="font-semibold text-sm">Inventario</span>
+</div>
+<span class="font-bold text-sm">€180,450</span>
+</div>
+<div class="w-full bg-slate-100 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+<div class="bg-amber-500 h-full w-[65%]"></div>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900/50 p-4 rounded-xl border border-slate-200 dark:border-slate-800">
+<div class="flex justify-between mb-2">
+<div class="flex items-center gap-3">
+<div class="bg-blue-100 dark:bg-blue-900/30 p-2 rounded-lg">
+<span class="material-symbols-outlined text-blue-600 dark:text-blue-400">local_shipping</span>
+</div>
+<span class="font-semibold text-sm">Logística</span>
+</div>
+<span class="font-bold text-sm">€42,120</span>
+</div>
+<div class="w-full bg-slate-100 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+<div class="bg-blue-500 h-full w-[20%]"></div>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900/50 p-4 rounded-xl border border-slate-200 dark:border-slate-800">
+<div class="flex justify-between mb-2">
+<div class="flex items-center gap-3">
+<div class="bg-purple-100 dark:bg-purple-900/30 p-2 rounded-lg">
+<span class="material-symbols-outlined text-purple-600 dark:text-purple-400">badge</span>
+</div>
+<span class="font-semibold text-sm">Personal</span>
+</div>
+<span class="font-bold text-sm">€95,200</span>
+</div>
+<div class="w-full bg-slate-100 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+<div class="bg-purple-500 h-full w-[40%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Fiscal Summary Table -->
+<div class="px-4 py-6">
+<div class="flex items-center justify-between mb-4">
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight font-display">Resumen Fiscal</h2>
+<button class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">picture_as_pdf</span>
+                    Exportar
+                </button>
+</div>
+<div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden">
+<table class="w-full text-left text-sm">
+<thead class="bg-slate-50 dark:bg-slate-800/50 text-slate-500 dark:text-slate-400">
+<tr>
+<th class="px-4 py-3 font-semibold">Concepto</th>
+<th class="px-4 py-3 font-semibold text-right">Monto</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+<tr>
+<td class="px-4 py-4">Ingreso Bruto</td>
+<td class="px-4 py-4 text-right font-medium">€450,200</td>
+</tr>
+<tr>
+<td class="px-4 py-4">Gastos Deducibles</td>
+<td class="px-4 py-4 text-right font-medium text-red-500">-€317,770</td>
+</tr>
+<tr>
+<td class="px-4 py-4">Beneficio Neto</td>
+<td class="px-4 py-4 text-right font-bold text-primary">€132,430</td>
+</tr>
+<tr>
+<td class="px-4 py-4 bg-slate-50 dark:bg-slate-800/30">Impuestos Estimados</td>
+<td class="px-4 py-4 bg-slate-50 dark:bg-slate-800/30 text-right font-medium">€27,810</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</main>
+<!-- Bottom Action Button (Floating) -->
+<div class="fixed bottom-6 right-6">
+<button class="bg-primary text-white size-14 rounded-full shadow-lg shadow-primary/30 flex items-center justify-center hover:scale-105 transition-transform active:scale-95">
+<span class="material-symbols-outlined">add_chart</span>
+</button>
+</div>
+<!-- Navigation Bar Simulator (iOS style) -->
+<nav class="fixed bottom-0 w-full bg-white/90 dark:bg-background-dark/90 backdrop-blur-lg border-t border-slate-200 dark:border-slate-800 px-6 py-2 flex justify-between items-center pb-8">
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-slate-400">home</span>
+<span class="text-[10px] text-slate-400">Inicio</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-slate-400">inventory</span>
+<span class="text-[10px] text-slate-400">Stock</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-primary">analytics</span>
+<span class="text-[10px] text-primary font-bold">Reportes</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-slate-400">settings</span>
+<span class="text-[10px] text-slate-400">Ajustes</span>
+</div>
+</nav>
+</body></html>

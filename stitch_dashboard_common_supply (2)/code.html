@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gestión de Inventario - Common Supply</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen font-display">
+<!-- Top App Bar -->
+<div class="sticky top-0 z-20 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+<div class="flex items-center p-4 pb-2 justify-between">
+<div class="text-primary flex size-12 shrink-0 items-center">
+<span class="material-symbols-outlined text-2xl">menu</span>
+</div>
+<h2 class="text-[#111418] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Gestión de Inventario</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex cursor-pointer items-center justify-center rounded-lg h-12 bg-transparent text-[#111418] dark:text-white p-0">
+<span class="material-symbols-outlined text-2xl">search</span>
+</button>
+</div>
+</div>
+<!-- Filter Chips -->
+<div class="flex gap-3 px-4 py-3 overflow-x-auto no-scrollbar">
+<div class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary text-white px-4">
+<p class="text-sm font-semibold leading-normal">Todos</p>
+</div>
+<div class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 px-4">
+<p class="text-[#111418] dark:text-gray-300 text-sm font-medium leading-normal">Granos</p>
+</div>
+<div class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 px-4">
+<p class="text-[#111418] dark:text-gray-300 text-sm font-medium leading-normal">Lácteos</p>
+</div>
+<div class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 px-4">
+<p class="text-[#111418] dark:text-gray-300 text-sm font-medium leading-normal">Bebidas</p>
+</div>
+<div class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 px-4">
+<p class="text-[#111418] dark:text-gray-300 text-sm font-medium leading-normal">Snacks</p>
+</div>
+</div>
+</div>
+<!-- Product List Content -->
+<main class="pb-24">
+<!-- Section Header -->
+<div class="px-4 py-4">
+<h3 class="text-sm font-bold text-gray-500 uppercase tracking-wider">Productos (24)</h3>
+</div>
+<!-- List Items -->
+<div class="space-y-px">
+<!-- Item 1: Good Stock -->
+<div class="flex gap-4 bg-white dark:bg-gray-900 px-4 py-4 justify-between border-b border-gray-100 dark:border-gray-800">
+<div class="flex items-start gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-[72px] shadow-sm" data-alt="Bag of brown integral rice" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA2bB4FpM9ZhRqAR_TU-QMDJEMRm0I2S2ZtQhNg8SuUbIORtplCvcT39cuT4Bhv61QilPMjUvHtq6OY4FTZS9VmWRWkrnchQgUTJYVwUGdHy1_VrXeTbIhj3xy38b5RDHPvdoD3xzQKK6grk2fv4hFPONKw7o6ohZlUSAvSNCIlU4Ra0c51Om4NY-5yF6CwG60NgQ-Ch9hwE3F4YA3oHORo8OV5QiRy37X9hq6Mloga7wWjsTR3-QI3HYCH1kFMVsnxMg9XRFornCNm");'></div>
+<div class="flex flex-1 flex-col justify-center">
+<p class="text-[#111418] dark:text-white text-base font-semibold leading-tight">Arroz Integral 1kg</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal mt-1">Granos • SKU: 04231</p>
+<p class="text-primary text-sm font-bold mt-1">$2.50</p>
+</div>
+</div>
+<div class="flex flex-col items-end justify-between py-1">
+<div class="flex items-center gap-1.5 bg-green-50 dark:bg-green-900/20 px-2 py-1 rounded-full">
+<div class="size-2 rounded-full bg-green-500"></div>
+<span class="text-green-700 dark:text-green-400 text-xs font-bold">Stock: 48</span>
+</div>
+<button class="text-gray-400">
+<span class="material-symbols-outlined text-xl">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Item 2: Critical Stock -->
+<div class="flex gap-4 bg-white dark:bg-gray-900 px-4 py-4 justify-between border-b border-gray-100 dark:border-gray-800">
+<div class="flex items-start gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-[72px] shadow-sm" data-alt="Carton of fresh whole milk" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAwi5xO8LCq9dZp4zzUitjPVeOi4MIXl9afBiO1fgz61xLZSnpzbxbTPvzuVyWaoVzV6fgnSyikqdYvcyPxXeyFZevZCe4xhXHifTOvVpFSMFtNmEOILVALq33g2AOosy5k3uAaf2pOryIpGYQZttLhgcXn51rdf0Ga95blMDEmZkPB5eqm5J0IOfaCQZg79KZNs82WjVCYr1cLiHDe9phKKkFQOy5n7sn7dgtjtpYS42itOLpbvo8S3vHmiosSUAXYyQilWlSBTq6t");'></div>
+<div class="flex flex-1 flex-col justify-center">
+<p class="text-[#111418] dark:text-white text-base font-semibold leading-tight">Leche Entera 1L</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal mt-1">Lácteos • SKU: 08922</p>
+<p class="text-primary text-sm font-bold mt-1">$1.20</p>
+</div>
+</div>
+<div class="flex flex-col items-end justify-between py-1">
+<div class="flex items-center gap-1.5 bg-red-50 dark:bg-red-900/20 px-2 py-1 rounded-full">
+<div class="size-2 rounded-full bg-red-500"></div>
+<span class="text-red-700 dark:text-red-400 text-xs font-bold">Stock: 3</span>
+</div>
+<button class="text-gray-400">
+<span class="material-symbols-outlined text-xl">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Item 3: Good Stock -->
+<div class="flex gap-4 bg-white dark:bg-gray-900 px-4 py-4 justify-between border-b border-gray-100 dark:border-gray-800">
+<div class="flex items-start gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-[72px] shadow-sm" data-alt="Bottle of fresh orange juice" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB1g0DdCzYCcZ9HjPaIFkfhwEnoLRQrBYllp46giCGk3jXPumissLglq6H731NT-yx0uI0u2uqOzsmChxMoO4WbBT08EH4AyATlJ3veKC7jJFf9FlmQDLDhVMCgU58KkDN5FFfSR1IEYZhU__cFLA-Rg2x4GB-855ihTa5_xllTgufuh20EwrnIFPw3nzCeJjKklSJR19ZtlJn1MMgHBJvUVEYrBdlouR7rWgfWDECO61R4NMd2I6b0coRrqkr7t646jchJARMz-Cur");'></div>
+<div class="flex flex-1 flex-col justify-center">
+<p class="text-[#111418] dark:text-white text-base font-semibold leading-tight">Jugo de Naranja 500ml</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal mt-1">Bebidas • SKU: 12554</p>
+<p class="text-primary text-sm font-bold mt-1">$3.00</p>
+</div>
+</div>
+<div class="flex flex-col items-end justify-between py-1">
+<div class="flex items-center gap-1.5 bg-green-50 dark:bg-green-900/20 px-2 py-1 rounded-full">
+<div class="size-2 rounded-full bg-green-500"></div>
+<span class="text-green-700 dark:text-green-400 text-xs font-bold">Stock: 15</span>
+</div>
+<button class="text-gray-400">
+<span class="material-symbols-outlined text-xl">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Item 4: Warning Stock -->
+<div class="flex gap-4 bg-white dark:bg-gray-900 px-4 py-4 justify-between border-b border-gray-100 dark:border-gray-800">
+<div class="flex items-start gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-[72px] shadow-sm" data-alt="Pack of organic eggs" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBBVVscx1TWnwlLkzTRmD2ro-utkZp8daeezDXG3sQkowZ1B4JmTYf8_xtS0fHJKHpvJjDpmF5-xNe0l670sx_mHocsnTIGePJ5mDl09os-JbhKEBpMbDHmMFMuU2i-EBRVc2WNttFjkX0JUq7tfXL-xcgqyRZzcegi1Qb7jpAwcQ3E0ralXl9vTcDI1NyPsapn-MvzuqM-AZxqUefH_G7Dod7mcqeap6AJkrGj1fd0ZocNg2yHqH8fAZzR3gBRClyEPJN2RTTQxCt4");'></div>
+<div class="flex flex-1 flex-col justify-center">
+<p class="text-[#111418] dark:text-white text-base font-semibold leading-tight">Huevos Orgánicos x12</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal mt-1">Lácteos • SKU: 07731</p>
+<p class="text-primary text-sm font-bold mt-1">$4.20</p>
+</div>
+</div>
+<div class="flex flex-col items-end justify-between py-1">
+<div class="flex items-center gap-1.5 bg-orange-50 dark:bg-orange-900/20 px-2 py-1 rounded-full">
+<div class="size-2 rounded-full bg-orange-500"></div>
+<span class="text-orange-700 dark:text-orange-400 text-xs font-bold">Stock: 8</span>
+</div>
+<button class="text-gray-400">
+<span class="material-symbols-outlined text-xl">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Item 5: Out of Stock -->
+<div class="flex gap-4 bg-white dark:bg-gray-900 px-4 py-4 justify-between border-b border-gray-100 dark:border-gray-800">
+<div class="flex items-start gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-[72px] shadow-sm grayscale opacity-60" data-alt="Bag of whole bean coffee" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBU922C4D-fIGRxacoMI96x6T-nKf1e1LPIz1IHcLd671x-JUCxoVhZr0BvoGRjDvrS0x1mTqzzOvkCsVL_0ztl8W-DZcpuEAXM7fIFgkr5WUXLbVddOoV6bx3-Ap_g4QcAKEnEpfLP70zr3fIRKuVQPrW7yIhtEjy83WVyI5JQJmUy4Dg1rWHAua94iAEw6wNCSETY8eCOsBICYq8LSv-kzr8ghPzE60-p3V2RPUca0TMxterDrePnugMjOKuhHcKh4hdCO_hoIB9Z");'></div>
+<div class="flex flex-1 flex-col justify-center">
+<p class="text-[#111418] dark:text-white text-base font-semibold leading-tight">Café Grano 500g</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal mt-1">Bebidas • SKU: 15433</p>
+<p class="text-primary text-sm font-bold mt-1">$12.00</p>
+</div>
+</div>
+<div class="flex flex-col items-end justify-between py-1">
+<div class="flex items-center gap-1.5 bg-red-100 dark:bg-red-900/40 px-2 py-1 rounded-full">
+<div class="size-2 rounded-full bg-red-600"></div>
+<span class="text-red-800 dark:text-red-300 text-xs font-bold uppercase">Sin Stock</span>
+</div>
+<button class="text-gray-400">
+<span class="material-symbols-outlined text-xl">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button -->
+<div class="fixed bottom-6 right-6">
+<button class="flex size-14 items-center justify-center rounded-full bg-primary text-white shadow-lg active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+</div>
+<!-- Bottom Navigation Bar (iOS Style) -->
+<div class="fixed bottom-0 left-0 right-0 h-20 bg-white/95 dark:bg-background-dark/95 backdrop-blur-md border-t border-gray-200 dark:border-gray-800 flex items-center justify-around px-6 pb-4">
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-gray-400">dashboard</span>
+<span class="text-[10px] text-gray-400 font-medium">Dashboard</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="text-[10px] font-bold">Inventario</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-gray-400">point_of_sale</span>
+<span class="text-[10px] text-gray-400 font-medium">POS</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-gray-400">account_balance_wallet</span>
+<span class="text-[10px] text-gray-400 font-medium">Cuentas</span>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Procesar Reembolso Detallado</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white min-h-screen">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden">
+<!-- TopAppBar -->
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between border-b border-slate-200 dark:border-slate-800">
+<div class="text-primary flex size-12 shrink-0 items-center cursor-pointer">
+<span class="material-symbols-outlined">arrow_back_ios</span>
+</div>
+<div class="flex flex-col items-center flex-1">
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Procesar Reembolso</h2>
+<p class="text-slate-500 dark:text-[#9dabb9] text-xs font-medium">Original: 12 Mayo, 2024 • 14:20</p>
+</div>
+<div class="flex w-12 items-center justify-end">
+<p class="text-primary text-sm font-bold leading-normal tracking-[0.015em] shrink-0">#82931</p>
+</div>
+</div>
+<div class="flex-1 pb-40">
+<!-- SectionHeader: Items -->
+<div class="flex items-center justify-between px-4 pt-6 pb-2">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Seleccionar productos</h3>
+<span class="text-primary text-sm font-semibold">Marcar todos</span>
+</div>
+<!-- ListItems -->
+<div class="space-y-1">
+<!-- Item 1 -->
+<div class="flex items-center gap-4 bg-white dark:bg-[#111418] px-4 min-h-[80px] py-3 justify-between border-b border-slate-100 dark:border-slate-800/50">
+<div class="flex items-center gap-4">
+<div class="flex size-7 items-center justify-center">
+<input checked="" class="h-6 w-6 rounded border-slate-300 dark:border-[#3b4754] border-2 bg-transparent text-primary checked:bg-primary checked:border-primary focus:ring-0 focus:ring-offset-0 focus:outline-none" type="checkbox"/>
+</div>
+<div class="w-12 h-12 rounded-lg bg-slate-100 dark:bg-slate-800 overflow-hidden flex items-center justify-center">
+<img class="object-cover w-full h-full" data-alt="Bottle of fresh whole milk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5mj69caBF0G19gVM1ZOw8aKpazza2B_WjipuZiUfu7jzgEuwuziuYwGGf5CVXLzkQO9ahfinzV0navi17hLMxq2_KVngc23xuf3Q2Li2WEJU4piRjcnH5oKXv666jg86Mo41UVsRTyizEnBDo8Fcyco-Ei3tRK1BU4IUzlH_SlaC6OHIJ5M3eYO6KSGi4nULZJx1kJe3aJyXss7NkFn8j_5pAVqMYQ0GLv_tfmm-ehSjVsg3u3yiXf0paTt3u5SD-kVdioPxksdsd"/>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-slate-900 dark:text-white text-base font-semibold leading-normal line-clamp-1">Leche Entera 1L</p>
+<p class="text-slate-500 dark:text-[#9dabb9] text-sm font-normal leading-normal">SKU: 100293 • 1 unidad</p>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<p class="text-slate-900 dark:text-white text-base font-bold leading-normal">$2.50</p>
+<div class="flex items-center gap-2 mt-1">
+<button class="w-6 h-6 rounded-full border border-slate-300 dark:border-slate-700 flex items-center justify-center text-slate-500">-</button>
+<span class="text-xs font-bold">1</span>
+<button class="w-6 h-6 rounded-full border border-slate-300 dark:border-slate-700 flex items-center justify-center text-slate-500">+</button>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex items-center gap-4 bg-white dark:bg-[#111418] px-4 min-h-[80px] py-3 justify-between border-b border-slate-100 dark:border-slate-800/50">
+<div class="flex items-center gap-4">
+<div class="flex size-7 items-center justify-center">
+<input class="h-6 w-6 rounded border-slate-300 dark:border-[#3b4754] border-2 bg-transparent text-primary checked:bg-primary checked:border-primary focus:ring-0 focus:ring-offset-0 focus:outline-none" type="checkbox"/>
+</div>
+<div class="w-12 h-12 rounded-lg bg-slate-100 dark:bg-slate-800 overflow-hidden flex items-center justify-center">
+<img class="object-cover w-full h-full" data-alt="Fresh red organic apples" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBweVEVxtIBj6byFfrzYRe1omnCjsXm_vtvs0nvgVflT_Xu1hgCpgqDNsE5ais1bT14nud9aWXCgR0nmgLfYpoF8VRCE9EblG5KD_gwGU78M6OC3SNuBihUbPg7dkokOrq1jD3PXCvYhJrGqQy1qSGuvoZuyg3wmar6ItvT53nfgHuQyrfO3BFLFwWyBLz60ORjfDQ1b0vwVMA2EnBGfcZ06AeE_Gg6laqTCOT29OzmCje7-wnh2aLHfitM0-ZhbI89iM9UuNpa6HTF"/>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-slate-900 dark:text-white text-base font-semibold leading-normal line-clamp-1">Manzanas Rojas</p>
+<p class="text-slate-500 dark:text-[#9dabb9] text-sm font-normal leading-normal">SKU: 440211 • 3 unidades</p>
+</div>
+</div>
+<div class="flex flex-col items-end opacity-50">
+<p class="text-slate-900 dark:text-white text-base font-bold leading-normal">$4.50</p>
+<p class="text-xs">No selec.</p>
+</div>
+</div>
+</div>
+<!-- SectionHeader: Details -->
+<h3 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-8">Configuración de devolución</h3>
+<div class="px-4 space-y-6">
+<!-- Reason Selection -->
+<div class="flex flex-col gap-2">
+<label class="text-sm font-bold text-slate-700 dark:text-[#9dabb9]">Motivo de Devolución</label>
+<div class="relative">
+<select class="w-full bg-white dark:bg-[#1c2632] border border-slate-200 dark:border-slate-700 rounded-lg h-12 px-4 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary appearance-none">
+<option>Producto Dañado</option>
+<option>Vencido</option>
+<option>Producto Incorrecto</option>
+<option>Cliente insatisfecho</option>
+<option>Otro</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-3 pointer-events-none text-slate-500">expand_more</span>
+</div>
+</div>
+<!-- Return to Inventory Toggle -->
+<div class="flex items-center justify-between p-4 bg-white dark:bg-[#1c2632] rounded-xl border border-slate-200 dark:border-slate-700">
+<div class="flex flex-col gap-1 pr-4">
+<p class="text-slate-900 dark:text-white font-bold">Retornar al Inventario</p>
+<p class="text-xs text-slate-500 dark:text-[#9dabb9]">Activar si el producto está en buen estado para la venta.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-slate-300 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Refund Method -->
+<div class="flex flex-col gap-2">
+<label class="text-sm font-bold text-slate-700 dark:text-[#9dabb9]">Método de Reembolso</label>
+<div class="flex p-1 bg-slate-200 dark:bg-[#1c2632] rounded-lg">
+<button class="flex-1 py-2 text-sm font-bold rounded bg-white dark:bg-primary text-slate-900 dark:text-white shadow-sm">Efectivo</button>
+<button class="flex-1 py-2 text-sm font-bold text-slate-600 dark:text-[#9dabb9]">Crédito Tienda</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Sticky Bottom Summary -->
+<div class="fixed bottom-0 left-0 right-0 bg-white dark:bg-background-dark border-t border-slate-200 dark:border-slate-800 p-4 pb-8 shadow-2xl">
+<div class="flex flex-col gap-3 mb-4">
+<div class="flex justify-between items-center text-sm">
+<span class="text-slate-500 dark:text-[#9dabb9]">Subtotal seleccionado</span>
+<span class="text-slate-900 dark:text-white font-medium">$2.50</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-slate-500 dark:text-[#9dabb9]">Impuestos (10%)</span>
+<span class="text-slate-900 dark:text-white font-medium">$0.25</span>
+</div>
+<div class="flex justify-between items-center pt-2 border-t border-slate-100 dark:border-slate-800">
+<span class="text-slate-900 dark:text-white font-bold text-lg">Total a Reembolsar</span>
+<span class="text-primary font-black text-2xl">$2.75</span>
+</div>
+</div>
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-xl shadow-lg transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">assignment_return</span>
+                Confirmar Reembolso
+            </button>
+</div>
+</div>
+</body></html>

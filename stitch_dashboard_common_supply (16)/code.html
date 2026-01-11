@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Registrar Nueva Factura</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .form-input-focus:focus-within {
+            border-color: #137fec;
+            ring: 1px;
+            ring-color: #137fec;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen flex flex-col font-display">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+<div class="flex items-center justify-between px-4 py-3">
+<button class="text-primary font-medium text-lg">Cancelar</button>
+<h1 class="text-gray-900 dark:text-white text-lg font-bold">Nueva Factura</h1>
+<button class="text-primary font-bold text-lg">Guardar</button>
+</div>
+</header>
+<main class="flex-1 w-full max-w-md mx-auto px-4 py-6 space-y-6">
+<!-- Section: Invoice Basic Info -->
+<section class="space-y-4">
+<div class="flex flex-col gap-1">
+<label class="text-gray-700 dark:text-gray-300 text-sm font-semibold px-1">Número de Factura</label>
+<div class="relative">
+<input class="w-full h-14 bg-white dark:bg-[#1c2127] border border-gray-300 dark:border-[#3b4754] rounded-xl px-4 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-[#9dabb9] focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" placeholder="Ej: INV-2024-001" type="text"/>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<label class="text-gray-700 dark:text-gray-300 text-sm font-semibold px-1">Proveedor</label>
+<div class="relative">
+<select class="w-full h-14 bg-white dark:bg-[#1c2127] border border-gray-300 dark:border-[#3b4754] rounded-xl px-4 text-gray-900 dark:text-white appearance-none focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all cursor-pointer">
+<option disabled="" selected="" value="">Seleccionar proveedor</option>
+<option value="1">Distribuidora Global S.A.</option>
+<option value="2">Frutas y Verduras del Valle</option>
+<option value="3">Lácteos Premium</option>
+<option value="4">Carnes Selectas</option>
+</select>
+<div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: Dates -->
+<section class="grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-1">
+<label class="text-gray-700 dark:text-gray-300 text-sm font-semibold px-1">Emisión</label>
+<div class="relative flex items-center">
+<input class="w-full h-14 bg-white dark:bg-[#1c2127] border border-gray-300 dark:border-[#3b4754] rounded-xl pl-4 pr-10 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-[#9dabb9] focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" placeholder="DD/MM/AAAA" type="text"/>
+<span class="material-symbols-outlined absolute right-3 text-gray-400">calendar_today</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<label class="text-gray-700 dark:text-gray-300 text-sm font-semibold px-1">Vencimiento</label>
+<div class="relative flex items-center">
+<input class="w-full h-14 bg-white dark:bg-[#1c2127] border border-gray-300 dark:border-[#3b4754] rounded-xl pl-4 pr-10 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-[#9dabb9] focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" placeholder="DD/MM/AAAA" type="text"/>
+<span class="material-symbols-outlined absolute right-3 text-gray-400">event_busy</span>
+</div>
+</div>
+</section>
+<!-- Section: Amount -->
+<section class="flex flex-col gap-1">
+<label class="text-gray-700 dark:text-gray-300 text-sm font-semibold px-1">Monto Total</label>
+<div class="relative flex items-center">
+<span class="absolute left-4 text-gray-900 dark:text-white font-bold text-lg">$</span>
+<input class="w-full h-16 bg-white dark:bg-[#1c2127] border border-gray-300 dark:border-[#3b4754] rounded-xl pl-10 pr-4 text-2xl font-bold text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-[#9dabb9] focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" placeholder="0.00" type="number"/>
+</div>
+</section>
+<!-- Section: Document Attachment -->
+<section class="space-y-3">
+<label class="text-gray-700 dark:text-gray-300 text-sm font-semibold px-1">Foto de la Factura Física</label>
+<div class="flex flex-col items-center justify-center w-full aspect-video bg-gray-100 dark:bg-[#1c2127] border-2 border-dashed border-gray-300 dark:border-[#3b4754] rounded-2xl cursor-pointer hover:bg-gray-200 dark:hover:bg-primary/5 transition-colors group">
+<div class="flex flex-col items-center gap-2">
+<div class="bg-primary/10 p-4 rounded-full text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl">add_a_photo</span>
+</div>
+<p class="text-gray-600 dark:text-[#9dabb9] font-medium">Tocar para capturar imagen</p>
+<p class="text-gray-400 text-xs">PDF, JPG o PNG hasta 10MB</p>
+</div>
+</div>
+<!-- Quick Actions for Photo -->
+<div class="flex gap-3">
+<button class="flex-1 flex items-center justify-center gap-2 py-3 bg-white dark:bg-[#1c2127] border border-gray-300 dark:border-[#3b4754] rounded-xl text-gray-700 dark:text-white font-medium shadow-sm active:scale-95 transition-all">
+<span class="material-symbols-outlined text-xl">camera_alt</span>
+                    Cámara
+                </button>
+<button class="flex-1 flex items-center justify-center gap-2 py-3 bg-white dark:bg-[#1c2127] border border-gray-300 dark:border-[#3b4754] rounded-xl text-gray-700 dark:text-white font-medium shadow-sm active:scale-95 transition-all">
+<span class="material-symbols-outlined text-xl">image</span>
+                    Galería
+                </button>
+</div>
+</section>
+<!-- Spacer for footer -->
+<div class="h-20"></div>
+</main>
+<!-- Floating Footer Button (iOS Style) -->
+<footer class="fixed bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-background-light dark:from-background-dark via-background-light dark:via-background-dark to-transparent pt-10">
+<button class="w-full h-14 bg-primary text-white font-bold text-lg rounded-xl shadow-lg shadow-primary/30 active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">save</span>
+            Registrar Factura
+        </button>
+</footer>
+</body></html>

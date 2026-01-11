@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Desglose de Gastos Mensuales</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .chart-pie {
+            background: conic-gradient(
+                #137fec 0% 45%,
+                #6366f1 45% 70%,
+                #f59e0b 70% 85%,
+                #10b981 85% 100%
+            );
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white min-h-screen">
+<!-- Top Navigation Bar -->
+<nav class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center p-4 justify-between max-w-md mx-auto">
+<div class="flex size-10 shrink-0 items-center justify-start cursor-pointer">
+<span class="material-symbols-outlined text-slate-900 dark:text-white">arrow_back_ios</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-tight flex-1 text-center">Desglose de Gastos</h2>
+<div class="flex size-10 items-center justify-end">
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-transparent text-primary">
+<span class="material-symbols-outlined">calendar_month</span>
+</button>
+</div>
+</div>
+</nav>
+<main class="max-w-md mx-auto pb-24">
+<!-- Summary & Chart Section -->
+<section class="px-4 py-6">
+<div class="bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-sm">
+<div class="flex flex-col items-center">
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium mb-1">Gasto Total Octubre</p>
+<h1 class="text-slate-900 dark:text-white text-4xl font-bold tracking-tight mb-6">$4,250.00</h1>
+<!-- Simplified Pie Chart Visualization -->
+<div class="relative flex items-center justify-center mb-6">
+<div class="chart-pie size-48 rounded-full flex items-center justify-center shadow-lg">
+<div class="size-32 bg-white dark:bg-slate-900 rounded-full flex flex-col items-center justify-center">
+<span class="text-xs text-slate-400 uppercase tracking-widest font-bold">Distribución</span>
+<span class="text-primary font-bold text-sm">+5.2%</span>
+</div>
+</div>
+</div>
+<!-- Legend -->
+<div class="grid grid-cols-2 gap-4 w-full">
+<div class="flex items-center gap-2">
+<span class="size-3 rounded-full bg-primary"></span>
+<span class="text-xs font-medium text-slate-600 dark:text-slate-400">Proveedores (45%)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="size-3 rounded-full bg-indigo-500"></span>
+<span class="text-xs font-medium text-slate-600 dark:text-slate-400">Nómina (25%)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="size-3 rounded-full bg-amber-500"></span>
+<span class="text-xs font-medium text-slate-600 dark:text-slate-400">Servicios (15%)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="size-3 rounded-full bg-emerald-500"></span>
+<span class="text-xs font-medium text-slate-600 dark:text-slate-400">Alquiler (15%)</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Category Filters -->
+<section class="mb-2">
+<div class="flex gap-3 px-4 py-2 overflow-x-auto no-scrollbar">
+<div class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary px-5 shadow-sm shadow-primary/30">
+<p class="text-white text-sm font-semibold">Todos</p>
+</div>
+<div class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-slate-200 dark:bg-slate-800 px-5">
+<p class="text-slate-600 dark:text-slate-300 text-sm font-medium">Proveedores</p>
+</div>
+<div class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-slate-200 dark:bg-slate-800 px-5">
+<p class="text-slate-600 dark:text-slate-300 text-sm font-medium">Servicios</p>
+</div>
+<div class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-slate-200 dark:bg-slate-800 px-5">
+<p class="text-slate-600 dark:text-slate-300 text-sm font-medium">Nómina</p>
+</div>
+</div>
+</section>
+<!-- Section Header -->
+<div class="flex items-center justify-between px-4 pb-3 pt-5">
+<h2 class="text-slate-900 dark:text-white text-xl font-bold leading-tight tracking-tight">Movimientos</h2>
+<button class="text-primary text-sm font-semibold">Ver Todo</button>
+</div>
+<!-- Expense List -->
+<div class="space-y-px bg-slate-200 dark:bg-slate-800/50">
+<!-- Item 1 -->
+<div class="flex items-center gap-4 bg-background-light dark:bg-background-dark px-4 min-h-[80px] py-3 active:bg-slate-100 dark:active:bg-slate-800 transition-colors">
+<div class="flex items-center justify-center rounded-xl bg-primary/10 text-primary shrink-0 size-12">
+<span class="material-symbols-outlined">local_shipping</span>
+</div>
+<div class="flex flex-col flex-1 justify-center">
+<div class="flex justify-between items-start">
+<p class="text-slate-900 dark:text-white text-base font-semibold leading-snug line-clamp-1">Distribuidora Central</p>
+<p class="text-slate-900 dark:text-white text-base font-bold leading-snug">$1,200.00</p>
+</div>
+<div class="flex justify-between items-center mt-1">
+<p class="text-slate-500 dark:text-slate-400 text-xs font-normal">12 Oct • Proveedores</p>
+<span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-500 font-bold uppercase tracking-wider">Pagado</span>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex items-center gap-4 bg-background-light dark:bg-background-dark px-4 min-h-[80px] py-3 active:bg-slate-100 dark:active:bg-slate-800 transition-colors border-t border-slate-100 dark:border-slate-800">
+<div class="flex items-center justify-center rounded-xl bg-amber-500/10 text-amber-500 shrink-0 size-12">
+<span class="material-symbols-outlined">bolt</span>
+</div>
+<div class="flex flex-col flex-1 justify-center">
+<div class="flex justify-between items-start">
+<p class="text-slate-900 dark:text-white text-base font-semibold leading-snug line-clamp-1">Energía Eléctrica</p>
+<p class="text-slate-900 dark:text-white text-base font-bold leading-snug">$450.00</p>
+</div>
+<div class="flex justify-between items-center mt-1">
+<p class="text-slate-500 dark:text-slate-400 text-xs font-normal">10 Oct • Servicios</p>
+<span class="text-[10px] px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-500 font-bold uppercase tracking-wider">Pendiente</span>
+</div>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="flex items-center gap-4 bg-background-light dark:bg-background-dark px-4 min-h-[80px] py-3 active:bg-slate-100 dark:active:bg-slate-800 transition-colors border-t border-slate-100 dark:border-slate-800">
+<div class="flex items-center justify-center rounded-xl bg-indigo-500/10 text-indigo-500 shrink-0 size-12">
+<span class="material-symbols-outlined">badge</span>
+</div>
+<div class="flex flex-col flex-1 justify-center">
+<div class="flex justify-between items-start">
+<p class="text-slate-900 dark:text-white text-base font-semibold leading-snug line-clamp-1">Nómina - Carlos Ruiz</p>
+<p class="text-slate-900 dark:text-white text-base font-bold leading-snug">$800.00</p>
+</div>
+<div class="flex justify-between items-center mt-1">
+<p class="text-slate-500 dark:text-slate-400 text-xs font-normal">05 Oct • Personal</p>
+<span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-500 font-bold uppercase tracking-wider">Pagado</span>
+</div>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="flex items-center gap-4 bg-background-light dark:bg-background-dark px-4 min-h-[80px] py-3 active:bg-slate-100 dark:active:bg-slate-800 transition-colors border-t border-slate-100 dark:border-slate-800">
+<div class="flex items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-500 shrink-0 size-12">
+<span class="material-symbols-outlined">home_work</span>
+</div>
+<div class="flex flex-col flex-1 justify-center">
+<div class="flex justify-between items-start">
+<p class="text-slate-900 dark:text-white text-base font-semibold leading-snug line-clamp-1">Renta Local 04</p>
+<p class="text-slate-900 dark:text-white text-base font-bold leading-snug">$1,500.00</p>
+</div>
+<div class="flex justify-between items-center mt-1">
+<p class="text-slate-500 dark:text-slate-400 text-xs font-normal">01 Oct • Alquiler</p>
+<span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-500 font-bold uppercase tracking-wider">Pagado</span>
+</div>
+</div>
+</div>
+<!-- Item 5 -->
+<div class="flex items-center gap-4 bg-background-light dark:bg-background-dark px-4 min-h-[80px] py-3 active:bg-slate-100 dark:active:bg-slate-800 transition-colors border-t border-slate-100 dark:border-slate-800">
+<div class="flex items-center justify-center rounded-xl bg-slate-500/10 text-slate-500 shrink-0 size-12">
+<span class="material-symbols-outlined">water_drop</span>
+</div>
+<div class="flex flex-col flex-1 justify-center">
+<div class="flex justify-between items-start">
+<p class="text-slate-900 dark:text-white text-base font-semibold leading-snug line-clamp-1">Servicio de Agua</p>
+<p class="text-slate-900 dark:text-white text-base font-bold leading-snug">$300.00</p>
+</div>
+<div class="flex justify-between items-center mt-1">
+<p class="text-slate-500 dark:text-slate-400 text-xs font-normal">28 Sep • Servicios</p>
+<span class="text-[10px] px-2 py-0.5 rounded-full bg-rose-500/10 text-rose-500 font-bold uppercase tracking-wider">Vencido</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Tab Bar (iOS style) -->
+<div class="fixed bottom-0 left-0 right-0 z-50 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-lg border-t border-slate-200 dark:border-slate-800 px-6 py-3 pb-8">
+<div class="flex justify-between items-center max-w-md mx-auto">
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined text-2xl">grid_view</span>
+<span class="text-[10px] font-medium">Dashboard</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1">account_balance_wallet</span>
+<span class="text-[10px] font-medium">Gastos</span>
+</div>
+<div class="flex items-center justify-center -mt-8">
+<button class="bg-primary size-14 rounded-full shadow-lg shadow-primary/40 flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined text-2xl">inventory_2</span>
+<span class="text-[10px] font-medium">Inventario</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined text-2xl">more_horiz</span>
+<span class="text-[10px] font-medium">Más</span>
+</div>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Actualización de Costos y Precios</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            -webkit-tap-highlight-color: transparent;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-white selection:bg-primary/30">
+<div class="relative flex min-h-screen w-full flex-col max-w-[480px] mx-auto overflow-x-hidden border-x border-white/5 shadow-2xl">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-50 flex items-center bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md p-4 pb-2 justify-between border-b border-white/5">
+<div class="text-white flex size-12 shrink-0 items-center justify-center cursor-pointer">
+<span class="material-symbols-outlined text-white">arrow_back_ios</span>
+</div>
+<h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Actualización de Costos</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-transparent text-white gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0">
+<span class="material-symbols-outlined text-white">help_outline</span>
+</button>
+</div>
+</header>
+<main class="flex-1 pb-32">
+<!-- Stats Section -->
+<div class="flex flex-wrap gap-3 p-4">
+<div class="flex min-w-[150px] flex-1 flex-col gap-2 rounded-xl p-5 bg-[#1c2127] border border-white/5">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">trending_up</span>
+<p class="text-white/70 text-sm font-medium">Incremento Total</p>
+</div>
+<p class="text-white tracking-tight text-2xl font-bold leading-tight">+$450.00</p>
+<p class="text-[#0bda5b] text-sm font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">arrow_upward</span> +15.2%
+                    </p>
+</div>
+<div class="flex min-w-[150px] flex-1 flex-col gap-2 rounded-xl p-5 bg-[#1c2127] border border-white/5">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">inventory_2</span>
+<p class="text-white/70 text-sm font-medium">Impactados</p>
+</div>
+<p class="text-white tracking-tight text-2xl font-bold leading-tight">12 items</p>
+<p class="text-white/40 text-sm font-medium">Requieren ajuste</p>
+</div>
+</div>
+<!-- Global Action Button -->
+<div class="px-4 pb-2">
+<button class="w-full flex items-center justify-center gap-2 bg-primary/10 border border-primary/30 text-primary py-3 rounded-lg text-sm font-semibold">
+<span class="material-symbols-outlined text-lg">auto_fix_high</span>
+                    Mantener Margen Anterior en Todo
+                </button>
+</div>
+<h3 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-6">Ajuste de Productos</h3>
+<!-- Product Card 1 -->
+<div class="p-4 space-y-4">
+<div class="flex flex-col gap-4 rounded-xl bg-[#1c2127] p-4 border border-white/5 shadow-lg">
+<div class="flex items-start justify-between gap-4">
+<div class="flex flex-col gap-1 flex-1">
+<div class="flex items-center gap-2">
+<span class="bg-red-500/20 text-red-400 text-[10px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wider">Costo +12%</span>
+<p class="text-[#9dabb9] text-xs font-medium leading-normal">SKU: 00492</p>
+</div>
+<p class="text-white text-lg font-bold leading-tight">Leche Entera 1L</p>
+<div class="flex items-center gap-2 text-sm mt-1">
+<span class="text-[#9dabb9]">Cost: $1.20</span>
+<span class="material-symbols-outlined text-[#9dabb9] text-xs">arrow_forward</span>
+<span class="text-red-400 font-bold">$1.35</span>
+</div>
+</div>
+<div class="w-20 h-20 bg-center bg-no-repeat bg-cover rounded-lg" data-alt="Cartoon milk carton icon against dark background" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDF_v_eBdk6_fT3WAeSxgFfM8-S-vvFEsB2eLs6F2OkFyDcstS8xGgoS6TfljjfHeWfCTKakwP3PSuNl8E1C-tQZvZ-pi0IglO5WoVVRd0sqwE5guTidgkZrA75pB0evdufrI2JwLfxwsntRe_DKEGPMgBGF5DWIu5VKZVXg400M8pUHPwKqCXhh-LK4bIwiMNnN5PtiQLpZBdoOo-7zTJFD3bUh3RJmsKi46br6EY4jnZZcA1bUutGjkh1AjTxNCXMdQhZmTqoZKAz");'></div>
+</div>
+<div class="flex gap-3">
+<label class="flex flex-col flex-1">
+<p class="text-white/60 text-xs font-medium pb-1.5 ml-1">Margen (%)</p>
+<input class="form-input w-full rounded-lg text-white border border-[#3b4754] bg-[#111418] h-12 focus:border-primary focus:ring-1 focus:ring-primary p-3 text-base font-medium" value="25.0"/>
+</label>
+<label class="flex flex-col flex-1">
+<p class="text-white/60 text-xs font-medium pb-1.5 ml-1">Precio Venta</p>
+<input class="form-input w-full rounded-lg text-white border border-[#3b4754] bg-[#111418] h-12 focus:border-primary focus:ring-1 focus:ring-primary p-3 text-base font-medium" value="$1.80"/>
+</label>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="flex flex-col gap-4 rounded-xl bg-[#1c2127] p-4 border border-white/5 shadow-lg">
+<div class="flex items-start justify-between gap-4">
+<div class="flex flex-col gap-1 flex-1">
+<div class="flex items-center gap-2">
+<span class="bg-red-500/20 text-red-400 text-[10px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wider">Costo +8%</span>
+<p class="text-[#9dabb9] text-xs font-medium leading-normal">SKU: 01284</p>
+</div>
+<p class="text-white text-lg font-bold leading-tight">Aceite Vegetal 900ml</p>
+<div class="flex items-center gap-2 text-sm mt-1">
+<span class="text-[#9dabb9]">Cost: $2.50</span>
+<span class="material-symbols-outlined text-[#9dabb9] text-xs">arrow_forward</span>
+<span class="text-red-400 font-bold">$2.70</span>
+</div>
+</div>
+<div class="w-20 h-20 bg-center bg-no-repeat bg-cover rounded-lg" data-alt="Oil bottle generic illustration" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBdtK-fKOUATylyUqig1fEHxyA-HakS_omguQP29wz3RyffgEmDk4SCsE1cLO4dqIt7fxvtc6T079bkjSpHbNUH2KPatfWrfMwaj2Bji0_hh6hJjRTv--upVsXGB6_UZf6K3WjPjLVcvxB4uZLXzysuxdvsTdlnaB2oKD_THPTQKnHfKjm56tF5n_MHj6TldvD30Tw-5bIx1Fn_0RuSZstknCcadw63qSqkBTRMs9oSbHNUyJLi6LixA8AlJX5UlJkNCZ0rnNq9Zgfy");'></div>
+</div>
+<div class="flex gap-3">
+<label class="flex flex-col flex-1">
+<p class="text-white/60 text-xs font-medium pb-1.5 ml-1">Margen (%)</p>
+<input class="form-input w-full rounded-lg text-white border border-[#3b4754] bg-[#111418] h-12 focus:border-primary focus:ring-1 focus:ring-primary p-3 text-base font-medium" value="30.0"/>
+</label>
+<label class="flex flex-col flex-1">
+<p class="text-white/60 text-xs font-medium pb-1.5 ml-1">Precio Venta</p>
+<input class="form-input w-full rounded-lg text-white border border-[#3b4754] bg-[#111418] h-12 focus:border-primary focus:ring-1 focus:ring-primary p-3 text-base font-medium" value="$3.51"/>
+</label>
+</div>
+</div>
+<!-- Product Card 3 (Price stable example) -->
+<div class="flex flex-col gap-4 rounded-xl bg-[#1c2127] p-4 border border-white/5 shadow-lg opacity-80">
+<div class="flex items-start justify-between gap-4">
+<div class="flex flex-col gap-1 flex-1">
+<div class="flex items-center gap-2">
+<span class="bg-gray-500/20 text-gray-400 text-[10px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wider">Costo Estable</span>
+<p class="text-[#9dabb9] text-xs font-medium leading-normal">SKU: 00831</p>
+</div>
+<p class="text-white text-lg font-bold leading-tight">Arroz Extra 1kg</p>
+<div class="flex items-center gap-2 text-sm mt-1">
+<span class="text-[#9dabb9]">Cost: $0.95</span>
+<span class="material-symbols-outlined text-[#9dabb9] text-xs">remove</span>
+<span class="text-white font-bold">$0.95</span>
+</div>
+</div>
+<div class="w-20 h-20 bg-center bg-no-repeat bg-cover rounded-lg" data-alt="Grain bag or rice sack visual" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAt4bUla9J5ZgeNMvRFENrdVfBTHDiqlIK9fBv3bdGeCdwL8caoH9tn38X3S2HVOhbXdhN-aV5O4ibk4OLeQ7ZTmyf4Q7Vi8Xk0mjX7GC3VZzrPui88XdzbOxhEe_-EnBXcvjr4LOAtRcL-Kp8YRKcTld637AGdtb5HHG3CHGyPTqp6qpU-6HgB_rLxoxnc_kJr2ca4Rq5jcAEAP-HGdTwvOaotHdcYDAXBCli72B5gWCCzdZTizWt8QBEX1KmOmevuNcY9f0KNpkPa");'></div>
+</div>
+</div>
+</div>
+</main>
+<!-- Fixed Footer Action -->
+<div class="fixed bottom-0 left-0 right-0 max-w-[480px] mx-auto p-4 bg-background-dark/95 border-t border-white/10 backdrop-blur-lg">
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-xl h-14 bg-primary text-white gap-3 text-lg font-bold leading-normal tracking-tight shadow-lg shadow-primary/20 hover:bg-primary/90 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined">sync_saved_locally</span>
+                Actualizar Catálogo
+            </button>
+<p class="text-center text-white/40 text-[11px] mt-3 font-medium uppercase tracking-widest">Se actualizarán 12 registros de inventario</p>
+</div>
+</div>
+</body></html>

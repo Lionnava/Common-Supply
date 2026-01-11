@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Punto de Venta - Common Supply</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-[#111418] dark:text-white">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden max-w-[480px] mx-auto bg-white dark:bg-background-dark shadow-xl">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-20 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-[#f0f2f4] dark:border-white/10">
+<div class="flex items-center p-4 pb-2 justify-between">
+<div class="text-[#111418] dark:text-white flex size-12 shrink-0 items-center justify-start">
+<span class="material-symbols-outlined">menu</span>
+</div>
+<h2 class="text-[#111418] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Punto de Venta</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex cursor-pointer items-center justify-center rounded-lg h-12 bg-transparent text-[#111418] dark:text-white">
+<span class="material-symbols-outlined">refresh</span>
+</button>
+</div>
+</div>
+<!-- SearchBar & Scan -->
+<div class="px-4 py-3 flex gap-2 items-center">
+<label class="flex flex-col min-w-40 h-12 flex-1">
+<div class="flex w-full flex-1 items-stretch rounded-xl h-full">
+<div class="text-[#617589] flex border-none bg-[#f0f2f4] dark:bg-white/5 items-center justify-center pl-4 rounded-l-xl">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 border-none bg-[#f0f2f4] dark:bg-white/5 text-[#111418] dark:text-white focus:outline-0 focus:ring-0 h-full placeholder:text-[#617589] px-4 rounded-r-xl pl-2 text-base font-normal" placeholder="Buscar producto o escaneo" value=""/>
+</div>
+</label>
+<button class="flex items-center justify-center size-12 rounded-xl bg-primary text-white shrink-0">
+<span class="material-symbols-outlined">barcode_scanner</span>
+</button>
+</div>
+</header>
+<main class="flex-1 pb-40">
+<!-- Asociar Cliente -->
+<div class="flex items-center gap-4 bg-white dark:bg-background-dark px-4 min-h-[72px] py-2 justify-between border-b border-[#f0f2f4] dark:border-white/10">
+<div class="flex items-center gap-4">
+<div class="text-primary flex items-center justify-center rounded-full bg-primary/10 shrink-0 size-12">
+<span class="material-symbols-outlined">person_add</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-[#111418] dark:text-white text-base font-semibold leading-normal line-clamp-1">Asociar Cliente</p>
+<p class="text-[#617589] text-sm font-normal leading-normal line-clamp-2">Público General / Puntos de fidelidad</p>
+</div>
+</div>
+<div class="shrink-0">
+<div class="text-[#617589] flex size-7 items-center justify-center">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- SectionHeader -->
+<div class="flex items-center justify-between px-4 pb-2 pt-6">
+<h3 class="text-[#111418] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Carrito de Compras</h3>
+<span class="text-primary text-sm font-medium">4 items</span>
+</div>
+<!-- List Items -->
+<div class="flex flex-col">
+<!-- Product 1 -->
+<div class="flex items-center gap-4 bg-white dark:bg-background-dark px-4 min-h-[80px] py-3 justify-between border-b border-[#f0f2f4] dark:border-white/5">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-14 bg-gray-100" data-alt="Bottle of fresh whole milk" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA38t2zpB7NilLVZxwiurjiVlYHJs85-C2Ik6Ru4CzFTSrMihjZaNPcmdyQR2o5gT4Bw_tbnuORVIqiYI537A6vDL54HOMMXyXtppfiZfjfOl1zKaKsvTYlBOa7CaoeWlHuoN9q8xvi6RMZOP0d7bBX2z9g7WsSrUDFufW6wt0XffnWa-Vq7fgYoFH6FA4bJLWLkzFFXE0BKIwSppprLzvMSWjMGfIXxYsPtqWHkj6QBzFW8vl_nmwEadDY0zXXHkP3tuoRnhFM0a-v");'></div>
+<div class="flex flex-col justify-center">
+<p class="text-[#111418] dark:text-white text-base font-medium leading-tight">Leche Entera 1L</p>
+<p class="text-[#617589] text-sm font-normal">$1.50 c/u</p>
+</div>
+</div>
+<div class="shrink-0">
+<div class="flex items-center gap-3 text-[#111418] dark:text-white">
+<button class="text-lg font-bold flex h-8 w-8 items-center justify-center rounded-lg bg-[#f0f2f4] dark:bg-white/10 cursor-pointer text-primary">-</button>
+<input class="text-base font-semibold w-6 p-0 text-center bg-transparent border-none focus:ring-0" type="number" value="2"/>
+<button class="text-lg font-bold flex h-8 w-8 items-center justify-center rounded-lg bg-[#f0f2f4] dark:bg-white/10 cursor-pointer text-primary">+</button>
+</div>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="flex items-center gap-4 bg-white dark:bg-background-dark px-4 min-h-[80px] py-3 justify-between border-b border-[#f0f2f4] dark:border-white/5">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-14 bg-gray-100" data-alt="Crusty whole grain bread loaf" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA6xtFEv91iOgiAr6D49BKpHM4yxrIGg-uIFMKZzBdC5N2hdWXWlNPmaO6Qd0mX_iMP2s3tLcmnAolUaa2qgDNUegm5LJGj9Tn5lHb4bfOBbT8b4DoPiDZtMuZnknSTvT5eDrCMNW5KkCpWVFtmQQBjMfbwHLTPFJxn5m4BbyDJFurqCWN20vA9nIwsYBpX4UkIXY5psl8MaGF2CdQgag40CZ886OrXObVnM9VNJBZ163Sa63oD1qIhjnoCCbxq3wPDdS1f97JZuvZ2");'></div>
+<div class="flex flex-col justify-center">
+<p class="text-[#111418] dark:text-white text-base font-medium leading-tight">Pan Integral Artesanal</p>
+<p class="text-[#617589] text-sm font-normal">$2.25 c/u</p>
+</div>
+</div>
+<div class="shrink-0">
+<div class="flex items-center gap-3 text-[#111418] dark:text-white">
+<button class="text-lg font-bold flex h-8 w-8 items-center justify-center rounded-lg bg-[#f0f2f4] dark:bg-white/10 cursor-pointer text-primary">-</button>
+<input class="text-base font-semibold w-6 p-0 text-center bg-transparent border-none focus:ring-0" type="number" value="1"/>
+<button class="text-lg font-bold flex h-8 w-8 items-center justify-center rounded-lg bg-[#f0f2f4] dark:bg-white/10 cursor-pointer text-primary">+</button>
+</div>
+</div>
+</div>
+<!-- Product 3 -->
+<div class="flex items-center gap-4 bg-white dark:bg-background-dark px-4 min-h-[80px] py-3 justify-between border-b border-[#f0f2f4] dark:border-white/5">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-14 bg-gray-100" data-alt="Carton of fresh organic eggs" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAg8f8WA5WYH5OB67O_N9z0B1Gcd60vmd0LSyHGwGjvi_Va5ijMmXlHdXXoHL7kbv0gf1jBBUAEtS_AQ825HhyYKffUt7zXtUxNRgZw2JzTTWZGr0-u5PfPavP_62bpt6XHrZiHPhZGcPP7OSD8U0_OuatMoM0wDgt9zAtryGiD2m7BFzVNZBUmc82HnryfEJGmyr3rmXxp-23E8AEcKHYIRLLJZ38i-4pG1nKaxO7cVVmDr_5Vli7ddvBRKMfHuf4ecTHJa0VAsoiu");'></div>
+<div class="flex flex-col justify-center">
+<p class="text-[#111418] dark:text-white text-base font-medium leading-tight">Huevos Orgánicos x12</p>
+<p class="text-[#617589] text-sm font-normal">$3.80 c/u</p>
+</div>
+</div>
+<div class="shrink-0">
+<div class="flex items-center gap-3 text-[#111418] dark:text-white">
+<button class="text-lg font-bold flex h-8 w-8 items-center justify-center rounded-lg bg-[#f0f2f4] dark:bg-white/10 cursor-pointer text-primary">-</button>
+<input class="text-base font-semibold w-6 p-0 text-center bg-transparent border-none focus:ring-0" type="number" value="1"/>
+<button class="text-lg font-bold flex h-8 w-8 items-center justify-center rounded-lg bg-[#f0f2f4] dark:bg-white/10 cursor-pointer text-primary">+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Fixed Footer Checkout -->
+<footer class="fixed bottom-0 left-0 right-0 max-w-[480px] mx-auto bg-white dark:bg-background-dark border-t border-[#f0f2f4] dark:border-white/10 p-4 pb-8 space-y-4">
+<div class="space-y-2">
+<div class="flex justify-between text-sm text-[#617589]">
+<span>Subtotal</span>
+<span>$9.05</span>
+</div>
+<div class="flex justify-between text-sm text-[#617589]">
+<span>Impuestos (12%)</span>
+<span>$1.08</span>
+</div>
+<div class="flex justify-between items-center pt-2">
+<span class="text-lg font-bold dark:text-white">Total</span>
+<span class="text-2xl font-black text-primary">$10.13</span>
+</div>
+</div>
+<button class="w-full bg-primary text-white py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-2 shadow-lg shadow-primary/20 active:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined">payments</span>
+                Pagar Ahora
+            </button>
+</footer>
+</div>
+</body></html>

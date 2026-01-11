@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gestión de Promociones Activas</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center p-4 pb-3 justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined cursor-pointer text-slate-600 dark:text-slate-300">chevron_left</span>
+<h2 class="text-lg font-bold leading-tight tracking-tight">Promociones</h2>
+</div>
+<div class="flex items-center gap-2">
+<button class="flex size-10 items-center justify-center rounded-full bg-primary text-white shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex flex-col gap-2 pb-24">
+<!-- Search Bar Component -->
+<div class="px-4 py-3">
+<label class="flex flex-col min-w-40 h-12 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-xl h-full shadow-sm">
+<div class="text-slate-400 flex border-none bg-white dark:bg-[#1c2631] items-center justify-center pl-4 rounded-l-xl">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-slate-900 dark:text-white focus:outline-0 focus:ring-0 border-none bg-white dark:bg-[#1c2631] h-full placeholder:text-slate-400 px-4 rounded-l-none pl-2 text-base font-normal" placeholder="Buscar promociones..." value=""/>
+</div>
+</label>
+</div>
+<!-- Segmented Control Component -->
+<div class="px-4 py-2">
+<div class="flex h-11 items-center justify-center rounded-xl bg-slate-200 dark:bg-[#1c2631] p-1 shadow-inner">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-background-dark has-[:checked]:shadow-sm text-slate-500 dark:text-slate-400 has-[:checked]:text-primary dark:has-[:checked]:text-white text-sm font-semibold transition-all">
+<span class="truncate">Activas</span>
+<input checked="" class="invisible w-0" name="status_filter" type="radio" value="Activas"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-background-dark has-[:checked]:shadow-sm text-slate-500 dark:text-slate-400 has-[:checked]:text-primary dark:has-[:checked]:text-white text-sm font-semibold transition-all">
+<span class="truncate">Programadas</span>
+<input class="invisible w-0" name="status_filter" type="radio" value="Programadas"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-background-dark has-[:checked]:shadow-sm text-slate-500 dark:text-slate-400 has-[:checked]:text-primary dark:has-[:checked]:text-white text-sm font-semibold transition-all">
+<span class="truncate">Expiradas</span>
+<input class="invisible w-0" name="status_filter" type="radio" value="Expiradas"/>
+</label>
+</div>
+</div>
+<!-- Section Header -->
+<div class="px-4 pt-4 pb-1 flex items-center justify-between">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold tracking-tight">Promociones en curso</h3>
+<span class="text-xs font-semibold text-primary bg-primary/10 px-2 py-1 rounded-full uppercase tracking-wider">3 Total</span>
+</div>
+<!-- Promotion Card 1 -->
+<div class="px-4 py-2">
+<div class="flex flex-col overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#1c2631] shadow-sm transition-transform active:scale-[0.98]">
+<div class="flex p-4 gap-4">
+<div class="size-20 shrink-0 rounded-lg bg-center bg-cover border border-slate-100 dark:border-slate-700" data-alt="Close up image of fresh dairy products" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBNXGZ2QtZvDjoKqBT8sK1WMP796XDlc9WvCBJnlD2L-8lnYqYkwFCITeKbmBGAyB5ZUxPQpdHIA028Et1HV-qnx7GjW5q_QH5v9A5xC0GwkrFNzDNJs8n7cm4TfoFtIQAUu3lj9b4Jm3F952T01-BTP0FegTnkXJtJ-NUJszPd0VSQPyWW7_5JETgKp7UwtfqKYrlUTXpsPsrUTEB7tEVwDw5wX4nrnuWrzRzEnHdoFJNza7kCXW9objzxYHUgUKgLPV_F-HZpM35k");'></div>
+<div class="flex flex-1 flex-col justify-between">
+<div>
+<div class="flex justify-between items-start">
+<span class="text-[10px] font-bold text-emerald-500 uppercase tracking-widest bg-emerald-500/10 px-1.5 py-0.5 rounded">ACTIVA</span>
+<span class="material-symbols-outlined text-slate-400 text-lg">more_horiz</span>
+</div>
+<h4 class="text-slate-900 dark:text-white font-bold text-base mt-1">20% Descuento Lácteos</h4>
+<p class="text-slate-500 dark:text-slate-400 text-xs mt-0.5">Vence en: <span class="font-medium text-slate-700 dark:text-slate-200">3 días</span></p>
+</div>
+<div class="flex items-center gap-2 mt-2">
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-xs">analytics</span>
+<span class="text-xs font-bold">142 usos</span>
+</div>
+<div class="h-1 flex-1 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-2/3"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Card Actions -->
+<div class="grid grid-cols-3 border-t border-slate-100 dark:border-slate-800">
+<button class="flex items-center justify-center gap-2 py-3 text-xs font-semibold text-slate-600 dark:text-slate-300 border-r border-slate-100 dark:border-slate-800 active:bg-slate-50 dark:active:bg-slate-800">
+<span class="material-symbols-outlined text-sm">edit</span> Editar
+                    </button>
+<button class="flex items-center justify-center gap-2 py-3 text-xs font-semibold text-slate-600 dark:text-slate-300 border-r border-slate-100 dark:border-slate-800 active:bg-slate-50 dark:active:bg-slate-800">
+<span class="material-symbols-outlined text-sm">pause</span> Pausar
+                    </button>
+<button class="flex items-center justify-center gap-2 py-3 text-xs font-semibold text-rose-500 active:bg-rose-50 dark:active:bg-rose-950/20">
+<span class="material-symbols-outlined text-sm">delete</span> Eliminar
+                    </button>
+</div>
+</div>
+</div>
+<!-- Promotion Card 2 -->
+<div class="px-4 py-2">
+<div class="flex flex-col overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#1c2631] shadow-sm transition-transform active:scale-[0.98]">
+<div class="flex p-4 gap-4">
+<div class="size-20 shrink-0 rounded-lg bg-center bg-cover border border-slate-100 dark:border-slate-700" data-alt="Assorted fresh seasonal fruits and vegetables" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBMnq76oNsScKqymfdBFBwlAmiVq7pL2_C1Gs2dCZZ6FPDFXQi11_Ue9_J9n7t3Z-RU7N4tm0gTdwYRZDBt9WWyUaFmY0xmThoRtNVY2quuxQhC_UQw6kvIyUC6_020lhdsFb3QTDwnjDW7etk4-QUCsG5_6VRUiL5LIqSOtKEy5-G7Z3zEou7RZoXuDOUP4RvgI2jvdqOcbR-lShJC5eWCQZcgpTJ-f2Z4b9KxyLaa3sc10DbYLBa09cpogQaHKUhdfK4FWfDoOFhC");'></div>
+<div class="flex flex-1 flex-col justify-between">
+<div>
+<div class="flex justify-between items-start">
+<span class="text-[10px] font-bold text-emerald-500 uppercase tracking-widest bg-emerald-500/10 px-1.5 py-0.5 rounded">ACTIVA</span>
+<span class="material-symbols-outlined text-slate-400 text-lg">more_horiz</span>
+</div>
+<h4 class="text-slate-900 dark:text-white font-bold text-base mt-1">3x2 Frutas Seleccionadas</h4>
+<p class="text-slate-500 dark:text-slate-400 text-xs mt-0.5">Vence en: <span class="font-medium text-slate-700 dark:text-slate-200">5 días</span></p>
+</div>
+<div class="flex items-center gap-2 mt-2">
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-xs">analytics</span>
+<span class="text-xs font-bold">89 usos</span>
+</div>
+<div class="h-1 flex-1 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-1/3"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Card Actions -->
+<div class="grid grid-cols-3 border-t border-slate-100 dark:border-slate-800">
+<button class="flex items-center justify-center gap-2 py-3 text-xs font-semibold text-slate-600 dark:text-slate-300 border-r border-slate-100 dark:border-slate-800 active:bg-slate-50 dark:active:bg-slate-800">
+<span class="material-symbols-outlined text-sm">edit</span> Editar
+                    </button>
+<button class="flex items-center justify-center gap-2 py-3 text-xs font-semibold text-slate-600 dark:text-slate-300 border-r border-slate-100 dark:border-slate-800 active:bg-slate-50 dark:active:bg-slate-800">
+<span class="material-symbols-outlined text-sm">pause</span> Pausar
+                    </button>
+<button class="flex items-center justify-center gap-2 py-3 text-xs font-semibold text-rose-500 active:bg-rose-50 dark:active:bg-rose-950/20">
+<span class="material-symbols-outlined text-sm">delete</span> Eliminar
+                    </button>
+</div>
+</div>
+</div>
+<!-- Section Header 2 -->
+<div class="px-4 pt-6 pb-1 flex items-center justify-between">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold tracking-tight">Próximas promociones</h3>
+<span class="text-xs font-semibold text-slate-500 dark:text-slate-400 bg-slate-200 dark:bg-slate-800 px-2 py-1 rounded-full uppercase tracking-wider">1 Programada</span>
+</div>
+<!-- Promotion Card 3 (Scheduled) -->
+<div class="px-4 py-2">
+<div class="flex flex-col overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#1c2631] shadow-sm transition-transform active:scale-[0.98]">
+<div class="flex p-4 gap-4">
+<div class="size-20 shrink-0 rounded-lg bg-center bg-cover border border-slate-100 dark:border-slate-700 opacity-60" data-alt="Selection of packaged snacks and drinks" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAKuiF-YD3EiCRKDhkaOc1j3w-cY2z8OQl6_n3l1uVheGlOp9T7fObinjtf6kO8KW03VQqq49cx3Efou4YLzvygwQtg-JRutbXquRqoFsdw6rml32OmTK0uO6bcQ5aMEtiTn2JK7ukwbce9pIb_APs1rEwipk7P7_KRdKHaiUp8Td_y5Pu5GOkptfHc8PdZS5umnb8u6d9jbEwYNRN8Z3g-YYERjhStdujcsBWY_zcw3OzJbRnOb9r1gn07vR2ke4XpMRT_xxZbc_N9");'></div>
+<div class="flex flex-1 flex-col justify-between">
+<div>
+<div class="flex justify-between items-start">
+<span class="text-[10px] font-bold text-primary uppercase tracking-widest bg-primary/10 px-1.5 py-0.5 rounded">PROGRAMADA</span>
+</div>
+<h4 class="text-slate-900 dark:text-white font-bold text-base mt-1">Oferta Snacks Fin de Semana</h4>
+<p class="text-slate-500 dark:text-slate-400 text-xs mt-0.5">Inicia: <span class="font-medium text-slate-700 dark:text-slate-200">En 2 días</span></p>
+</div>
+<div class="flex items-center gap-2 mt-2">
+<span class="text-xs italic text-slate-400">Sin datos de rendimiento aún</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 border-t border-slate-100 dark:border-slate-800">
+<button class="flex items-center justify-center gap-2 py-3 text-xs font-semibold text-slate-600 dark:text-slate-300 border-r border-slate-100 dark:border-slate-800 active:bg-slate-50 dark:active:bg-slate-800">
+<span class="material-symbols-outlined text-sm">edit</span> Editar
+                    </button>
+<button class="flex items-center justify-center gap-2 py-3 text-xs font-semibold text-rose-500 active:bg-rose-50 dark:active:bg-rose-950/20">
+<span class="material-symbols-outlined text-sm">delete</span> Cancelar
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation (iOS style) -->
+<nav class="fixed bottom-0 left-0 right-0 bg-white/90 dark:bg-background-dark/90 backdrop-blur-lg border-t border-slate-200 dark:border-slate-800 px-6 py-2 flex justify-between items-center z-50">
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-2xl">campaign</span>
+<span class="text-[10px] font-bold">Promos</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined text-2xl">inventory_2</span>
+<span class="text-[10px] font-medium">Stock</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined text-2xl">bar_chart_4_bars</span>
+<span class="text-[10px] font-medium">Reportes</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined text-2xl">settings</span>
+<span class="text-[10px] font-medium">Ajustes</span>
+</div>
+</nav>
+</body></html>

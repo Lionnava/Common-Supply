@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Detalle y Procesamiento de Pedido</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #283039; border-radius: 10px; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-white font-display">
+<!-- Top Navigation -->
+<div class="sticky top-0 z-50 bg-background-light dark:bg-background-dark/95 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+<div class="flex items-center p-4 pb-2 justify-between">
+<div class="text-gray-900 dark:text-white flex size-12 shrink-0 items-center">
+<span class="material-symbols-outlined cursor-pointer">arrow_back_ios</span>
+</div>
+<div class="flex flex-col items-center flex-1">
+<h2 class="text-gray-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Pedido #1284</h2>
+<span class="text-xs text-primary font-semibold uppercase tracking-wider">Procesando</span>
+</div>
+<div class="flex w-12 items-center justify-end">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-transparent text-gray-900 dark:text-white gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</div>
+</div>
+</div>
+<main class="max-w-md mx-auto pb-32">
+<!-- Profile & Contact -->
+<div class="flex p-4 @container border-b border-gray-200 dark:border-gray-800">
+<div class="flex w-full flex-col gap-4">
+<div class="flex gap-4 items-center">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full min-h-16 w-16 border-2 border-primary/20" data-alt="Fotografía de perfil de Juan Perez" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAZN9MM8RDNrgEI65L3_FfiX75aUStbMWdpe-34UilCq2gvR254bv86s7I3S4UNbYCkHi0m8GpHcXcWCYwfEl02lU3cfQAD8IXMBPR7Fe6LK-AaRaTQAr7U6Bf75MflPTEmJ3EM7exoixFcH35D0h9I0_jZlhCrRemwILgZtMqAxmeI3-4pbh9-6fQ3vdYDBI0RRzsU-Y0FKPgsSZ4y-nY_BlDzfQv-RVPCDfCmysd2Vh14gT7bYAK-F4B_Z0_NnyKJ3DbCVyXI2P0f");'>
+</div>
+<div class="flex flex-col justify-center flex-1">
+<p class="text-gray-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Juan Perez</p>
+<p class="text-gray-500 dark:text-[#9dabb9] text-sm font-normal">Cliente Leal • 12 Pedidos</p>
+</div>
+<div class="flex gap-2">
+<button class="flex size-10 items-center justify-center rounded-full bg-primary text-white">
+<span class="material-symbols-outlined text-xl">call</span>
+</button>
+<button class="flex size-10 items-center justify-center rounded-full bg-gray-200 dark:bg-[#283039] text-gray-900 dark:text-white">
+<span class="material-symbols-outlined text-xl">chat_bubble</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Customer Notes -->
+<div class="p-4 bg-primary/5 dark:bg-primary/10 border-b border-gray-200 dark:border-gray-800">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-primary text-sm">sticky_note_2</span>
+<h3 class="text-gray-900 dark:text-white text-sm font-bold leading-tight tracking-[-0.015em] uppercase">Notas del Cliente</h3>
+</div>
+<p class="text-gray-700 dark:text-gray-300 text-base font-normal leading-relaxed">
+                "Por favor, asegúrese de que los aguacates estén maduros. Dejar en la puerta principal si no hay nadie."
+            </p>
+</div>
+<!-- Picking List Header -->
+<div class="flex items-center justify-between px-4 pt-6 pb-2">
+<h3 class="text-gray-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Lista de Recolección (12 items)</h3>
+<span class="text-xs bg-gray-200 dark:bg-gray-800 text-gray-600 dark:text-gray-400 px-2 py-1 rounded font-bold">4/12 LISTO</span>
+</div>
+<!-- Picking List Items -->
+<div class="flex flex-col divide-y divide-gray-100 dark:divide-gray-800">
+<!-- Item 1 (Checked) -->
+<div class="flex items-center gap-4 p-4 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">
+<div class="flex items-center justify-center h-6 w-6 rounded border-2 border-primary bg-primary text-white">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+<div class="h-14 w-14 rounded-lg bg-center bg-cover bg-no-repeat" data-alt="Imagen de aguacates frescos" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAKDq2rECUQgIMC71if2nQLPP1qqV2L7fkkJ-w-m1Zq9TG0Z4vvtrH4LE1WDSXEbkSqfo-2-V28vzIBbvBPdFgX0z47ijQyQGVCnHMXfFjjY1ycFSnaIdq7d30fpArGkqGvpz1SI_U0Kti3ic9H5RfAC42cWjeQC86iZ8IqV4WkXj5xDohBLmDJLtpaHi_GYuK7E8GmGMu2LXubo7lOSFkfp2X01AfnSTfyJsfiAFWU74dZc41X715pQ7VMdyK2KFq1RvP9YoeJPBeE");'></div>
+<div class="flex-1">
+<p class="text-gray-900 dark:text-white font-medium line-through decoration-gray-500">Aguacate Hass Premium</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm">3 Unidades • $4.50</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex items-center gap-4 p-4 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">
+<div class="flex items-center justify-center h-6 w-6 rounded border-2 border-gray-300 dark:border-gray-600"></div>
+<div class="h-14 w-14 rounded-lg bg-center bg-cover bg-no-repeat" data-alt="Imagen de cartón de leche" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA7ItVTcRg-ay3dpESakc1N6WdnhMNpSgD2f7PQAFb70Oj0JmrakEt6bkF5Pu-QNbRSavVD6d0ftohQyP9MGYIzZh8P92p18CyOFCR_z1aw1dU-XJV2HLvnIwltmFySbppQZI8Wdkk1cNRYBSAHBMWk0wdNq6uSJCRP9TrzpKuzE-ARGryovCGFLj0plpjtgyD8ddX-0ksAV7fa6WlqWJkhiWXx2IJCH-2woqOTWlj9lmNqlUylORFg7JIaMvCd4lWkwEZSTfvKD7Ly");'></div>
+<div class="flex-1">
+<p class="text-gray-900 dark:text-white font-medium">Leche Entera 1L</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm">2 Unidades • $3.20</p>
+</div>
+<button class="text-orange-500">
+<span class="material-symbols-outlined">inventory_2</span>
+</button>
+</div>
+<!-- Item 3 -->
+<div class="flex items-center gap-4 p-4 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">
+<div class="flex items-center justify-center h-6 w-6 rounded border-2 border-gray-300 dark:border-gray-600"></div>
+<div class="h-14 w-14 rounded-lg bg-center bg-cover bg-no-repeat" data-alt="Imagen de pan artesanal" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBA_fgxojePaYmm3QKfEap0_NTZF1Bk29xM2A4xfhrBAu2g5mbGxkWf36obPxXwJWzd1ZJD0vwrXtj5zDxc7Af8VbbbzOxWV3kn7PDzDR6wVNzgNWNf7xHWBAxVM_hTODb1l9P7DNEKEVxUq-_hY_Euy8Al69o8dzEhXiRKyyijVoBXVytoPId0WkBc0EKDD07ymEHGDs2aUOiGvqTA50kD1lWQnyOF3wOPDdXnkuEP_mdcFkV5a4Iu1esMjULx2-tXxmKBSMecr7J1");'></div>
+<div class="flex-1">
+<p class="text-gray-900 dark:text-white font-medium">Pan Artesanal</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm">1 Unidad • $2.75</p>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="flex items-center gap-4 p-4 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">
+<div class="flex items-center justify-center h-6 w-6 rounded border-2 border-gray-300 dark:border-gray-600"></div>
+<div class="h-14 w-14 rounded-lg bg-center bg-cover bg-no-repeat" data-alt="Imagen de fresas rojas" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAD7RDErrNUI68fGMtEGmgbBOA4jHlZ6Jc__9pqV8wLLTxfpZVzMZ-ohiaCGPSv-W7oLjN6hjzWQpLZm_qvsaWysFw889vGooPUZV8VNc00LNS-bNwx0q5KFmooY-OWcOF7BqBl5VSJnw78W_kjArBtmtbrr4GflT3YXPQ_zHt1UKHt57LcNQS4de1NxLUStbgCdcoNG_R7ARreauC-cI9boUO6MlgCgVmrdvsUDDCpOP1HRIkmlxqqgluvG498xhOKFt_tfdKQgaIB");'></div>
+<div class="flex-1">
+<p class="text-gray-900 dark:text-white font-medium">Fresas Orgánicas 500g</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm">1 Caja • $5.90</p>
+</div>
+</div>
+</div>
+<!-- Documentation & Actions -->
+<div class="p-4 grid grid-cols-2 gap-3 mt-4">
+<button class="flex items-center justify-center gap-2 h-12 rounded-xl bg-gray-200 dark:bg-[#283039] text-gray-900 dark:text-white text-sm font-bold">
+<span class="material-symbols-outlined text-lg">print</span>
+                Ticket Térmico
+            </button>
+<button class="flex items-center justify-center gap-2 h-12 rounded-xl bg-gray-200 dark:bg-[#283039] text-gray-900 dark:text-white text-sm font-bold">
+<span class="material-symbols-outlined text-lg">description</span>
+                Factura Digital
+            </button>
+</div>
+</main>
+<!-- Bottom Action Sheet (Persistent) -->
+<div class="fixed bottom-0 left-0 right-0 bg-background-light dark:bg-background-dark/95 backdrop-blur-xl border-t border-gray-200 dark:border-gray-800 p-4 pb-8 space-y-4 shadow-2xl">
+<div class="max-w-md mx-auto flex flex-col gap-3">
+<!-- Status Picker -->
+<div class="relative">
+<select class="w-full h-12 pl-10 pr-4 rounded-xl bg-gray-100 dark:bg-[#1c2630] border-none text-gray-900 dark:text-white text-sm font-bold appearance-none focus:ring-2 focus:ring-primary">
+<option>En Preparación</option>
+<option>Agotado / Parcial</option>
+<option>Listo para Recoger</option>
+<option>Enviado / En Camino</option>
+<option>Entregado</option>
+</select>
+<div class="absolute left-3 top-1/2 -translate-y-1/2 text-primary">
+<span class="material-symbols-outlined">sync</span>
+</div>
+<div class="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</div>
+<!-- Primary Action -->
+<button class="w-full h-14 bg-primary text-white rounded-xl font-bold flex items-center justify-center gap-2 shadow-lg shadow-primary/20 active:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined">send</span>
+                Actualizar y Notificar Cliente
+            </button>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Generador de Cupones Digitales</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .ios-blur {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen pb-32">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 ios-blur border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center justify-between px-4 h-16">
+<button class="text-primary font-medium text-lg flex items-center">
+<span class="material-symbols-outlined mr-1">close</span>
+                Cancelar
+            </button>
+<h1 class="text-lg font-bold tracking-tight">Nuevo Cupón</h1>
+<div class="w-20"></div> <!-- Spacer for centering -->
+</div>
+</header>
+<main class="max-w-md mx-auto px-4 py-6 space-y-8">
+<!-- Coupon Code Generator Section -->
+<section class="space-y-4">
+<h2 class="text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 px-1">Código del Cupón</h2>
+<div class="flex items-end gap-3">
+<label class="flex flex-col flex-1">
+<div class="flex w-full items-stretch rounded-xl overflow-hidden shadow-sm">
+<input class="form-input flex w-full min-w-0 flex-1 resize-none border border-slate-300 dark:border-slate-700 bg-white dark:bg-[#1c2127] text-slate-900 dark:text-white h-14 p-[15px] text-xl font-bold tracking-widest uppercase focus:ring-0 focus:outline-0 border-r-0 rounded-l-xl" readonly="" value="SAVE20-ABCD"/>
+<button class="flex items-center justify-center bg-white dark:bg-[#1c2127] border border-slate-300 dark:border-slate-700 border-l-0 pr-4 text-primary rounded-r-xl">
+<span class="material-symbols-outlined text-2xl">refresh</span>
+</button>
+</div>
+</label>
+</div>
+</section>
+<!-- Configuration Details -->
+<section class="space-y-4">
+<h2 class="text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 px-1">Configuración</h2>
+<div class="bg-white dark:bg-[#1c2127] border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden divide-y divide-slate-200 dark:divide-slate-800 shadow-sm">
+<!-- Minimum Purchase -->
+<div class="p-4 flex flex-col gap-2">
+<label class="text-sm font-medium text-slate-700 dark:text-slate-300">Monto Mínimo de Compra</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">$</span>
+<input class="w-full pl-8 pr-4 py-3 bg-slate-50 dark:bg-[#111418] border-none rounded-lg focus:ring-2 focus:ring-primary text-lg font-medium" placeholder="0.00" type="text"/>
+</div>
+</div>
+<!-- Limits Row -->
+<div class="grid grid-cols-2 divide-x divide-slate-200 dark:divide-slate-800">
+<div class="p-4 flex flex-col gap-2">
+<label class="text-xs font-medium text-slate-700 dark:text-slate-300">Límite por Cliente</label>
+<input class="w-full px-4 py-3 bg-slate-50 dark:bg-[#111418] border-none rounded-lg focus:ring-2 focus:ring-primary font-medium" placeholder="1" type="number"/>
+</div>
+<div class="p-4 flex flex-col gap-2">
+<label class="text-xs font-medium text-slate-700 dark:text-slate-300">Límite Total Usos</label>
+<input class="w-full px-4 py-3 bg-slate-50 dark:bg-[#111418] border-none rounded-lg focus:ring-2 focus:ring-primary font-medium" placeholder="100" type="number"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Visual Preview Section -->
+<section class="space-y-4">
+<h2 class="text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 px-1">Vista Previa (Cliente)</h2>
+<!-- Coupon Card Simulation -->
+<div class="relative group">
+<div class="absolute -inset-1 bg-gradient-to-r from-primary to-blue-600 rounded-2xl blur opacity-20"></div>
+<div class="relative bg-white dark:bg-slate-900 border-2 border-primary/20 rounded-2xl overflow-hidden shadow-xl">
+<!-- Perforated top -->
+<div class="bg-primary p-6 text-center space-y-1 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-full opacity-10" style="background-image: radial-gradient(circle, #fff 10%, transparent 10%); background-size: 20px 20px;"></div>
+<p class="text-white/80 text-xs font-bold uppercase tracking-widest">Descuento Especial</p>
+<h3 class="text-white text-4xl font-black">20% OFF</h3>
+<p class="text-white/90 text-sm">En toda la tienda</p>
+</div>
+<!-- Perforation Line -->
+<div class="flex items-center px-2 py-1 bg-white dark:bg-slate-900">
+<div class="w-4 h-4 rounded-full bg-background-light dark:bg-background-dark -ml-4 border border-slate-200 dark:border-slate-800"></div>
+<div class="flex-1 border-t-2 border-dashed border-slate-200 dark:border-slate-700"></div>
+<div class="w-4 h-4 rounded-full bg-background-light dark:bg-background-dark -mr-4 border border-slate-200 dark:border-slate-800"></div>
+</div>
+<div class="p-6 bg-white dark:bg-slate-900 text-center">
+<div class="inline-block px-6 py-3 bg-slate-100 dark:bg-slate-800 rounded-xl border-2 border-dashed border-slate-300 dark:border-slate-600 mb-4">
+<span class="text-xl font-mono font-bold tracking-[0.2em] text-slate-700 dark:text-white uppercase">SAVE20-ABCD</span>
+</div>
+<p class="text-[10px] text-slate-400 dark:text-slate-500 leading-relaxed italic">
+                            Válido para compras superiores a $150.00. Un solo uso por cliente.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Push Notification Toggle -->
+<section class="flex items-center justify-between p-4 bg-primary/5 border border-primary/20 rounded-xl">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-primary rounded-lg">
+<span class="material-symbols-outlined text-white">notifications_active</span>
+</div>
+<div>
+<h4 class="text-sm font-bold">Notificación Push</h4>
+<p class="text-xs text-slate-500 dark:text-slate-400">Enviar aviso a todos los clientes</p>
+</div>
+</div>
+<div class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-300 peer-focus:outline-none rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</div>
+</section>
+</main>
+<!-- Bottom Action Button Container -->
+<div class="fixed bottom-0 left-0 w-full p-4 bg-background-light/80 dark:bg-background-dark/80 ios-blur border-t border-slate-200 dark:border-slate-800 pb-safe">
+<div class="max-w-md mx-auto">
+<button class="w-full bg-primary hover:bg-blue-600 text-white font-bold py-4 rounded-2xl shadow-lg shadow-primary/30 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">rocket_launch</span>
+                Publicar y Notificar
+            </button>
+</div>
+</div>
+</body></html>
