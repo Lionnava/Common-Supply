@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mapeo de Datos: Cierre de Caja</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .code-font { font-family: 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', monospace; }
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center justify-between p-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">arrow_back_ios</span>
+<div>
+<h1 class="text-sm font-bold tracking-tight">Data Mapping</h1>
+<p class="text-[10px] text-slate-500 uppercase tracking-widest font-semibold">Cierre de Caja</p>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="p-2 hover:bg-primary/10 rounded-full text-primary transition-colors">
+<span class="material-symbols-outlined">terminal</span>
+</button>
+<button class="p-2 hover:bg-primary/10 rounded-full text-primary transition-colors">
+<span class="material-symbols-outlined">refresh</span>
+</button>
+</div>
+</div>
+</header>
+<main class="p-4 space-y-6 max-w-md mx-auto">
+<!-- Section: SQL Query -->
+<section>
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-primary text-sm">database</span>
+<h3 class="text-xs font-bold uppercase tracking-wider text-slate-500">SQL Aggregation Query</h3>
+</div>
+<div class="bg-slate-900 rounded-xl p-4 border border-slate-800 shadow-xl overflow-hidden relative">
+<div class="absolute top-2 right-2 flex gap-1">
+<div class="w-2 h-2 rounded-full bg-red-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-yellow-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-green-500/50"></div>
+</div>
+<div class="code-font text-sm leading-relaxed">
+<span class="text-purple-400">SELECT</span>
+<span class="text-blue-400">SUM</span>(net_revenue) <span class="text-slate-500">AS</span> <span class="text-emerald-400">revenue</span>,<br/>
+<span class="text-blue-400">SUM</span>(total_iva) <span class="text-slate-500">AS</span> <span class="text-emerald-400">iva</span>,<br/>
+<span class="text-blue-400">SUM</span>(total_igtf) <span class="text-slate-500">AS</span> <span class="text-emerald-400">igtf</span><br/>
+<span class="text-purple-400">FROM</span> transactions<br/>
+<span class="text-purple-400">WHERE</span> status = <span class="text-orange-300">'completed'</span><br/>
+<span class="text-slate-500">AND</span> date = <span class="text-blue-400">CURRENT_DATE</span>;
+                </div>
+<div class="mt-4 pt-3 border-t border-slate-800 flex justify-between items-center">
+<span class="text-[10px] text-slate-500">Source: PostgreSQL v15.4</span>
+<button class="text-[10px] font-bold text-primary flex items-center gap-1 uppercase tracking-tighter">
+<span class="material-symbols-outlined text-[14px]">content_copy</span> Copy
+                    </button>
+</div>
+</div>
+</section>
+<!-- Section: JSON Result -->
+<section>
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-primary text-sm">code</span>
+<h3 class="text-xs font-bold uppercase tracking-wider text-slate-500">Raw JSON Response</h3>
+</div>
+<div class="bg-slate-900 rounded-xl p-4 border border-slate-800 shadow-xl">
+<div class="code-font text-sm">
+<span class="text-slate-400">{</span><br/>
+<div class="pl-4">
+<span class="text-blue-300">"status"</span>: <span class="text-orange-300">"success"</span>,<br/>
+<span class="text-blue-300">"payload"</span>: <span class="text-slate-400">{</span><br/>
+<div class="pl-4">
+<span class="text-blue-300">"net_revenue"</span>: <span class="text-emerald-400">4850.25</span>,<br/>
+<span class="text-blue-300">"total_iva"</span>: <span class="text-emerald-400">776.04</span>,<br/>
+<span class="text-blue-300">"total_igtf"</span>: <span class="text-emerald-400">145.50</span>,<br/>
+<span class="text-blue-300">"currency"</span>: <span class="text-orange-300">"USD"</span>,<br/>
+<span class="text-blue-300">"timestamp"</span>: <span class="text-orange-300">"2023-11-20T23:59:59Z"</span>
+</div>
+<span class="text-slate-400">}</span>
+</div>
+<span class="text-slate-400">}</span>
+</div>
+</div>
+<p class="text-[10px] text-slate-500 mt-2 px-1">Last fetched: 45 seconds ago via Mobile-API-v2</p>
+</section>
+<!-- Section: Validation Checklist -->
+<section class="bg-background-light dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden">
+<div class="p-4 border-b border-slate-200 dark:border-slate-800 flex justify-between items-center">
+<h3 class="text-xs font-bold uppercase tracking-wider text-slate-500">Backend Validation</h3>
+<span class="bg-emerald-500/10 text-emerald-500 text-[10px] px-2 py-0.5 rounded-full font-bold">READY</span>
+</div>
+<div class="divide-y divide-slate-200 dark:divide-slate-800">
+<!-- Checklist Item -->
+<div class="p-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-lg bg-emerald-500/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-emerald-500 text-lg">check_circle</span>
+</div>
+<div>
+<p class="text-sm font-semibold">No Pending Orders</p>
+<p class="text-xs text-slate-500">All local drafts are processed</p>
+</div>
+</div>
+<span class="text-xs font-bold text-slate-400 uppercase">0 Left</span>
+</div>
+<!-- Checklist Item -->
+<div class="p-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-lg bg-emerald-500/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-emerald-500 text-lg">sync</span>
+</div>
+<div>
+<p class="text-sm font-semibold">Sync Status</p>
+<p class="text-xs text-slate-500">Cloud synchronization complete</p>
+</div>
+</div>
+<span class="text-xs font-bold text-slate-400 uppercase">100%</span>
+</div>
+<!-- Checklist Item -->
+<div class="p-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-lg bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-lg">currency_exchange</span>
+</div>
+<div>
+<p class="text-sm font-semibold">Exchange Rate</p>
+<p class="text-xs text-slate-500">Verified against BCV official</p>
+</div>
+</div>
+<span class="text-xs font-bold text-primary uppercase">36.50 VED</span>
+</div>
+</div>
+</section>
+<!-- Section: Field Mapping -->
+<section>
+<div class="flex items-center gap-2 mb-3 px-1">
+<span class="material-symbols-outlined text-primary text-sm">alt_route</span>
+<h3 class="text-xs font-bold uppercase tracking-wider text-slate-500">Field Mapping Reference</h3>
+</div>
+<div class="bg-white dark:bg-slate-900 rounded-xl overflow-hidden shadow-sm border border-slate-200 dark:border-slate-800">
+<table class="w-full text-left text-sm">
+<thead>
+<tr class="bg-slate-50 dark:bg-slate-800/50 text-slate-500">
+<th class="px-4 py-2 font-semibold text-[10px] uppercase">DB Field</th>
+<th class="px-4 py-2 font-semibold text-[10px] uppercase">UI Label</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+<tr>
+<td class="px-4 py-3"><code class="text-blue-400 bg-blue-400/5 px-1 rounded">net_revenue</code></td>
+<td class="px-4 py-3 font-medium">Ventas Netas</td>
+</tr>
+<tr>
+<td class="px-4 py-3"><code class="text-blue-400 bg-blue-400/5 px-1 rounded">total_iva</code></td>
+<td class="px-4 py-3 font-medium">IVA (16%)</td>
+</tr>
+<tr>
+<td class="px-4 py-3"><code class="text-blue-400 bg-blue-400/5 px-1 rounded">total_igtf</code></td>
+<td class="px-4 py-3 font-medium">Impuesto IGTF</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Action Button -->
+<div class="pt-4 pb-8">
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-xl shadow-lg shadow-primary/20 flex items-center justify-center gap-2 transition-transform active:scale-95">
+<span class="material-symbols-outlined">analytics</span>
+                Generar Reporte Final
+            </button>
+<p class="text-center text-[10px] text-slate-500 mt-4 uppercase tracking-widest">Powered by Common Supply Engine</p>
+</div>
+</main>
+<!-- Visual Accent Element -->
+<div class="fixed bottom-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-blue-400 to-emerald-400 opacity-50"></div>
+</body></html>

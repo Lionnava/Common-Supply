@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Interfaz de Notificación de Actualización - Common Supply</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f20d0d",
+                        "background-light": "#f8f5f5",
+                        "background-dark": "#181111",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .ios-shadow {
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-white">
+<!-- VARIANT 1: FORCED UPDATE (FULL SCREEN OVERLAY) -->
+<div class="relative flex min-h-screen w-full flex-col bg-background-light dark:bg-background-dark overflow-hidden">
+<!-- Top App Bar (Title Only) -->
+<div class="flex items-center p-4 pb-2 justify-between">
+<h2 class="text-gray-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pl-12 pr-12">Common Supply</h2>
+</div>
+<div class="flex flex-col items-center justify-center flex-1 px-6">
+<!-- Header Image / Illustration (Shield) -->
+<div class="@container w-full max-w-sm">
+<div class="px-4 py-3">
+<div class="w-full bg-center bg-no-repeat bg-contain flex flex-col justify-center items-center overflow-hidden min-h-60 relative" data-alt="A stylized security shield icon with red glowing accents" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC1l2vmeslsFQxxS8H9x0_FCby_O1xVrEbBEBRwH9WLwZltvy0gHShn_rMtb0YCYepRjYsJvqhbljYsVEUvuYm567HqAmF4pPmdg9ij88vTWLSY0dNGQDZe2KxQjUcP0dNngkkgGNG00FZHINAzqVTjfyPBeIglozrVj15gF4Cya-lH60TzrsqON_Elp132wVJmMui8-MiVzYAwaJTzOVgHxT0nB_NaQ8MYJJR2ZvxwO2zuoc49m6D2hU54JU1RR-BnrH6GR3Qh_qll");'>
+<span class="material-symbols-outlined text-[120px] text-primary" style="font-variation-settings: 'FILL' 1">shield_lock</span>
+</div>
+</div>
+</div>
+<!-- Headline -->
+<h1 class="text-gray-900 dark:text-white tracking-light text-[28px] font-bold leading-tight px-4 text-center pb-3 pt-6">
+                Critical Security Update Required
+            </h1>
+<!-- Body Text -->
+<p class="text-gray-600 dark:text-gray-300 text-base font-normal leading-normal pb-8 pt-1 px-8 text-center max-w-md">
+                To keep your store data safe and maintain synchronization, please update to the latest version immediately. Access to management tools is restricted until updated.
+            </p>
+<!-- Action Button -->
+<div class="w-full max-w-sm px-4 py-3">
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-xl h-14 px-5 bg-primary text-white text-lg font-bold leading-normal tracking-[0.015em] hover:bg-red-700 transition-colors">
+<span class="truncate">Update Now</span>
+</button>
+</div>
+<p class="text-gray-400 text-xs mt-4">Version 2.4.1 (Mandatory)</p>
+</div>
+</div>
+<!-- SEPARATOR FOR DEMO PURPOSES -->
+<div class="h-10 bg-gray-200 dark:bg-black border-y border-gray-700 flex items-center justify-center">
+<span class="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Variant 2: Optional Update Bottom Sheet</span>
+</div>
+<!-- VARIANT 2: OPTIONAL UPDATE (BOTTOM SHEET STYLE) -->
+<div class="relative flex min-h-screen w-full flex-col bg-gray-300 dark:bg-[#0a0a0a] overflow-hidden">
+<!-- Mock App Content Background -->
+<div class="p-4 opacity-30 pointer-events-none">
+<div class="h-8 w-32 bg-gray-400 rounded-lg mb-6"></div>
+<div class="grid grid-cols-2 gap-4">
+<div class="h-32 bg-gray-400 rounded-xl"></div>
+<div class="h-32 bg-gray-400 rounded-xl"></div>
+<div class="h-32 bg-gray-400 rounded-xl"></div>
+<div class="h-32 bg-gray-400 rounded-xl"></div>
+</div>
+</div>
+<!-- Bottom Sheet Wrapper -->
+<div class="mt-auto bg-background-light dark:bg-[#1a1313] rounded-t-[2rem] ios-shadow p-6 flex flex-col items-center">
+<!-- Grabber Handle -->
+<div class="w-10 h-1.5 bg-gray-300 dark:bg-gray-700 rounded-full mb-6"></div>
+<div class="flex items-center gap-4 w-full mb-6">
+<div class="p-3 bg-primary/20 rounded-2xl">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1">rocket_launch</span>
+</div>
+<div class="flex-1">
+<h2 class="text-gray-900 dark:text-white text-xl font-bold">New Features are Here!</h2>
+<p class="text-gray-500 dark:text-gray-400 text-sm">Version 2.5.0 available</p>
+</div>
+</div>
+<!-- Release Notes -->
+<div class="w-full bg-black/5 dark:bg-white/5 rounded-xl p-4 mb-8">
+<h3 class="text-gray-900 dark:text-white text-sm font-bold mb-3 uppercase tracking-wider">What's New</h3>
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+<p class="text-gray-700 dark:text-gray-300 text-sm leading-snug">New inventory scanner with AI-powered SKU recognition.</p>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+<p class="text-gray-700 dark:text-gray-300 text-sm leading-snug">Faster checkout tools and offline sync improvements.</p>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+<p class="text-gray-700 dark:text-gray-300 text-sm leading-snug">Bug fixes for thermal printer connectivity.</p>
+</li>
+</ul>
+</div>
+<!-- Buttons -->
+<div class="flex flex-col w-full gap-3 pb-4">
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-xl h-14 bg-primary text-white text-base font-bold transition-transform active:scale-95">
+                    Update Now
+                </button>
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-xl h-14 bg-transparent text-gray-500 dark:text-gray-400 text-base font-semibold hover:bg-gray-100 dark:hover:bg-white/5 transition-colors">
+                    Not Now
+                </button>
+</div>
+<p class="text-gray-400 dark:text-gray-600 text-[10px] text-center">Suggested: Update over Wi-Fi (45MB)</p>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Common Supply - Lógica y Triggers</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .mono {
+            font-family: 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', monospace;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center p-4 justify-between max-w-md mx-auto">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary cursor-pointer">arrow_back_ios</span>
+<div>
+<h1 class="text-lg font-bold leading-tight tracking-tight">Lógica y Triggers</h1>
+<p class="text-[10px] text-slate-500 font-mono uppercase tracking-widest">Environment: Production v2.4.1</p>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="flex size-10 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-[20px]">terminal</span>
+</button>
+<button class="flex size-10 items-center justify-center rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-[20px]">bug_report</span>
+</button>
+</div>
+</div>
+</header>
+<main class="max-w-md mx-auto pb-24">
+<!-- Search and Filter -->
+<div class="px-4 pt-4">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]">search</span>
+<input class="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl py-2.5 pl-10 pr-4 text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all" placeholder="Buscar estado o endpoint..." type="text"/>
+</div>
+</div>
+<!-- Navigation Tabs -->
+<div class="px-4 mt-4">
+<div class="flex border-b border-slate-200 dark:border-slate-800">
+<a class="flex-1 flex flex-col items-center justify-center border-b-2 border-primary text-primary pb-3 pt-2" href="#">
+<p class="text-sm font-bold">Estados</p>
+</a>
+<a class="flex-1 flex flex-col items-center justify-center border-b-2 border-transparent text-slate-500 pb-3 pt-2" href="#">
+<p class="text-sm font-medium">Eventos</p>
+</a>
+<a class="flex-1 flex flex-col items-center justify-center border-b-2 border-transparent text-slate-500 pb-3 pt-2" href="#">
+<p class="text-sm font-medium">Webhooks</p>
+</a>
+</div>
+</div>
+<!-- Section Header -->
+<div class="flex items-center justify-between px-4 pt-6 pb-2">
+<h3 class="text-sm font-bold uppercase tracking-wider text-slate-500">Order State Machine</h3>
+<span class="text-[11px] font-mono bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded text-slate-600 dark:text-slate-400">7 Active States</span>
+</div>
+<!-- State Cards -->
+<div class="space-y-4 px-4">
+<!-- State: Pendiente -->
+<div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-sm">
+<div class="p-4 border-b border-slate-100 dark:border-slate-800 flex justify-between items-start">
+<div class="flex items-start gap-3">
+<div class="bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 p-2 rounded-lg">
+<span class="material-symbols-outlined text-[24px]">schedule</span>
+</div>
+<div>
+<p class="font-bold text-base">Pendiente</p>
+<p class="text-[11px] font-mono text-slate-500">DB_KEY: ORDER_PENDING</p>
+</div>
+</div>
+<div class="bg-green-500/10 text-green-500 px-2 py-1 rounded text-[10px] font-bold uppercase">Active</div>
+</div>
+<div class="p-4 space-y-3">
+<div class="flex flex-col gap-1">
+<p class="text-[11px] text-slate-400 uppercase font-bold tracking-tighter">Trigger Action</p>
+<div class="flex items-center gap-2 bg-slate-50 dark:bg-slate-800/50 p-2 rounded-lg border border-slate-100 dark:border-slate-800">
+<span class="text-[10px] font-bold px-1.5 py-0.5 bg-blue-500 text-white rounded">POST</span>
+<code class="text-xs font-mono text-slate-600 dark:text-slate-300">/v2/orders/checkout</code>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-1">
+<p class="text-[11px] text-slate-400 uppercase font-bold tracking-tighter">Stock Impact</p>
+<div class="flex items-center gap-1.5 text-xs text-amber-600 dark:text-amber-400 font-medium">
+<span class="material-symbols-outlined text-[16px]">lock</span>
+<span>Hold inventory_res</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<p class="text-[11px] text-slate-400 uppercase font-bold tracking-tighter">Notification</p>
+<div class="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-[16px]">notifications_none</span>
+<span>Email: Wait Pay</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- State: Pagado -->
+<div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-sm">
+<div class="p-4 border-b border-slate-100 dark:border-slate-800 flex justify-between items-start">
+<div class="flex items-start gap-3">
+<div class="bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 p-2 rounded-lg">
+<span class="material-symbols-outlined text-[24px]">check_circle</span>
+</div>
+<div>
+<p class="font-bold text-base">Pagado</p>
+<p class="text-[11px] font-mono text-slate-500">DB_KEY: ORDER_PAID</p>
+</div>
+</div>
+<div class="bg-green-500/10 text-green-500 px-2 py-1 rounded text-[10px] font-bold uppercase">Active</div>
+</div>
+<div class="p-4 space-y-3">
+<div class="flex flex-col gap-1">
+<p class="text-[11px] text-slate-400 uppercase font-bold tracking-tighter">Trigger Action</p>
+<div class="flex items-center gap-2 bg-slate-50 dark:bg-slate-800/50 p-2 rounded-lg border border-slate-100 dark:border-slate-800">
+<span class="text-[10px] font-bold px-1.5 py-0.5 bg-purple-500 text-white rounded">HOOK</span>
+<code class="text-xs font-mono text-slate-600 dark:text-slate-300">stripe.charge.succeeded</code>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-1">
+<p class="text-[11px] text-slate-400 uppercase font-bold tracking-tighter">Stock Impact</p>
+<div class="flex items-center gap-1.5 text-xs text-red-500 font-bold">
+<span class="material-symbols-outlined text-[16px]">trending_down</span>
+<span>available_stock -= qty</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<p class="text-[11px] text-slate-400 uppercase font-bold tracking-tighter">Notification</p>
+<div class="flex items-center gap-1.5 text-xs text-primary font-medium">
+<span class="material-symbols-outlined text-[16px]">send</span>
+<span>Push: Confirmed</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- State: En Tránsito -->
+<div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-sm">
+<div class="p-4 border-b border-slate-100 dark:border-slate-800 flex justify-between items-start">
+<div class="flex items-start gap-3">
+<div class="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 p-2 rounded-lg">
+<span class="material-symbols-outlined text-[24px]">local_shipping</span>
+</div>
+<div>
+<p class="font-bold text-base">En Tránsito</p>
+<p class="text-[11px] font-mono text-slate-500">DB_KEY: ORDER_SHIPPED</p>
+</div>
+</div>
+<div class="bg-green-500/10 text-green-500 px-2 py-1 rounded text-[10px] font-bold uppercase">Active</div>
+</div>
+<div class="p-4 space-y-3">
+<div class="flex flex-col gap-1">
+<p class="text-[11px] text-slate-400 uppercase font-bold tracking-tighter">Trigger Action</p>
+<div class="flex items-center gap-2 bg-slate-50 dark:bg-slate-800/50 p-2 rounded-lg border border-slate-100 dark:border-slate-800">
+<span class="text-[10px] font-bold px-1.5 py-0.5 bg-blue-500 text-white rounded">PUT</span>
+<code class="text-xs font-mono text-slate-600 dark:text-slate-300">/v2/logistic/tracking/upd</code>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-1">
+<p class="text-[11px] text-slate-400 uppercase font-bold tracking-tighter">Stock Impact</p>
+<div class="flex items-center gap-1.5 text-xs text-slate-400">
+<span class="material-symbols-outlined text-[16px]">remove_done</span>
+<span>No direct impact</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<p class="text-[11px] text-slate-400 uppercase font-bold tracking-tighter">Notification</p>
+<div class="flex items-center gap-1.5 text-xs text-primary font-medium">
+<span class="material-symbols-outlined text-[16px]">gps_fixed</span>
+<span>Push: Order Near</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- State: Cancelado -->
+<div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-sm opacity-80">
+<div class="p-4 border-b border-slate-100 dark:border-slate-800 flex justify-between items-start">
+<div class="flex items-start gap-3">
+<div class="bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 p-2 rounded-lg">
+<span class="material-symbols-outlined text-[24px]">cancel</span>
+</div>
+<div>
+<p class="font-bold text-base">Cancelado</p>
+<p class="text-[11px] font-mono text-slate-500">DB_KEY: ORDER_CANCELLED</p>
+</div>
+</div>
+<div class="bg-slate-200 dark:bg-slate-800 text-slate-500 px-2 py-1 rounded text-[10px] font-bold uppercase">Legacy</div>
+</div>
+<div class="p-4 space-y-3 bg-slate-50/50 dark:bg-slate-800/30">
+<div class="flex flex-col gap-1">
+<p class="text-[11px] text-slate-400 uppercase font-bold tracking-tighter">Stock Impact</p>
+<div class="flex items-center gap-1.5 text-xs text-green-500 font-bold">
+<span class="material-symbols-outlined text-[16px]">trending_up</span>
+<span>Restock: inventory += qty</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Actions Tab Bar -->
+<nav class="fixed bottom-0 left-0 right-0 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border-t border-slate-200 dark:border-slate-800 pb-8 pt-3 px-6">
+<div class="max-w-md mx-auto flex items-center justify-between">
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[24px]">account_tree</span>
+<span class="text-[10px] font-bold">State Map</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined text-[24px]">history</span>
+<span class="text-[10px] font-medium">Logs</span>
+</div>
+<div class="relative -top-6">
+<button class="bg-primary text-white size-14 rounded-full shadow-lg shadow-primary/30 flex items-center justify-center border-4 border-background-light dark:border-background-dark">
+<span class="material-symbols-outlined text-[28px]">add</span>
+</button>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined text-[24px]">data_object</span>
+<span class="text-[10px] font-medium">Schema</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined text-[24px]">settings</span>
+<span class="text-[10px] font-medium">Config</span>
+</div>
+</div>
+</nav>
+</body></html>

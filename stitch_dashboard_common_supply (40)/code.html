@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mis Recompensas y Puntos</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#137fec",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101922",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden max-w-[480px] mx-auto bg-white dark:bg-background-dark shadow-xl">
+<!-- TopAppBar Component -->
+<div class="flex items-center bg-white dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-20 border-b border-gray-100 dark:border-gray-800">
+<div class="text-[#111418] dark:text-white flex size-12 shrink-0 items-center justify-start">
+<span class="material-symbols-outlined cursor-pointer">arrow_back_ios</span>
+</div>
+<h2 class="text-[#111418] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Mis Recompensas</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-transparent text-[#111418] dark:text-white gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0">
+<span class="material-symbols-outlined">info</span>
+</button>
+</div>
+</div>
+<!-- Main Card Component (Loyalty Summary) -->
+<div class="p-4 @container">
+<div class="flex flex-col items-stretch justify-start rounded-xl shadow-lg bg-primary text-white overflow-hidden">
+<div class="p-6 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-white/80 text-sm font-medium uppercase tracking-wider">Balance Total</p>
+<p class="text-4xl font-bold leading-tight tracking-[-0.015em]">1,250 pts</p>
+</div>
+<div class="bg-white/20 p-2 rounded-lg">
+<span class="material-symbols-outlined text-white text-3xl">loyalty</span>
+</div>
+</div>
+<!-- Progress Bar Integration -->
+<div class="flex flex-col gap-2 mt-2">
+<div class="flex gap-6 justify-between items-center">
+<p class="text-white text-sm font-medium">Siguiente Nivel: Platino</p>
+<p class="text-white text-xs font-normal">1250 / 1500</p>
+</div>
+<div class="rounded-full bg-white/30 h-2.5 overflow-hidden">
+<div class="h-full bg-white rounded-full" style="width: 83%;"></div>
+</div>
+<p class="text-white/80 text-xs font-normal italic">Faltan 250 pts para tu próximo cupón de $50</p>
+</div>
+<button class="mt-2 flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-white text-primary text-sm font-bold leading-normal hover:bg-gray-100 transition-colors">
+<span class="truncate">Ver beneficios de nivel</span>
+</button>
+</div>
+</div>
+</div>
+<!-- SegmentedButtons Component -->
+<div class="flex px-4 py-2 sticky top-[64px] bg-white dark:bg-background-dark z-10">
+<div class="flex h-11 flex-1 items-center justify-center rounded-xl bg-gray-100 dark:bg-gray-800 p-1">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-gray-700 has-[:checked]:shadow-sm has-[:checked]:text-primary text-[#617589] dark:text-gray-400 text-sm font-semibold transition-all">
+<span class="truncate">Premios</span>
+<input checked="" class="invisible w-0" name="tab-selection" type="radio" value="premios"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-gray-700 has-[:checked]:shadow-sm has-[:checked]:text-primary text-[#617589] dark:text-gray-400 text-sm font-semibold transition-all">
+<span class="truncate">Historial</span>
+<input class="invisible w-0" name="tab-selection" type="radio" value="historial"/>
+</label>
+</div>
+</div>
+<!-- SectionHeader Component -->
+<div class="flex items-center justify-between px-4 pt-4">
+<h3 class="text-[#111418] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Canjeables hoy</h3>
+<span class="text-primary text-xs font-bold uppercase cursor-pointer">Ver todos</span>
+</div>
+<!-- Rewards Grid (Customized Cards) -->
+<div class="grid grid-cols-2 gap-4 p-4">
+<!-- Reward 1 -->
+<div class="flex flex-col bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-700">
+<div class="w-full aspect-square bg-center bg-no-repeat bg-cover" data-alt="Premium coffee bag product" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCwkN-r-rN9OP5v5M_mL1sUH-EtVULbxy19TCHoEJisQjy-gkYKIDXapLMN-fjAHy5ASI7DCVVn1XR5XSIFWA_6FnxLKcgNrzyc4-3u_YFxYZluCQVDMdR6jKJV7gW_g07hCcGn-BG4FTxvPHCsuu5lMEzwko02-LurCkGPdEQ3LJErYg2Nw4ViYAx7gnpElmip76SzvK92uGF1I92eH2OJW0aQNw7aFZpyTa37XLDR0WMjFWCX3OgYeRvq-kkGd9VppUQ8IGcR0iKq");'>
+</div>
+<div class="p-3 flex flex-col gap-2">
+<div>
+<p class="text-[#111418] dark:text-white text-sm font-bold truncate">Café Premium 250g</p>
+<p class="text-primary text-xs font-bold">450 pts</p>
+</div>
+<button class="w-full bg-primary/10 text-primary py-1.5 rounded-lg text-xs font-bold hover:bg-primary hover:text-white transition-colors">
+                        Canjear
+                    </button>
+</div>
+</div>
+<!-- Reward 2 -->
+<div class="flex flex-col bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-700">
+<div class="w-full aspect-square bg-center bg-no-repeat bg-cover" data-alt="Digital discount coupon voucher" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAP48myUwuYs0CZTIGX0vCN-1hs87LPIBM-PRiaQYw-t_IYLnyZVAyeXlP4dBR9zJG-7XobOVEObJSkd3o9wK_04vZmBngMSGcuU1WduNP0XPwqmRAM7WvHDZ-0jFSsOBW2q8yNIrnhlnEYJ58s_Nk6oza52-ew5GxWo3QejACmSiEIJbRspXlpPteLcG5ceMj1sefB-66BuYZxxguU3dFJrR_Yq7pLpLERlcRXGuow-NA2zY0pbXmHyKczRItR2mPE1Emhv-Y1NWdv");'>
+</div>
+<div class="p-3 flex flex-col gap-2">
+<div>
+<p class="text-[#111418] dark:text-white text-sm font-bold truncate">Cupón 15% Descuento</p>
+<p class="text-primary text-xs font-bold">800 pts</p>
+</div>
+<button class="w-full bg-primary/10 text-primary py-1.5 rounded-lg text-xs font-bold hover:bg-primary hover:text-white transition-colors">
+                        Canjear
+                    </button>
+</div>
+</div>
+<!-- Reward 3 -->
+<div class="flex flex-col bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-700">
+<div class="w-full aspect-square bg-center bg-no-repeat bg-cover" data-alt="Fresh organic milk bottle" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA2ih57YH6nDkAc0giijpESRgTom5p7gLO2FPGGBaUP2h1dRH5BuOlU7jvEXlECpj9SG4vfNMZWhxK_CS12hLyfUPmrBS0bMEI9_Gf5O2DBcEOzZMxk51jznut8ys_TkEPup_1O5pwudp0y8xbDuF9qbG4kff3nOvFq-ZLGNP4T-5eJVdiFGczlNQV1ObW4r89fm4l7TAjkX5SBZ_1Lp4r0b8wn8yCvCGTynr5ztZqYY_74FjMPHC9Y_AWN2bwiB34mJIRL15gIegkM");'>
+</div>
+<div class="p-3 flex flex-col gap-2">
+<div>
+<p class="text-[#111418] dark:text-white text-sm font-bold truncate">Leche Entera 1L</p>
+<p class="text-primary text-xs font-bold">200 pts</p>
+</div>
+<button class="w-full bg-primary/10 text-primary py-1.5 rounded-lg text-xs font-bold hover:bg-primary hover:text-white transition-colors">
+                        Canjear
+                    </button>
+</div>
+</div>
+<!-- Reward 4 -->
+<div class="flex flex-col bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-700 opacity-60">
+<div class="w-full aspect-square bg-center bg-no-repeat bg-cover grayscale" data-alt="Reusable grocery shopping bag" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCxaLyQzjbNTHsXNZ_pQqIq1ATkdZoUTAYD1_iLXwyRRrO5GzUcUwuzDpLdwtyXOkgbd5bXde_Llzsj07vITlE-Me9BOYonJ1M-PfdhXBjtFcnqXtbr7uraT5QO-VKXXPpXweBkKuwFmaLu0zS95toYUzEnPj1bY8JnL4upKc1UwRfl1V1FLkybbobjcoiU9mge4VYHHRmPbhYxqH2rJTxWgsctxf064CER9c00QyFXITmbe1fvueU5_HO5hqL10XhVPgme60hZIFhy");'>
+</div>
+<div class="p-3 flex flex-col gap-2">
+<div>
+<p class="text-[#111418] dark:text-white text-sm font-bold truncate">Bolsa Ecológica</p>
+<p class="text-gray-500 text-xs font-bold">1,500 pts</p>
+</div>
+<button class="w-full bg-gray-100 text-gray-400 py-1.5 rounded-lg text-xs font-bold cursor-not-allowed" disabled="">
+                        Faltan pts
+                    </button>
+</div>
+</div>
+</div>
+<!-- History Preview (Hidden by default in a real app, but showing here for design purposes) -->
+<div class="px-4 pb-2 pt-4">
+<h3 class="text-[#111418] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Actividad Reciente</h3>
+</div>
+<div class="flex flex-col px-4 pb-10">
+<!-- History Item 1 -->
+<div class="flex items-center justify-between py-4 border-b border-gray-100 dark:border-gray-800">
+<div class="flex items-center gap-3">
+<div class="size-10 flex items-center justify-center bg-green-100 dark:bg-green-900/30 text-green-600 rounded-full">
+<span class="material-symbols-outlined text-xl">shopping_basket</span>
+</div>
+<div>
+<p class="text-sm font-bold text-[#111418] dark:text-white">Compra Sucursal Centro</p>
+<p class="text-xs text-[#617589] dark:text-gray-400">Hace 2 horas</p>
+</div>
+</div>
+<p class="text-sm font-bold text-green-600">+48 pts</p>
+</div>
+<!-- History Item 2 -->
+<div class="flex items-center justify-between py-4 border-b border-gray-100 dark:border-gray-800">
+<div class="flex items-center gap-3">
+<div class="size-10 flex items-center justify-center bg-red-100 dark:bg-red-900/30 text-red-600 rounded-full">
+<span class="material-symbols-outlined text-xl">redeem</span>
+</div>
+<div>
+<p class="text-sm font-bold text-[#111418] dark:text-white">Canje: Descuento $100</p>
+<p class="text-xs text-[#617589] dark:text-gray-400">Ayer, 18:30</p>
+</div>
+</div>
+<p class="text-sm font-bold text-red-600">-1000 pts</p>
+</div>
+<!-- History Item 3 -->
+<div class="flex items-center justify-between py-4">
+<div class="flex items-center gap-3">
+<div class="size-10 flex items-center justify-center bg-blue-100 dark:bg-blue-900/30 text-primary rounded-full">
+<span class="material-symbols-outlined text-xl">celebration</span>
+</div>
+<div>
+<p class="text-sm font-bold text-[#111418] dark:text-white">Bono de Bienvenida</p>
+<p class="text-xs text-[#617589] dark:text-gray-400">12 Oct 2023</p>
+</div>
+</div>
+<p class="text-sm font-bold text-primary">+500 pts</p>
+</div>
+</div>
+<!-- Sticky Floating Action Button (QR Code) -->
+<div class="fixed bottom-6 left-1/2 -translate-x-1/2 w-full max-w-[480px] px-4 flex justify-center z-30 pointer-events-none">
+<button class="pointer-events-auto bg-[#111418] dark:bg-primary text-white flex items-center gap-3 px-6 py-3 rounded-full shadow-2xl hover:scale-105 transition-transform active:scale-95">
+<span class="material-symbols-outlined">qr_code_scanner</span>
+<span class="text-sm font-bold">Sumar Puntos</span>
+</button>
+</div>
+<div class="h-20 bg-transparent"></div>
+</div>
+</body></html>

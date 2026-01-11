@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ajustes de Seguridad Técnica - Common Supply</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .ios-blur {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen font-display">
+<!-- Top Navigation Bar (iOS Style) -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 ios-blur border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center justify-between px-4 py-3">
+<button class="flex items-center text-primary">
+<span class="material-symbols-outlined text-[28px]">chevron_left</span>
+<span class="text-lg">Ajustes</span>
+</button>
+<h1 class="text-lg font-semibold absolute left-1/2 -translate-x-1/2">Seguridad Técnica</h1>
+<button class="text-primary font-medium text-lg">Guardar</button>
+</div>
+</header>
+<main class="max-w-md mx-auto pb-12">
+<!-- Autenticación y Sesión Section -->
+<section class="mt-6">
+<h2 class="px-4 mb-2 text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Autenticación y Sesión</h2>
+<div class="bg-white dark:bg-[#1c2632] border-y border-slate-200 dark:border-slate-800">
+<!-- 2FA Toggle -->
+<div class="flex items-center gap-4 px-4 min-h-[72px] py-2 justify-between border-b border-slate-200 dark:border-slate-800 last:border-0">
+<div class="flex items-center gap-4">
+<div class="text-white flex items-center justify-center rounded-lg bg-primary shrink-0 size-10">
+<span class="material-symbols-outlined text-[24px]">enhanced_encryption</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-base font-medium leading-normal">Autenticación (2FA)</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs leading-normal">Capa extra mediante app o SMS.</p>
+</div>
+</div>
+<div class="shrink-0">
+<label class="relative flex h-[31px] w-[51px] cursor-pointer items-center rounded-full border-none bg-slate-200 dark:bg-[#2d3a49] p-0.5 has-[:checked]:justify-end has-[:checked]:bg-primary transition-all duration-200">
+<div class="h-full w-[27px] rounded-full bg-white shadow-md"></div>
+<input checked="" class="invisible absolute" type="checkbox"/>
+</label>
+</div>
+</div>
+<!-- Force Logout Toggle -->
+<div class="flex items-center gap-4 px-4 min-h-[72px] py-2 justify-between border-b border-slate-200 dark:border-slate-800 last:border-0">
+<div class="flex items-center gap-4">
+<div class="text-white flex items-center justify-center rounded-lg bg-slate-200 dark:bg-[#2d3a49] shrink-0 size-10">
+<span class="material-symbols-outlined text-slate-600 dark:text-white text-[24px]">logout</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-base font-medium leading-normal">Cerrar sesión al salir</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs leading-normal">Finaliza la sesión al cerrar el app.</p>
+</div>
+</div>
+<div class="shrink-0">
+<label class="relative flex h-[31px] w-[51px] cursor-pointer items-center rounded-full border-none bg-slate-200 dark:bg-[#2d3a49] p-0.5 has-[:checked]:justify-end has-[:checked]:bg-primary transition-all duration-200">
+<div class="h-full w-[27px] rounded-full bg-white shadow-md"></div>
+<input class="invisible absolute" type="checkbox"/>
+</label>
+</div>
+</div>
+<!-- Session Timeout Selector -->
+<button class="w-full flex items-center gap-4 px-4 min-h-[72px] py-2 justify-between border-b border-slate-200 dark:border-slate-800 last:border-0 text-left active:bg-slate-50 dark:active:bg-slate-800/50 transition-colors">
+<div class="flex items-center gap-4">
+<div class="text-white flex items-center justify-center rounded-lg bg-slate-200 dark:bg-[#2d3a49] shrink-0 size-10">
+<span class="material-symbols-outlined text-slate-600 dark:text-white text-[24px]">timer</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-base font-medium leading-normal">Tiempo de expiración</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs leading-normal">Duración de inactividad permitida.</p>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<span class="text-slate-500 dark:text-slate-400 text-base">30 mins</span>
+<span class="material-symbols-outlined text-slate-400 text-[20px]">chevron_right</span>
+</div>
+</button>
+</div>
+</section>
+<!-- Acceso por Red Section -->
+<section class="mt-8">
+<h2 class="px-4 mb-2 text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Acceso por Red (Opcional)</h2>
+<div class="bg-white dark:bg-[#1c2632] border-y border-slate-200 dark:border-slate-800 p-4">
+<label class="block text-sm font-medium mb-2" for="ip-whitelist">Lista blanca de IPs
+<div class="relative">
+<input class="w-full bg-slate-50 dark:bg-[#101922] border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-3 text-base focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-slate-400" id="ip-whitelist" placeholder="Ej: 192.168.1.1, 10.0.0.5" type="text"/>
+</div>
+<p class="mt-2 text-xs text-slate-500 dark:text-slate-400">Separa las direcciones IP por comas. Solo estas IPs podrán acceder al panel administrativo.</p>
+</label></div>
+</section>
+<!-- Monitoreo y Auditoría Section -->
+<section class="mt-8">
+<h2 class="px-4 mb-2 text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Monitoreo y Auditoría</h2>
+<div class="bg-white dark:bg-[#1c2632] border-y border-slate-200 dark:border-slate-800">
+<button class="w-full flex items-center gap-4 px-4 min-h-[72px] py-2 justify-between active:bg-slate-50 dark:active:bg-slate-800/50 transition-colors">
+<div class="flex items-center gap-4">
+<div class="text-white flex items-center justify-center rounded-lg bg-orange-500/20 shrink-0 size-10">
+<span class="material-symbols-outlined text-orange-500 text-[24px]">shield_with_heart</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-base font-medium leading-normal">Registro de Seguridad</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs leading-normal">Ver intentos de inicio fallidos y actividad.</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="bg-red-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">3 Alert</span>
+<span class="material-symbols-outlined text-slate-400 text-[20px]">chevron_right</span>
+</div>
+</button>
+</div>
+</section>
+<!-- Informational Footer -->
+<div class="px-4 mt-8">
+<div class="bg-primary/10 dark:bg-primary/5 rounded-xl p-4 flex gap-3 border border-primary/20">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0">info</span>
+<p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                    Estas configuraciones afectan a todos los administradores de la tienda. Asegúrese de que todos tengan acceso a sus métodos de 2FA antes de activar la restricción obligatoria.
+                </p>
+</div>
+</div>
+<!-- Danger Zone -->
+<div class="mt-12 px-4">
+<button class="w-full py-4 text-red-500 font-semibold border border-red-200 dark:border-red-900/30 rounded-xl bg-red-50 dark:bg-red-900/10 active:bg-red-100 transition-colors">
+                Restablecer configuración técnica
+            </button>
+</div>
+</main>
+</body></html>

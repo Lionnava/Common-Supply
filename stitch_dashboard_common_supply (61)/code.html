@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Políticas de Bloqueo y Seguridad</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1152d4",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .ios-toggle {
+            position: relative;
+            display: inline-block;
+            width: 51px;
+            height: 31px;
+        }
+        .ios-toggle input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #39393d;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 27px;
+            width: 27px;
+            left: 2px;
+            bottom: 2px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        input:checked + .slider {
+            background-color: #1152d4;
+        }
+        input:checked + .slider:before {
+            transform: translateX(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen flex flex-col">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center justify-between p-4 h-16">
+<button class="flex items-center text-primary">
+<span class="material-symbols-outlined text-2xl">chevron_left</span>
+<span class="text-base font-medium">Ajustes</span>
+</button>
+<h1 class="text-lg font-bold tracking-tight">Políticas de Seguridad</h1>
+<button class="w-10 flex justify-end">
+<span class="material-symbols-outlined text-primary">info</span>
+</button>
+</div>
+</header>
+<main class="flex-1 overflow-y-auto px-4 py-6 space-y-8">
+<!-- Section: Lockout Control -->
+<section class="space-y-4">
+<div class="flex items-center justify-between">
+<h3 class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Control de Bloqueo</h3>
+<span class="px-2 py-0.5 rounded bg-primary/20 text-primary text-[10px] font-bold">ACTIVO</span>
+</div>
+<div class="bg-white dark:bg-[#1c2231] rounded-xl overflow-hidden shadow-sm">
+<!-- List Item 1 -->
+<div class="flex items-center gap-4 px-4 py-4 justify-between border-b border-slate-100 dark:border-slate-800">
+<div class="flex flex-col flex-1">
+<p class="text-base font-medium">Máximo de intentos fallidos</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs mt-1">Bloqueo automático tras superar el límite</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-primary font-semibold">5 intentos</span>
+</div>
+</div>
+<!-- Selector Component (WheelPicker inspired) -->
+<div class="p-3 bg-slate-50 dark:bg-black/20">
+<div class="flex bg-slate-200 dark:bg-slate-800 rounded-lg p-1">
+<button class="flex-1 py-2 text-sm font-semibold rounded-md text-slate-500 dark:text-slate-400">3</button>
+<button class="flex-1 py-2 text-sm font-semibold rounded-md bg-white dark:bg-slate-700 text-primary shadow-sm">5</button>
+<button class="flex-1 py-2 text-sm font-semibold rounded-md text-slate-500 dark:text-slate-400">10</button>
+<button class="flex-1 py-2 text-sm font-semibold rounded-md text-slate-500 dark:text-slate-400">20</button>
+</div>
+</div>
+<!-- List Item 2 -->
+<div class="flex items-center gap-4 px-4 py-4 justify-between">
+<div class="flex flex-col flex-1">
+<p class="text-base font-medium">Duración del bloqueo</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs mt-1">Tiempo antes de permitir reintento</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-primary font-semibold">30 min</span>
+<span class="material-symbols-outlined text-slate-300 dark:text-slate-600">chevron_right</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: Notifications -->
+<section class="space-y-4">
+<h3 class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Notificaciones de Alerta</h3>
+<div class="bg-white dark:bg-[#1c2231] rounded-xl overflow-hidden shadow-sm">
+<div class="flex items-center gap-4 px-4 py-4 justify-between border-b border-slate-100 dark:border-slate-800">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-xl">notifications_active</span>
+</div>
+<p class="text-base font-medium">Alertar al Administrador</p>
+</div>
+<label class="ios-toggle">
+<input checked="" type="checkbox"/>
+<span class="slider"></span>
+</label>
+</div>
+<div class="px-4 py-3 bg-slate-50/50 dark:bg-transparent">
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between opacity-80">
+<span class="text-sm font-medium">Vía Correo Electrónico</span>
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+</div>
+<div class="flex items-center justify-between opacity-80">
+<span class="text-sm font-medium">Vía WhatsApp Business</span>
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+</div>
+</div>
+</div>
+</div>
+<p class="px-2 text-[11px] text-slate-500 dark:text-slate-500">Se enviarán detalles del dispositivo e IP de origen al detectar actividad sospechosa.</p>
+</section>
+<!-- Section: Geofencing & Advanced -->
+<section class="space-y-4">
+<h3 class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Restricciones Avanzadas</h3>
+<div class="bg-white dark:bg-[#1c2231] rounded-xl overflow-hidden shadow-sm">
+<div class="flex items-center gap-4 px-4 py-4 justify-between border-b border-slate-100 dark:border-slate-800">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-orange-500/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-orange-500 text-xl">map</span>
+</div>
+<div class="flex flex-col">
+<p class="text-base font-medium">Geofencing (Países)</p>
+<p class="text-[11px] text-orange-500">Solo México, EE.UU.</p>
+</div>
+</div>
+<label class="ios-toggle">
+<input checked="" type="checkbox"/>
+<span class="slider"></span>
+</label>
+</div>
+<div class="flex items-center gap-4 px-4 py-4 justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-purple-500/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-purple-500 text-xl">lan</span>
+</div>
+<p class="text-base font-medium">Whitelist de IPs</p>
+</div>
+<span class="text-slate-400 text-sm">2 Activas</span>
+</div>
+</div>
+</section>
+<!-- Security Badge Image -->
+<div class="flex flex-col items-center justify-center py-6">
+<div class="w-20 h-20 rounded-full bg-primary/5 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-4xl text-primary/40">verified_user</span>
+</div>
+<p class="text-xs text-center text-slate-500 dark:text-slate-500 leading-relaxed max-w-[240px]">
+                Configuración de seguridad de Common Supply Pro v2.4
+            </p>
+</div>
+</main>
+<!-- Bottom Action Button -->
+<footer class="p-6 bg-background-light dark:bg-background-dark border-t border-slate-200 dark:border-slate-800">
+<button class="w-full bg-primary hover:bg-blue-700 text-white font-bold py-4 rounded-xl shadow-lg transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">save</span>
+            Guardar Cambios
+        </button>
+<button class="w-full mt-4 py-2 text-sm font-medium text-red-500 dark:text-red-400">
+            Restablecer políticas predeterminadas
+        </button>
+</footer>
+</body></html>

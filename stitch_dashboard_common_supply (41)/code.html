@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Confirmación de Identidad - Common Supply</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .ios-blur {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display min-h-screen flex items-center justify-center relative overflow-hidden">
+<!-- Mock Background Content (Simulating the Accounting Screen behind) -->
+<div class="absolute inset-0 z-0 p-4 opacity-40 select-none pointer-events-none">
+<div class="flex items-center justify-between mb-6">
+<div class="h-8 w-8 bg-gray-300 dark:bg-gray-700 rounded-full"></div>
+<div class="h-6 w-32 bg-gray-300 dark:bg-gray-700 rounded-lg"></div>
+<div class="h-8 w-8 bg-gray-300 dark:bg-gray-700 rounded-full"></div>
+</div>
+<div class="space-y-4">
+<div class="h-32 w-full bg-gray-200 dark:bg-gray-800 rounded-xl"></div>
+<div class="h-20 w-full bg-gray-200 dark:bg-gray-800 rounded-xl"></div>
+<div class="h-20 w-full bg-gray-200 dark:bg-gray-800 rounded-xl"></div>
+<div class="h-20 w-full bg-gray-200 dark:bg-gray-800 rounded-xl"></div>
+</div>
+</div>
+<!-- Dark Overlay Backdrop -->
+<div class="absolute inset-0 bg-black/40 dark:bg-black/60 z-10 ios-blur"></div>
+<!-- Biometric Prompt Container -->
+<div class="relative z-20 w-full max-w-[340px] px-6">
+<div class="bg-white dark:bg-[#1c2a38] rounded-3xl shadow-2xl overflow-hidden flex flex-col items-center p-8 text-center">
+<!-- Top App Bar / Title -->
+<div class="w-full flex justify-end absolute top-4 right-4">
+<button class="text-gray-400 dark:text-gray-500 hover:text-gray-600">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Header Icon (Biometric Graphic) -->
+<div class="mt-4 mb-8">
+<div class="relative flex items-center justify-center">
+<!-- Outer pulse ring -->
+<div class="absolute w-24 h-24 rounded-full border-2 border-primary/30 animate-pulse"></div>
+<!-- Icon background -->
+<div class="w-20 h-20 bg-primary/10 dark:bg-primary/20 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary !text-5xl" style="font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 48">
+                            fingerprint
+                        </span>
+</div>
+</div>
+</div>
+<!-- Headline Text -->
+<h2 class="text-[#111418] dark:text-white text-xl font-bold leading-tight tracking-tight mb-2">
+                Confirmación de Identidad
+            </h2>
+<!-- Body Text -->
+<p class="text-gray-600 dark:text-gray-400 text-sm font-normal leading-relaxed mb-8">
+                Confirme su identidad para continuar y acceder a las áreas sensibles de contabilidad.
+            </p>
+<!-- Action Buttons -->
+<div class="w-full space-y-3">
+<!-- Main action is usually implicit (the scan), but we provide fallback -->
+<button class="w-full flex items-center justify-center bg-primary text-white rounded-xl h-12 px-5 text-base font-semibold transition-all hover:bg-primary/90 active:scale-95 shadow-lg shadow-primary/20">
+<span class="truncate">Intentar de nuevo</span>
+</button>
+<button class="w-full flex items-center justify-center bg-transparent border border-gray-200 dark:border-gray-700 text-[#111418] dark:text-gray-300 rounded-xl h-12 px-5 text-base font-medium transition-all hover:bg-gray-50 dark:hover:bg-gray-800">
+<span class="truncate">Usar Contraseña</span>
+</button>
+</div>
+<!-- Cancel Link -->
+<button class="mt-6 text-gray-500 dark:text-gray-400 text-sm font-medium hover:underline">
+                Cancelar
+            </button>
+</div>
+<!-- System Footer Indicator (iOS style) -->
+<div class="flex flex-col items-center mt-8">
+<div class="flex items-center gap-2 text-white/60 dark:text-white/40 mb-4">
+<span class="material-symbols-outlined !text-sm">lock</span>
+<span class="text-xs uppercase tracking-widest font-semibold">Acceso Protegido</span>
+</div>
+<!-- Home Indicator -->
+<div class="w-32 h-1.5 bg-white/20 dark:bg-white/10 rounded-full"></div>
+</div>
+</div>
+</body></html>

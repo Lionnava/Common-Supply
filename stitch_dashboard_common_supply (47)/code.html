@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Configuración de Impuestos Fiscales</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display min-h-screen text-[#111418] dark:text-white">
+<!-- Top Navigation Bar -->
+<div class="sticky top-0 z-10 flex items-center bg-white dark:bg-background-dark p-4 border-b border-[#e5e7eb] dark:border-[#2d3748] justify-between">
+<div class="text-primary flex size-12 shrink-0 items-center cursor-pointer">
+<span class="material-symbols-outlined">arrow_back_ios</span>
+</div>
+<h2 class="text-[#111418] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Configuración Fiscal</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="text-primary text-base font-bold leading-normal tracking-[0.015em] shrink-0">Guardar</button>
+</div>
+</div>
+<div class="max-w-md mx-auto pb-10">
+<!-- IVA Section -->
+<div class="px-4 pt-6 pb-2">
+<h3 class="text-[#111418] dark:text-white text-sm font-bold uppercase tracking-wider opacity-60">Impuesto al Valor Agregado (IVA)</h3>
+</div>
+<div class="mx-4 bg-white dark:bg-[#1a242f] rounded-xl shadow-sm overflow-hidden border border-[#e5e7eb] dark:border-[#2d3748]">
+<div class="flex items-center gap-4 px-4 min-h-[72px] py-2 justify-between">
+<div class="flex items-center gap-4">
+<div class="text-primary flex items-center justify-center rounded-lg bg-primary/10 shrink-0 size-10">
+<span class="material-symbols-outlined">percent</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-[#111418] dark:text-white text-base font-semibold leading-normal">IVA General (16%)</p>
+<p class="text-[#617589] dark:text-gray-400 text-xs font-normal leading-normal">Habilitar cobro automático en ventas</p>
+</div>
+</div>
+<div class="shrink-0">
+<label class="relative flex h-[31px] w-[51px] cursor-pointer items-center rounded-full border-none bg-[#e2e8f0] dark:bg-[#2d3748] p-0.5 has-[:checked]:justify-end has-[:checked]:bg-primary">
+<div class="h-full w-[27px] rounded-full bg-white shadow-md"></div>
+<input checked="" class="invisible absolute" type="checkbox"/>
+</label>
+</div>
+</div>
+</div>
+<!-- Product Default Status Section -->
+<div class="px-4 pt-8 pb-2">
+<h3 class="text-[#111418] dark:text-white text-sm font-bold uppercase tracking-wider opacity-60">Configuración de Inventario</h3>
+</div>
+<div class="mx-4 bg-white dark:bg-[#1a242f] rounded-xl shadow-sm overflow-hidden border border-[#e5e7eb] dark:border-[#2d3748] p-4">
+<p class="text-[#111418] dark:text-white text-base font-medium mb-3">Estado Predeterminado de Productos</p>
+<div class="flex h-11 items-center justify-center rounded-xl bg-background-light dark:bg-background-dark p-1">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-[#2d3748] has-[:checked]:shadow-sm has-[:checked]:text-primary text-[#617589] dark:text-gray-400 text-sm font-semibold transition-all">
+<span class="truncate">Exento</span>
+<input class="invisible w-0" name="product_status" type="radio" value="Exento"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-[#2d3748] has-[:checked]:shadow-sm has-[:checked]:text-primary text-[#617589] dark:text-gray-400 text-sm font-semibold transition-all">
+<span class="truncate">Gravable</span>
+<input checked="" class="invisible w-0" name="product_status" type="radio" value="Gravable"/>
+</label>
+</div>
+<p class="text-[#617589] dark:text-gray-400 text-xs mt-3 leading-relaxed">
+                Define si los productos nuevos se crean como exentos de IVA o sujetos a la tasa general por defecto.
+            </p>
+</div>
+<!-- IGTF Section -->
+<div class="px-4 pt-8 pb-2">
+<h3 class="text-[#111418] dark:text-white text-sm font-bold uppercase tracking-wider opacity-60">Pagos en Divisas (IGTF)</h3>
+</div>
+<div class="mx-4 bg-white dark:bg-[#1a242f] rounded-xl shadow-sm overflow-hidden border border-[#e5e7eb] dark:border-[#2d3748]">
+<!-- IGTF Switch -->
+<div class="flex items-center gap-4 px-4 min-h-[72px] py-2 justify-between border-b border-[#f0f2f4] dark:border-[#2d3748]">
+<div class="flex items-center gap-4">
+<div class="text-[#137fec] flex items-center justify-center rounded-lg bg-primary/10 shrink-0 size-10">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-[#111418] dark:text-white text-base font-semibold leading-normal">IGTF (3%)</p>
+<p class="text-[#617589] dark:text-gray-400 text-xs font-normal leading-normal">Impuesto a Grandes Transacciones</p>
+</div>
+</div>
+<div class="shrink-0">
+<label class="relative flex h-[31px] w-[51px] cursor-pointer items-center rounded-full border-none bg-[#e2e8f0] dark:bg-[#2d3748] p-0.5 has-[:checked]:justify-end has-[:checked]:bg-primary">
+<div class="h-full w-[27px] rounded-full bg-white shadow-md"></div>
+<input checked="" class="invisible absolute" type="checkbox"/>
+</label>
+</div>
+</div>
+<!-- Specific Logic Setting -->
+<div class="p-4 bg-primary/5">
+<div class="flex items-start gap-3">
+<div class="mt-1 shrink-0">
+<label class="relative flex h-5 w-5 cursor-pointer items-center justify-center rounded border-2 border-primary bg-transparent has-[:checked]:bg-primary">
+<span class="material-symbols-outlined text-white text-sm">check</span>
+<input checked="" class="invisible absolute" type="checkbox"/>
+</label>
+</div>
+<div class="flex flex-col">
+<p class="text-[#111418] dark:text-white text-sm font-medium">Aplicar solo a la porción pagada en USD</p>
+<p class="text-[#617589] dark:text-gray-400 text-xs mt-1 leading-relaxed">
+                            Si el pago es mixto, el 3% se calculará únicamente sobre el monto recibido en divisas, según normativa vigente.
+                        </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Fiscal Compliance Notice -->
+<div class="mt-8 px-6 py-4 mx-4 bg-[#fefce8] dark:bg-[#2d2a1c] border border-[#fef08a] dark:border-[#423a1c] rounded-xl flex items-start gap-3">
+<span class="material-symbols-outlined text-[#a16207] shrink-0">info</span>
+<p class="text-[#a16207] dark:text-[#fde047] text-xs font-medium leading-relaxed">
+                Estos ajustes cumplen con las regulaciones fiscales actuales del SENIAT para el comercio minorista. Asegúrese de revisar periódicamente la tasa del BCV configurada en su terminal.
+            </p>
+</div>
+<!-- Footer Logo/Branding -->
+<div class="mt-12 flex flex-col items-center opacity-40">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-sm">inventory_2</span>
+<span class="text-xs font-bold tracking-tight">Common Supply</span>
+</div>
+<p class="text-[10px]">Gestión de Inventario v2.4.0</p>
+</div>
+</div>
+</body></html>

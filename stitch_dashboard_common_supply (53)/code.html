@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Detalle de Tablas Financieras</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .mono-text { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display bg-background-light dark:bg-background-dark text-[#111418] dark:text-gray-100 min-h-screen">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<!-- TopAppBar -->
+<div class="flex items-center bg-white dark:bg-[#1a242f] p-4 pb-2 justify-between border-b dark:border-gray-800 sticky top-0 z-10">
+<div class="text-primary flex size-12 shrink-0 items-center justify-start cursor-pointer">
+<span class="material-symbols-outlined" style="font-size: 24px;">arrow_back_ios</span>
+</div>
+<h2 class="text-[#111418] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Tablas Financieras</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-transparent text-primary gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0">
+<span class="material-symbols-outlined" style="font-size: 24px;">data_object</span>
+</button>
+</div>
+</div>
+<!-- SegmentedButtons -->
+<div class="flex px-4 py-4 bg-white dark:bg-[#1a242f]">
+<div class="flex h-11 flex-1 items-center justify-center rounded-xl bg-gray-100 dark:bg-gray-800 p-1">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-gray-700 has-[:checked]:shadow-sm has-[:checked]:text-primary text-[#617589] dark:text-gray-400 text-sm font-semibold leading-normal transition-all">
+<span class="truncate">Divisas</span>
+<input checked="" class="invisible w-0" name="table_toggle" type="radio" value="Exchange Rates"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-gray-700 has-[:checked]:shadow-sm has-[:checked]:text-primary text-[#617589] dark:text-gray-400 text-sm font-semibold leading-normal transition-all">
+<span class="truncate">Impuestos</span>
+<input class="invisible w-0" name="table_toggle" type="radio" value="Taxes"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-gray-700 has-[:checked]:shadow-sm has-[:checked]:text-primary text-[#617589] dark:text-gray-400 text-sm font-semibold leading-normal transition-all">
+<span class="truncate">Libro</span>
+<input class="invisible w-0" name="table_toggle" type="radio" value="Ledger"/>
+</label>
+</div>
+</div>
+<!-- SectionHeader -->
+<div class="flex items-center justify-between px-4 pt-6 pb-2">
+<h2 class="text-[#111418] dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em]">Table: Exchange_Rates</h2>
+<span class="text-xs font-mono bg-primary/10 text-primary px-2 py-1 rounded">PUBLIC SCHEMA</span>
+</div>
+<!-- PK Card Component -->
+<div class="p-4 @container">
+<div class="flex flex-col items-stretch justify-start rounded-xl border border-primary/20 bg-primary/5 dark:bg-primary/10 overflow-hidden">
+<div class="w-full bg-center bg-no-repeat aspect-[21/9] bg-cover opacity-80" data-alt="Abstract blue network of database connections" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCukFqhZbQ7dMmdWv9yETvAvxKb8Up8IeE9EMOvEF3loNoyzRnzlZfwc0S4828aUVYivlmkYaEEW8fvLH367YgZQMxYqC3aNrUTkL-IJYQnTg3GDC37dYDCnqu60Xm8bH32oiZLNY535KNhhVHdSSaNHTjy4UuVFKdBn8xWWfT0cpZ8KvA-fnjhebgHJvsM-POLpx1e9gBk7kRjKyV_DcytIgoEp7IVEIMQPFoZJJa6FXluaklZtB3rSv49wUreOjagbIx9E6FX5QWT");'></div>
+<div class="flex w-full min-w-72 grow flex-col items-stretch justify-center gap-1 p-4">
+<div class="flex items-center gap-2">
+<span class="text-white bg-primary text-[10px] font-bold px-1.5 py-0.5 rounded">PK</span>
+<p class="text-primary text-sm font-bold uppercase tracking-wider">Primary Identifier</p>
+</div>
+<p class="text-[#111418] dark:text-white text-xl font-bold leading-tight mono-text">Currency_Code</p>
+<div class="flex items-end gap-3 justify-between mt-2">
+<div class="flex flex-col">
+<p class="text-[#617589] dark:text-gray-400 text-xs font-medium uppercase">Data Type</p>
+<p class="text-primary text-base font-semibold mono-text">String (ISO 4217)</p>
+</div>
+<button class="flex min-w-[100px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-primary text-white text-sm font-medium leading-normal gap-2 shadow-md active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+<span class="truncate">Copy</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- List Items (Fields) -->
+<div class="mt-2 space-y-1">
+<div class="px-4 py-2">
+<p class="text-[#617589] dark:text-gray-400 text-xs font-bold uppercase tracking-widest">Attributes</p>
+</div>
+<!-- Field: Rate_Value -->
+<div class="flex items-center gap-4 bg-white dark:bg-[#1a242f] px-4 min-h-[72px] py-3 justify-between border-b dark:border-gray-800">
+<div class="flex flex-col justify-center">
+<div class="flex items-center gap-2">
+<p class="text-[#111418] dark:text-white text-base font-bold mono-text">Rate_Value</p>
+<span class="material-symbols-outlined text-gray-400 text-xs cursor-pointer">info</span>
+</div>
+<p class="text-primary text-sm font-medium mono-text bg-primary/5 px-2 py-0.5 rounded-md inline-block w-fit mt-1">Decimal (18, 8)</p>
+</div>
+<div class="shrink-0 flex items-center gap-3">
+<span class="material-symbols-outlined text-gray-400">content_copy</span>
+<div class="flex size-7 items-center justify-center">
+<div class="size-3 rounded-full bg-[#078838] shadow-[0_0_8px_rgba(7,136,56,0.5)]"></div>
+</div>
+</div>
+</div>
+<!-- Field: Provider_Source -->
+<div class="flex items-center gap-4 bg-white dark:bg-[#1a242f] px-4 min-h-[72px] py-3 justify-between border-b dark:border-gray-800">
+<div class="flex flex-col justify-center">
+<div class="flex items-center gap-2">
+<p class="text-[#111418] dark:text-white text-base font-bold mono-text">Provider_Source</p>
+</div>
+<p class="text-primary text-sm font-medium mono-text bg-primary/5 px-2 py-0.5 rounded-md inline-block w-fit mt-1">Varchar (128)</p>
+</div>
+<div class="shrink-0 flex items-center gap-3">
+<span class="material-symbols-outlined text-gray-400">content_copy</span>
+<div class="flex size-7 items-center justify-center">
+<div class="size-3 rounded-full bg-[#078838] shadow-[0_0_8px_rgba(7,136,56,0.5)]"></div>
+</div>
+</div>
+</div>
+<!-- Field: Last_Updated -->
+<div class="flex items-center gap-4 bg-white dark:bg-[#1a242f] px-4 min-h-[72px] py-3 justify-between border-b dark:border-gray-800">
+<div class="flex flex-col justify-center">
+<div class="flex items-center gap-2">
+<p class="text-[#111418] dark:text-white text-base font-bold mono-text">Last_Updated</p>
+</div>
+<p class="text-primary text-sm font-medium mono-text bg-primary/5 px-2 py-0.5 rounded-md inline-block w-fit mt-1">Timestamp</p>
+</div>
+<div class="shrink-0 flex items-center gap-3">
+<span class="material-symbols-outlined text-gray-400">content_copy</span>
+<div class="flex size-7 items-center justify-center">
+<div class="size-3 rounded-full bg-[#078838] shadow-[0_0_8px_rgba(7,136,56,0.5)]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Section: Relationship -->
+<div class="px-4 pt-8 pb-4">
+<h3 class="text-[#111418] dark:text-white text-sm font-bold uppercase tracking-widest mb-3">Linked Tables</h3>
+<div class="flex gap-3 overflow-x-auto pb-4 scrollbar-hide">
+<div class="flex-none w-40 p-3 bg-white dark:bg-[#1a242f] rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm">
+<p class="text-xs text-[#617589] font-medium mb-1">Foreign Key</p>
+<p class="text-sm font-bold text-primary truncate">Ledger_Entries</p>
+<div class="flex items-center gap-1 mt-2">
+<span class="material-symbols-outlined text-[14px]">link</span>
+<span class="text-[10px] text-gray-400">1:M Relation</span>
+</div>
+</div>
+<div class="flex-none w-40 p-3 bg-white dark:bg-[#1a242f] rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm opacity-50">
+<p class="text-xs text-[#617589] font-medium mb-1">Reference</p>
+<p class="text-sm font-bold text-primary truncate">Audit_Logs</p>
+<div class="flex items-center gap-1 mt-2">
+<span class="material-symbols-outlined text-[14px]">history</span>
+<span class="text-[10px] text-gray-400">Temporal</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Sticky Footer Action -->
+<div class="mt-auto p-4 bg-white dark:bg-[#1a242f] border-t dark:border-gray-800">
+<button class="w-full flex items-center justify-center gap-2 bg-primary text-white h-12 rounded-xl font-bold shadow-lg shadow-primary/25">
+<span class="material-symbols-outlined">terminal</span>
+                Generar SQL Create
+            </button>
+</div>
+<div class="h-8 bg-white dark:bg-[#1a242f]"></div>
+</div>
+</body></html>

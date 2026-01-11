@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Distribución de Ventas por Hora</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            -webkit-tap-highlight-color: transparent;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#111418] dark:text-white min-h-screen">
+<div class="relative flex h-auto min-h-screen w-full flex-col max-w-md mx-auto bg-white dark:bg-background-dark overflow-x-hidden shadow-xl">
+<!-- TopAppBar -->
+<div class="flex items-center bg-white dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-50 border-b border-[#dbe0e6] dark:border-gray-800">
+<div class="text-[#111418] dark:text-white flex size-12 shrink-0 items-center cursor-pointer">
+<span class="material-symbols-outlined">arrow_back_ios</span>
+</div>
+<h2 class="text-[#111418] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Ventas por Hora</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-transparent text-[#111418] dark:text-white gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0">
+<span class="material-symbols-outlined">calendar_today</span>
+</button>
+</div>
+</div>
+<!-- Calendar Picker Simplified for Mobile App Context -->
+<div class="flex flex-wrap items-center justify-center gap-6 p-4 bg-white dark:bg-background-dark border-b border-[#dbe0e6] dark:border-gray-800">
+<div class="flex min-w-72 max-w-[336px] flex-1 flex-col gap-0.5">
+<div class="flex items-center p-1 justify-between">
+<button class="text-[#111418] dark:text-white">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<p class="text-[#111418] dark:text-white text-base font-bold leading-tight flex-1 text-center">Octubre 2023</p>
+<button class="text-[#111418] dark:text-white">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+<div class="grid grid-cols-7 text-center">
+<p class="text-[#617589] text-[13px] font-bold py-2">S</p>
+<p class="text-[#617589] text-[13px] font-bold py-2">M</p>
+<p class="text-[#617589] text-[13px] font-bold py-2">T</p>
+<p class="text-[#617589] text-[13px] font-bold py-2">W</p>
+<p class="text-[#617589] text-[13px] font-bold py-2">T</p>
+<p class="text-[#617589] text-[13px] font-bold py-2">F</p>
+<p class="text-[#617589] text-[13px] font-bold py-2">S</p>
+<button class="h-10 w-full flex items-center justify-center text-sm font-medium rounded-full bg-primary text-white">5</button>
+<button class="h-10 w-full flex items-center justify-center text-sm font-medium rounded-full">6</button>
+<button class="h-10 w-full flex items-center justify-center text-sm font-medium rounded-full">7</button>
+<button class="h-10 w-full flex items-center justify-center text-sm font-medium rounded-full">8</button>
+<button class="h-10 w-full flex items-center justify-center text-sm font-medium rounded-full">9</button>
+<button class="h-10 w-full flex items-center justify-center text-sm font-medium rounded-full">10</button>
+<button class="h-10 w-full flex items-center justify-center text-sm font-medium rounded-full">11</button>
+</div>
+</div>
+</div>
+<!-- Stats Section -->
+<div class="flex flex-wrap gap-4 p-4">
+<div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-xl p-4 border border-[#dbe0e6] dark:border-gray-800 bg-white dark:bg-background-dark/50">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">payments</span>
+<p class="text-[#617589] dark:text-gray-400 text-sm font-medium leading-normal">Pico Ingresos</p>
+</div>
+<p class="text-[#111418] dark:text-white tracking-tight text-xl font-bold leading-tight">14:00 - $1.2k</p>
+<p class="text-[#078838] text-xs font-semibold leading-normal flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">trending_up</span> +12% vs. ayer
+                </p>
+</div>
+<div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-xl p-4 border border-[#dbe0e6] dark:border-gray-800 bg-white dark:bg-background-dark/50">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">shopping_basket</span>
+<p class="text-[#617589] dark:text-gray-400 text-sm font-medium leading-normal">Pico Ventas</p>
+</div>
+<p class="text-[#111418] dark:text-white tracking-tight text-xl font-bold leading-tight">10:00 - 45 vtas</p>
+<p class="text-[#e73908] text-xs font-semibold leading-normal flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">trending_down</span> -5% vs. ayer
+                </p>
+</div>
+</div>
+<!-- Section Header -->
+<div class="px-4">
+<h2 class="text-[#111418] dark:text-white text-[20px] font-bold leading-tight tracking-[-0.015em] pt-4">Distribución de Ventas</h2>
+<p class="text-[#617589] dark:text-gray-400 text-sm">Comparativa de volumen horario</p>
+</div>
+<!-- Charts Container -->
+<div class="flex flex-col gap-4 px-4 py-6">
+<div class="flex flex-col gap-2 p-4 rounded-xl border border-[#dbe0e6] dark:border-gray-800 bg-white dark:bg-background-dark/50">
+<div class="flex justify-between items-end mb-4">
+<div>
+<p class="text-[#617589] dark:text-gray-400 text-sm font-medium leading-normal">Ventas Totales</p>
+<p class="text-[#111418] dark:text-white tracking-tight text-[28px] font-bold leading-tight truncate">$8,450.00</p>
+</div>
+<div class="flex gap-2 text-[11px] font-bold uppercase tracking-wider text-[#617589]">
+<div class="flex items-center gap-1">
+<span class="size-2 bg-primary rounded-full"></span> Ventas
+                        </div>
+</div>
+</div>
+<div class="grid min-h-[220px] grid-flow-col gap-3 grid-rows-[1fr_auto] items-end justify-items-center px-1">
+<div class="flex flex-col justify-end w-full h-full gap-1">
+<div class="bg-primary/20 rounded-t-sm w-full transition-all" style="height: 25%;"></div>
+<p class="text-[#617589] text-[10px] font-bold">08h</p>
+</div>
+<div class="flex flex-col justify-end w-full h-full gap-1">
+<div class="bg-primary/20 rounded-t-sm w-full transition-all" style="height: 65%;"></div>
+<p class="text-[#617589] text-[10px] font-bold">10h</p>
+</div>
+<div class="flex flex-col justify-end w-full h-full gap-1">
+<div class="bg-primary/20 rounded-t-sm w-full transition-all" style="height: 85%;"></div>
+<p class="text-[#617589] text-[10px] font-bold">12h</p>
+</div>
+<div class="flex flex-col justify-end w-full h-full gap-1">
+<div class="bg-primary rounded-t-sm w-full transition-all shadow-lg shadow-primary/20" style="height: 100%;"></div>
+<p class="text-primary text-[10px] font-bold">14h</p>
+</div>
+<div class="flex flex-col justify-end w-full h-full gap-1">
+<div class="bg-primary/20 rounded-t-sm w-full transition-all" style="height: 45%;"></div>
+<p class="text-[#617589] text-[10px] font-bold">16h</p>
+</div>
+<div class="flex flex-col justify-end w-full h-full gap-1">
+<div class="bg-primary/20 rounded-t-sm w-full transition-all" style="height: 35%;"></div>
+<p class="text-[#617589] text-[10px] font-bold">18h</p>
+</div>
+<div class="flex flex-col justify-end w-full h-full gap-1">
+<div class="bg-primary/20 rounded-t-sm w-full transition-all" style="height: 15%;"></div>
+<p class="text-[#617589] text-[10px] font-bold">20h</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Insight Card -->
+<div class="px-4 pb-10">
+<div class="bg-primary/10 dark:bg-primary/20 border border-primary/30 rounded-xl p-4 flex gap-4 items-start">
+<div class="bg-primary rounded-full p-2 flex shrink-0 items-center justify-center text-white">
+<span class="material-symbols-outlined text-[20px]">lightbulb</span>
+</div>
+<div class="flex flex-col gap-1">
+<h4 class="text-primary font-bold text-sm">Tip de Optimización</h4>
+<p class="text-[#111418] dark:text-white text-sm leading-relaxed">
+                        Considera una <span class="font-bold">venta flash</span> entre las <span class="font-bold">14:00 y 16:00</span> para impulsar las horas de bajo tráfico y maximizar el personal disponible.
+                    </p>
+</div>
+</div>
+</div>
+<!-- Navigation Bar Spacer -->
+<div class="h-16"></div>
+<!-- Tab Bar (iOS style) -->
+<div class="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-t border-[#dbe0e6] dark:border-gray-800 flex justify-around p-3 pb-6">
+<div class="flex flex-col items-center gap-1 text-[#617589]">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-medium">Inicio</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-[10px] font-medium">Ventas</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-[#617589]">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="text-[10px] font-medium">Inventario</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-[#617589]">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-medium">Ajustes</span>
+</div>
+</div>
+</div>
+</body></html>

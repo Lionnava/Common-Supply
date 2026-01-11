@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Panel de Emergencia y Recuperación</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f20d0d",
+                        "background-light": "#f8f5f5",
+                        "background-dark": "#181111",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-white min-h-screen">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden max-w-[480px] mx-auto border-x border-white/5">
+<!-- TopAppBar -->
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-50 border-b border-white/5">
+<div aria-label="Volver" class="text-white flex size-12 shrink-0 items-center cursor-pointer">
+<span class="material-symbols-outlined">arrow_back</span>
+</div>
+<h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-12">Emergencia y Recuperación</h2>
+</div>
+<!-- HeadlineText -->
+<div class="px-4">
+<h3 class="text-white tracking-light text-2xl font-bold leading-tight text-center pb-2 pt-5">¡Acción Requerida!</h3>
+<p class="text-[#ba9c9c] text-sm text-center mb-4">Se ha detectado una posible brecha de seguridad en un dispositivo móvil.</p>
+</div>
+<!-- SectionHeader: Status -->
+<div class="px-4 pb-2 pt-4">
+<h3 class="text-white text-lg font-bold leading-tight tracking-[-0.015em]">Estado del Dispositivo</h3>
+</div>
+<!-- ListItem: Location -->
+<div class="flex items-center gap-4 bg-white/5 mx-4 rounded-xl px-4 min-h-[72px] py-2 justify-between mb-2">
+<div class="flex items-center gap-4">
+<div class="text-white flex items-center justify-center rounded-lg bg-[#392828] shrink-0 size-12">
+<span class="material-symbols-outlined">map</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-white text-base font-medium leading-normal line-clamp-1">Última ubicación conocida</p>
+<p class="text-[#ba9c9c] text-sm font-normal leading-normal line-clamp-2">Av. Insurgentes Sur 1200, CDMX</p>
+</div>
+</div>
+<div class="shrink-0">
+<p class="text-primary text-sm font-bold leading-normal">Hace 3 min</p>
+</div>
+</div>
+<!-- SingleButton: Main Emergency -->
+<div class="flex px-4 py-3">
+<button class="flex min-w-[84px] w-full cursor-pointer items-center justify-center overflow-hidden rounded-xl h-14 px-5 bg-primary text-white gap-3 text-base font-bold leading-normal tracking-[0.015em] shadow-lg shadow-primary/20 hover:bg-primary/90 transition-colors">
+<span class="material-symbols-outlined">report_problem</span>
+<span class="truncate">Reportar Dispositivo Perdido</span>
+</button>
+</div>
+<!-- SectionHeader: Critical Actions -->
+<div class="px-4 pb-2 pt-6">
+<h3 class="text-white text-lg font-bold leading-tight tracking-[-0.015em]">Acciones Críticas</h3>
+<p class="text-[#ba9c9c] text-xs font-normal">Estas acciones son irreversibles y afectarán al dispositivo remoto.</p>
+</div>
+<!-- Destructive Action Grid -->
+<div class="grid grid-cols-2 gap-3 px-4 py-2">
+<button class="flex flex-col items-center justify-center gap-2 p-4 rounded-xl bg-white/5 border border-primary/30 hover:bg-primary/10 transition-colors group">
+<span class="material-symbols-outlined text-primary text-3xl">lock_reset</span>
+<span class="text-xs font-bold text-center">Bloquear Cuenta</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-2 p-4 rounded-xl bg-white/5 border border-primary/30 hover:bg-primary/10 transition-colors group">
+<span class="material-symbols-outlined text-primary text-3xl">delete_sweep</span>
+<span class="text-xs font-bold text-center">Borrar Caché Local</span>
+</button>
+</div>
+<!-- SectionHeader: Recovery Key -->
+<div class="px-4 pb-2 pt-6">
+<h3 class="text-white text-lg font-bold leading-tight tracking-[-0.015em]">Asistente de Recuperación</h3>
+</div>
+<!-- Recovery Key Generator Stepper (Custom Component) -->
+<div class="mx-4 mb-8 bg-white/5 border border-white/10 rounded-xl p-4">
+<div class="flex items-center gap-3 mb-4">
+<div class="size-8 rounded-full bg-primary flex items-center justify-center text-sm font-bold">1</div>
+<p class="text-sm font-medium text-white">Generar llave de seguridad</p>
+</div>
+<div class="bg-black/40 rounded-lg p-4 mb-4 border border-dashed border-white/20 flex justify-between items-center">
+<code class="text-primary font-mono text-lg font-bold tracking-widest">A9X7-K2LM-P088</code>
+<button class="text-[#ba9c9c] hover:text-white transition-colors">
+<span class="material-symbols-outlined">content_copy</span>
+</button>
+</div>
+<div class="flex items-start gap-3 mb-6">
+<div class="size-8 rounded-full bg-white/10 flex items-center justify-center text-sm font-bold text-[#ba9c9c]">2</div>
+<div class="flex-1">
+<p class="text-sm font-medium text-white mb-1">Configurar nuevo dispositivo</p>
+<p class="text-[#ba9c9c] text-xs">Usa esta llave durante el primer inicio de sesión en el nuevo terminal del administrador.</p>
+</div>
+</div>
+<button class="w-full h-10 rounded-lg border border-white/20 text-white text-sm font-semibold hover:bg-white/5 transition-colors">
+                Finalizar Configuración
+            </button>
+</div>
+<!-- Footer Info -->
+<div class="px-4 pb-10 text-center">
+<div class="flex items-center justify-center gap-2 text-[#ba9c9c]">
+<span class="material-symbols-outlined text-sm">verified_user</span>
+<span class="text-[10px] uppercase tracking-widest font-bold">Protocolo de Seguridad Activo</span>
+</div>
+</div>
+</div>
+</body></html>

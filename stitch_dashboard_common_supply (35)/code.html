@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Monitor de Facturación Electrónica</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .ios-blur {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 ios-blur border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center p-4 pb-2 justify-between">
+<div class="flex size-12 shrink-0 items-center cursor-pointer">
+<span class="material-symbols-outlined text-2xl">arrow_back_ios</span>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Monitor de Facturación</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex cursor-pointer items-center justify-center rounded-lg h-12 bg-transparent gap-2 p-0 active:opacity-50 transition-opacity">
+<span class="material-symbols-outlined text-2xl">sync</span>
+</button>
+</div>
+</div>
+</header>
+<main class="max-w-md mx-auto pb-24">
+<!-- SearchBar -->
+<div class="px-4 py-3">
+<label class="flex flex-col min-w-40 h-12 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-xl h-full shadow-sm">
+<div class="text-slate-400 flex border-none bg-white dark:bg-[#1e293b] items-center justify-center pl-4 rounded-l-xl">
+<span class="material-symbols-outlined text-xl">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 border-none bg-white dark:bg-[#1e293b] focus:ring-0 h-full placeholder:text-slate-400 px-4 rounded-r-xl text-base font-normal leading-normal" placeholder="Buscar número o cliente"/>
+</div>
+</label>
+</div>
+<!-- Chips / Filters -->
+<div class="flex gap-3 px-4 py-2 overflow-x-auto no-scrollbar">
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary px-4 text-white shadow-md">
+<span class="text-sm font-semibold">Todos</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-[#1e293b] px-4 border border-slate-200 dark:border-slate-700">
+<span class="text-sm font-medium">Validados</span>
+<span class="material-symbols-outlined text-base">expand_more</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-[#1e293b] px-4 border border-slate-200 dark:border-slate-700">
+<span class="text-sm font-medium text-rose-500">Rechazados</span>
+<span class="material-symbols-outlined text-base">expand_more</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-[#1e293b] px-4 border border-slate-200 dark:border-slate-700">
+<span class="text-sm font-medium">Pendientes</span>
+<span class="material-symbols-outlined text-base">expand_more</span>
+</button>
+</div>
+<!-- List Section -->
+<div class="mt-4 px-4 space-y-3">
+<!-- Validated Item -->
+<div class="flex flex-col gap-3 bg-white dark:bg-[#1e293b] p-4 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm">
+<div class="flex justify-between items-start">
+<div class="flex gap-4">
+<div class="flex items-center justify-center rounded-lg bg-emerald-100 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 shrink-0 size-12">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+<div class="flex flex-1 flex-col justify-center">
+<p class="font-bold text-base leading-tight">FE-2034 • $1,250.00</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm mt-0.5 font-medium">Distribuidora Los Andes</p>
+<p class="text-slate-400 dark:text-slate-500 text-xs mt-1 font-mono">CUFE: 7a8b...2c3d</p>
+</div>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-wider bg-emerald-100 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 px-2 py-1 rounded">Validado</span>
+</div>
+<div class="flex justify-end gap-2 pt-2 border-t border-slate-50 dark:border-slate-800/50">
+<button class="flex items-center gap-1.5 text-primary text-sm font-semibold px-3 py-1.5">
+<span class="material-symbols-outlined text-lg">qr_code_2</span>
+                        Ver QR
+                    </button>
+</div>
+</div>
+<!-- Rejected Item -->
+<div class="flex flex-col gap-3 bg-white dark:bg-[#1e293b] p-4 rounded-xl border-l-4 border-l-rose-500 border-y border-r border-slate-100 dark:border-slate-800 shadow-sm">
+<div class="flex justify-between items-start">
+<div class="flex gap-4">
+<div class="flex items-center justify-center rounded-lg bg-rose-100 dark:bg-rose-500/20 text-rose-600 dark:text-rose-400 shrink-0 size-12">
+<span class="material-symbols-outlined">error</span>
+</div>
+<div class="flex flex-1 flex-col justify-center">
+<p class="font-bold text-base leading-tight">FE-2036 • $89.00</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm mt-0.5 font-medium">Panadería El Trigal</p>
+<p class="text-rose-500 dark:text-rose-400 text-xs mt-1 font-medium">Error: NIT no válido o inexistente</p>
+</div>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-wider bg-rose-100 dark:bg-rose-500/20 text-rose-600 dark:text-rose-400 px-2 py-1 rounded">Rechazado</span>
+</div>
+<div class="flex justify-end gap-2 pt-2 border-t border-slate-50 dark:border-slate-800/50">
+<button class="flex items-center gap-1.5 bg-primary text-white text-sm font-semibold px-4 py-2 rounded-lg shadow-md active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-lg">send</span>
+                        Reenviar
+                    </button>
+</div>
+</div>
+<!-- Pending Item -->
+<div class="flex flex-col gap-3 bg-white dark:bg-[#1e293b] p-4 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm">
+<div class="flex justify-between items-start">
+<div class="flex gap-4">
+<div class="flex items-center justify-center rounded-lg bg-amber-100 dark:bg-amber-500/20 text-amber-600 dark:text-amber-400 shrink-0 size-12">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<div class="flex flex-1 flex-col justify-center">
+<p class="font-bold text-base leading-tight">FE-2035 • $450.20</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm mt-0.5 font-medium">Supermercado Central</p>
+<p class="text-slate-400 dark:text-slate-500 text-xs mt-1 font-mono">Procesando firma digital...</p>
+</div>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-wider bg-amber-100 dark:bg-amber-500/20 text-amber-600 dark:text-amber-400 px-2 py-1 rounded">Pendiente</span>
+</div>
+<div class="flex justify-end gap-2 pt-2 border-t border-slate-50 dark:border-slate-800/50">
+<button class="flex items-center gap-1.5 text-slate-400 text-sm font-semibold px-3 py-1.5 cursor-not-allowed">
+<span class="material-symbols-outlined text-lg">visibility</span>
+                        Ver Detalles
+                    </button>
+</div>
+</div>
+<!-- Another Validated Item -->
+<div class="flex flex-col gap-3 bg-white dark:bg-[#1e293b] p-4 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm">
+<div class="flex justify-between items-start">
+<div class="flex gap-4">
+<div class="flex items-center justify-center rounded-lg bg-emerald-100 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 shrink-0 size-12">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+<div class="flex flex-1 flex-col justify-center">
+<p class="font-bold text-base leading-tight">FE-2033 • $3,420.00</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm mt-0.5 font-medium">Carnicería Don Juan</p>
+<p class="text-slate-400 dark:text-slate-500 text-xs mt-1 font-mono">CUFE: f1e2...9a0b</p>
+</div>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-wider bg-emerald-100 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 px-2 py-1 rounded">Validado</span>
+</div>
+<div class="flex justify-end gap-2 pt-2 border-t border-slate-50 dark:border-slate-800/50">
+<button class="flex items-center gap-1.5 text-primary text-sm font-semibold px-3 py-1.5">
+<span class="material-symbols-outlined text-lg">qr_code_2</span>
+                        Ver QR
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Summary Bar (iOS style) -->
+<div class="fixed bottom-0 left-0 right-0 bg-white/90 dark:bg-[#1e293b]/90 ios-blur border-t border-slate-200 dark:border-slate-800 px-6 py-4 flex items-center justify-between z-50">
+<div class="flex items-center gap-3">
+<div class="size-2 rounded-full bg-rose-500 animate-pulse"></div>
+<p class="text-sm font-semibold text-slate-700 dark:text-slate-200">1 Acción requerida</p>
+</div>
+<button class="text-primary font-bold text-sm tracking-tight uppercase">Revisar Todo</button>
+</div>
+</body></html>

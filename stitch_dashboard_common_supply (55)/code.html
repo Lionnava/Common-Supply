@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Impacto en DB: Anulación y Reversión</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .code-block {
+            background-color: #1e262f;
+            font-family: 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', monospace;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
+<!-- Top Navigation Bar -->
+<div class="sticky top-0 z-10 flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between border-b border-slate-200 dark:border-slate-800">
+<div class="text-slate-900 dark:text-white flex size-12 shrink-0 items-center">
+<span class="material-symbols-outlined">arrow_back_ios</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Impacto: #INV-9021</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-transparent text-primary gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0">
+<span class="material-symbols-outlined">terminal</span>
+</button>
+</div>
+</div>
+<!-- State Comparison Switcher -->
+<div class="flex px-4 py-4">
+<div class="flex h-11 flex-1 items-center justify-center rounded-xl bg-slate-200 dark:bg-[#1c2127] p-1 shadow-inner">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-background-dark has-[:checked]:shadow-md has-[:checked]:text-primary text-slate-500 dark:text-[#9dabb9] text-sm font-semibold leading-normal transition-all">
+<span class="truncate">Antes (Venta)</span>
+<input class="invisible w-0" name="state-toggle" type="radio" value="before"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-background-dark has-[:checked]:shadow-md has-[:checked]:text-primary text-slate-500 dark:text-[#9dabb9] text-sm font-semibold leading-normal transition-all">
+<span class="truncate">Después (Anulado)</span>
+<input checked="" class="invisible w-0" name="state-toggle" type="radio" value="after"/>
+</label>
+</div>
+</div>
+<!-- Section: Sales Table Transition -->
+<h3 class="text-slate-900 dark:text-white text-base font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-2 uppercase text-xs opacity-60">Entidad: Sales</h3>
+<div class="px-4 pb-4">
+<div class="flex items-stretch justify-between gap-4 rounded-xl bg-white dark:bg-[#1c2127] p-5 shadow-sm border border-slate-200 dark:border-slate-800">
+<div class="flex flex-[2_2_0px] flex-col gap-3">
+<div class="flex flex-col gap-1">
+<p class="text-slate-500 dark:text-[#9dabb9] text-xs font-mono uppercase tracking-wider">Record_ID: 7a2b-91cf</p>
+<p class="text-slate-900 dark:text-white text-lg font-bold leading-tight">Venta de Abarrotes #9021</p>
+<div class="flex items-center gap-2 mt-1">
+<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-200 dark:bg-slate-800 text-slate-500 line-through">COMPLETED</span>
+<span class="material-symbols-outlined text-sm text-primary">arrow_forward</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400">VOIDED</span>
+</div>
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 flex-row-reverse bg-slate-100 dark:bg-[#283039] text-slate-700 dark:text-white text-sm font-medium leading-normal w-fit mt-2 border border-slate-200 dark:border-slate-700">
+<span class="truncate">Ver Snapshot</span>
+<span class="material-symbols-outlined text-sm mr-2">database</span>
+</button>
+</div>
+<div class="w-24 h-24 bg-primary/10 rounded-xl flex items-center justify-center border border-primary/20">
+<span class="material-symbols-outlined text-4xl text-primary">receipt_long</span>
+</div>
+</div>
+</div>
+<!-- Section: Stock Impact -->
+<h3 class="text-slate-900 dark:text-white text-base font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4 uppercase text-xs opacity-60">Impacto en Inventario</h3>
+<div class="px-4 pb-4">
+<div class="rounded-xl bg-white dark:bg-[#1c2127] overflow-hidden border border-slate-200 dark:border-slate-800">
+<div class="flex items-center justify-between p-4 border-b border-slate-100 dark:border-slate-800 bg-emerald-50/30 dark:bg-emerald-950/10">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-emerald-100 dark:bg-emerald-900/40 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
+<span class="material-symbols-outlined">inventory_2</span>
+</div>
+<div>
+<p class="text-sm font-bold">Harina de Trigo 1kg</p>
+<p class="text-xs text-slate-500 font-mono">SKU: HAR-0023</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-xs text-slate-400 uppercase font-bold">Stock Revertido</p>
+<p class="text-emerald-600 dark:text-emerald-400 font-bold text-lg">+12 unidades</p>
+</div>
+</div>
+<div class="p-4 bg-slate-50/50 dark:bg-slate-900/20">
+<div class="flex justify-between text-xs text-slate-500">
+<span>Balance Anterior: 45</span>
+<span class="font-bold text-slate-900 dark:text-white">Nuevo Balance: 57</span>
+</div>
+<div class="w-full h-1.5 bg-slate-200 dark:bg-slate-800 rounded-full mt-2 overflow-hidden">
+<div class="h-full bg-emerald-500" style="width: 75%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Section: Related Tables -->
+<h3 class="text-slate-900 dark:text-white text-base font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4 uppercase text-xs opacity-60">Tablas Relacionadas</h3>
+<div class="px-4 pb-4 space-y-3">
+<!-- Credit Note Creation -->
+<div class="flex items-center justify-between p-4 rounded-xl bg-white dark:bg-[#1c2127] border border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-sm">history_edu</span>
+</div>
+<div>
+<p class="text-sm font-bold">Credit_Notes</p>
+<p class="text-[10px] text-emerald-500 font-bold uppercase tracking-tighter">NUEVO REGISTRO</p>
+</div>
+</div>
+<p class="text-xs font-mono text-slate-500">UUID: CN-88210-AX</p>
+</div>
+<!-- Ledger Update -->
+<div class="flex items-center justify-between p-4 rounded-xl bg-white dark:bg-[#1c2127] border border-slate-200 dark:border-slate-800 opacity-80">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center text-orange-600 dark:text-orange-400">
+<span class="material-symbols-outlined text-sm">account_balance_wallet</span>
+</div>
+<div>
+<p class="text-sm font-bold">General_Ledger</p>
+<p class="text-[10px] text-orange-500 font-bold uppercase tracking-tighter">MODIFICADO</p>
+</div>
+</div>
+<p class="text-xs font-mono text-slate-500">Balance: -$450.00</p>
+</div>
+</div>
+<!-- Section: Webhook Payload -->
+<h3 class="text-slate-900 dark:text-white text-base font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4 uppercase text-xs opacity-60">Webhook: Cancellation_Event</h3>
+<div class="px-4 pb-8">
+<div class="code-block rounded-xl overflow-hidden border border-slate-700">
+<div class="flex items-center justify-between px-4 py-2 bg-slate-800/50 border-b border-slate-700">
+<span class="text-[10px] font-mono text-slate-400">POST /api/v1/webhooks/fiscal</span>
+<button class="flex items-center gap-1 text-[10px] text-primary font-bold">
+<span class="material-symbols-outlined text-xs">content_copy</span> COPIAR
+                </button>
+</div>
+<pre class="p-4 text-[11px] leading-relaxed overflow-x-auto text-emerald-400">{
+  <span class="text-blue-400">"event"</span>: <span class="text-orange-300">"invoice.voided"</span>,
+  <span class="text-blue-400">"timestamp"</span>: <span class="text-orange-300">"2023-10-27T14:30:01Z"</span>,
+  <span class="text-blue-400">"data"</span>: {
+    <span class="text-blue-400">"invoice_id"</span>: <span class="text-orange-300">"INV-9021"</span>,
+    <span class="text-blue-400">"reason"</span>: <span class="text-orange-300">"Customer Return"</span>,
+    <span class="text-blue-400">"credit_note_ref"</span>: <span class="text-orange-300">"CN-88210-AX"</span>,
+    <span class="text-blue-400">"reverted_amount"</span>: <span class="text-orange-300">450.00</span>
+  },
+  <span class="text-blue-400">"integrity_hash"</span>: <span class="text-orange-300">"sha256:7f8e...3a1c"</span>
+}</pre>
+</div>
+</div>
+<!-- Bottom Action Area -->
+<div class="fixed bottom-0 left-0 right-0 p-4 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-t border-slate-200 dark:border-slate-800">
+<div class="flex gap-3">
+<button class="flex-1 h-12 bg-primary text-white rounded-xl font-bold flex items-center justify-center gap-2 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-xl">sync_alt</span>
+                Replicar Lógica
+            </button>
+<button class="w-12 h-12 border border-slate-200 dark:border-slate-700 rounded-xl flex items-center justify-center text-slate-500">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+<p class="text-center text-[10px] text-slate-500 mt-3 font-medium uppercase tracking-widest">System Engine v4.2.1 • Latency: 142ms</p>
+</div>
+<!-- Extra spacing for bottom bar -->
+<div class="h-32"></div>
+</body></html>

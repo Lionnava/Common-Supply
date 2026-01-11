@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Monitor de Sincronización y Conflictos</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden max-w-[480px] mx-auto border-x border-slate-200 dark:border-slate-800 shadow-xl">
+<!-- TopAppBar -->
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-20 backdrop-blur-md bg-opacity-80">
+<div class="text-slate-900 dark:text-white flex size-12 shrink-0 items-center justify-start">
+<span class="material-symbols-outlined cursor-pointer">arrow_back_ios</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Monitor de Sync</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-transparent text-slate-900 dark:text-white gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+</div>
+<!-- Connection Status (ListItem modification) -->
+<div class="flex items-center gap-4 bg-background-light dark:bg-background-dark px-4 py-2 min-h-14 justify-between border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-4">
+<div class="text-white flex items-center justify-center rounded-full bg-green-500 shrink-0 size-3 animate-pulse"></div>
+<p class="text-slate-900 dark:text-white text-base font-medium leading-normal flex-1 truncate">Estado del Sistema</p>
+</div>
+<div class="shrink-0">
+<p class="text-green-600 dark:text-green-400 text-sm font-bold leading-normal uppercase tracking-wider">En Línea</p>
+</div>
+</div>
+<!-- Stats Section -->
+<div class="flex flex-wrap gap-3 p-4">
+<div class="flex min-w-[140px] flex-1 flex-col gap-1 rounded-xl p-4 bg-white dark:bg-[#1c2127] border border-slate-200 dark:border-slate-800 shadow-sm">
+<p class="text-slate-500 dark:text-[#9dabb9] text-xs font-medium leading-normal uppercase">Cola de Sync</p>
+<p class="text-slate-900 dark:text-white tracking-tight text-2xl font-bold leading-tight">24 tx</p>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[#137fec] text-sm">cloud_upload</span>
+<p class="text-primary text-xs font-medium leading-normal">Subiendo...</p>
+</div>
+</div>
+<div class="flex min-w-[140px] flex-1 flex-col gap-1 rounded-xl p-4 bg-white dark:bg-[#1c2127] border border-slate-200 dark:border-slate-800 shadow-sm">
+<p class="text-slate-500 dark:text-[#9dabb9] text-xs font-medium leading-normal uppercase">Conflictos</p>
+<p class="text-slate-900 dark:text-white tracking-tight text-2xl font-bold leading-tight">3 err</p>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-orange-500 text-sm">warning</span>
+<p class="text-orange-500 text-xs font-medium leading-normal">Requiere Acción</p>
+</div>
+</div>
+</div>
+<!-- Manual Action -->
+<div class="px-4 pb-4">
+<button class="w-full bg-primary hover:bg-blue-600 text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition-colors shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">sync</span>
+                Sincronizar Ahora
+            </button>
+</div>
+<!-- SectionHeader -->
+<div class="flex items-center justify-between px-4 pb-2 pt-4">
+<h3 class="text-slate-900 dark:text-white text-sm font-bold leading-tight tracking-wider uppercase">Registros Conflictivos</h3>
+<span class="text-xs text-primary font-medium cursor-pointer">Resolver todos</span>
+</div>
+<!-- Conflict List (Cards) -->
+<div class="flex flex-col gap-1">
+<div class="px-4 py-2">
+<div class="flex items-stretch justify-between gap-4 rounded-xl bg-white dark:bg-[#1c2127] p-4 border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex flex-[2_2_0px] flex-col gap-3">
+<div class="flex flex-col gap-1">
+<p class="text-slate-900 dark:text-white text-base font-bold leading-tight">Desajuste de Stock</p>
+<p class="text-slate-500 dark:text-[#9dabb9] text-xs font-normal leading-normal">
+<span class="font-semibold text-slate-700 dark:text-slate-300">Leche Entera 1L</span><br/>
+                                Local: <span class="text-orange-500">15</span> | Servidor: <span class="text-primary">10</span>
+</p>
+</div>
+<div class="flex gap-2">
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center rounded-lg h-8 px-3 bg-primary text-white gap-1 text-xs font-bold leading-normal">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+<span>Usar Local</span>
+</button>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center rounded-lg h-8 px-3 bg-slate-100 dark:bg-[#283039] text-slate-900 dark:text-white gap-1 text-xs font-medium leading-normal">
+<span>Ver más</span>
+</button>
+</div>
+</div>
+<div class="w-20 h-20 bg-center bg-no-repeat bg-cover rounded-lg shrink-0 border border-slate-100 dark:border-slate-700" data-alt="Grocery product milk carton illustration" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCH4hRIStgyJwswACyAZl77USfcR9p7MBxlTTL2UJAmvF2wg8ymfQGJMmVbbTjMaXnc8UFgeAkfGu2sBjlk61VvUdEieGCvVPVeDJSW7xefKx7xTNRaWDG4ZQfQJtnkrw3IZobUqQC1-MW6UuEBStQryoCNgXemDQAJyUtKRKhuxaZDaBcccsNgapdEdkX9R4bI99dCqdx6Q-z-dyelu8hyINYqVnPbdscN7snRSqFrSuIUL4LkC7MSniDlUrCSaR48CV05IOiVUX3r");'></div>
+</div>
+</div>
+<div class="px-4 py-2">
+<div class="flex items-stretch justify-between gap-4 rounded-xl bg-white dark:bg-[#1c2127] p-4 border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex flex-[2_2_0px] flex-col gap-3">
+<div class="flex flex-col gap-1">
+<p class="text-slate-900 dark:text-white text-base font-bold leading-tight">Precio Duplicado</p>
+<p class="text-slate-500 dark:text-[#9dabb9] text-xs font-normal leading-normal">
+<span class="font-semibold text-slate-700 dark:text-slate-300">Aceite de Oliva 500ml</span><br/>
+                                Editado en 2 dispositivos simultáneamente.
+                            </p>
+</div>
+<button class="flex min-w-[100px] cursor-pointer items-center justify-center rounded-lg h-8 px-3 bg-slate-100 dark:bg-[#283039] text-slate-900 dark:text-white gap-1 text-xs font-medium leading-normal w-fit">
+<span class="material-symbols-outlined text-sm">history</span>
+<span>Ver Historial</span>
+</button>
+</div>
+<div class="w-20 h-20 bg-center bg-no-repeat bg-cover rounded-lg shrink-0 border border-slate-100 dark:border-slate-700" data-alt="Bottle of olive oil on shelf" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC8qmr6_Snc9uDovBV8MKaBK1kkQE33RckQk8lPf5j1nYmxCY3MqWO-3BxD6eAL7XjVWEYOD71vYpwdMauyI3_kV4zLGZ5q7Cfzkn4uyhebqAoqvHBvO4XI93q9lBWFzfKpubASVeNDFuXlI21J-8a5nBrebHS4X_zh7cLKMRAAddQUdkYIMiuUH7POy1RbxveM-iEa2NjQCsa_JWr2wrPUciHjZR--NpPAFkUxtRH5RyaOaA2J7Awby7_i1kJHr_SLdDrqzDLwWPj9");'></div>
+</div>
+</div>
+</div>
+<!-- SectionHeader: Activity Log -->
+<div class="flex items-center justify-between px-4 pb-2 pt-6">
+<h3 class="text-slate-900 dark:text-white text-sm font-bold leading-tight tracking-wider uppercase">Log de Actividad</h3>
+<span class="material-symbols-outlined text-slate-400 text-sm cursor-pointer">delete</span>
+</div>
+<!-- Log List -->
+<div class="flex flex-col px-4 mb-10">
+<div class="flex items-start gap-4 py-3 border-b border-slate-200 dark:border-slate-800">
+<div class="text-green-500 shrink-0 mt-1">
+<span class="material-symbols-outlined text-lg">check_circle</span>
+</div>
+<div class="flex flex-col">
+<p class="text-sm font-semibold text-slate-900 dark:text-white">Sync Exitosa (Maestro Productos)</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Hace 2 min • 142 registros actualizados</p>
+</div>
+</div>
+<div class="flex items-start gap-4 py-3 border-b border-slate-200 dark:border-slate-800">
+<div class="text-primary shrink-0 mt-1">
+<span class="material-symbols-outlined text-lg">cloud_upload</span>
+</div>
+<div class="flex flex-col">
+<p class="text-sm font-semibold text-slate-900 dark:text-white">Carga de Transacciones POS</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Hace 15 min • Terminal #04 • 12 ventas</p>
+</div>
+</div>
+<div class="flex items-start gap-4 py-3 border-b border-slate-200 dark:border-slate-800">
+<div class="text-red-500 shrink-0 mt-1">
+<span class="material-symbols-outlined text-lg">error</span>
+</div>
+<div class="flex flex-col">
+<p class="text-sm font-semibold text-slate-900 dark:text-white">Error de Conexión (Timeout)</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Hace 1 hora • Intento fallido tras 30s</p>
+</div>
+</div>
+</div>
+<!-- App Footer Info -->
+<div class="px-4 py-6 text-center">
+<p class="text-[10px] text-slate-400 dark:text-slate-600 uppercase tracking-widest font-bold">Common Supply v2.4.1-stable</p>
+<p class="text-[10px] text-slate-400 dark:text-slate-600 mt-1">ID del Dispositivo: DEV-IPHONE-14-PRO</p>
+</div>
+<!-- Tab Bar (iOS style) -->
+<div class="mt-auto sticky bottom-0 border-t border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-background-dark/90 backdrop-blur-lg flex justify-around items-center h-20 pb-4 px-6">
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="text-[10px] font-medium">Stock</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">sync_alt</span>
+<span class="text-[10px] font-medium">Sincro</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-[10px] font-medium">Reportes</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Perfil</span>
+</div>
+</div>
+</div>
+</body></html>

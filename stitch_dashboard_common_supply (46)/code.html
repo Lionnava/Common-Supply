@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Historial y Recepción de Traslados</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#137fec",
+                "background-light": "#f6f7f8",
+                "background-dark": "#101922",
+              },
+              fontFamily: {
+                "display": ["Inter"]
+              },
+              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+          },
+        }
+      </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .ios-blur {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-[#111418] dark:text-gray-100 font-display">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/80 ios-blur border-b border-gray-200 dark:border-gray-800">
+<div class="flex items-center p-4 justify-between max-w-md mx-auto">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#111418] dark:text-white">arrow_back_ios</span>
+</div>
+<h1 class="text-lg font-bold leading-tight tracking-tight flex-1 text-center">Traslados</h1>
+<div class="flex items-center justify-end">
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-transparent text-[#111418] dark:text-white">
+<span class="material-symbols-outlined">search</span>
+</button>
+</div>
+</div>
+</header>
+<main class="max-w-md mx-auto pb-24">
+<!-- Segmented Control Tabs -->
+<div class="px-4 py-4">
+<div class="flex h-10 items-center justify-center rounded-xl bg-gray-200/50 dark:bg-gray-800 p-1">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-gray-700 has-[:checked]:shadow-sm text-[#617589] dark:text-gray-400 has-[:checked]:text-[#111418] dark:has-[:checked]:text-white text-sm font-semibold transition-all">
+<span class="truncate">Enviados</span>
+<input class="invisible w-0" name="transfer-type" type="radio" value="enviados"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-gray-700 has-[:checked]:shadow-sm text-[#617589] dark:text-gray-400 has-[:checked]:text-[#111418] dark:has-[:checked]:text-white text-sm font-semibold transition-all">
+<span class="truncate">Recibidos</span>
+<input checked="" class="invisible w-0" name="transfer-type" type="radio" value="recibidos"/>
+</label>
+</div>
+</div>
+<!-- Filter Chips -->
+<div class="flex gap-2 px-4 pb-4 overflow-x-auto no-scrollbar">
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary text-white px-4 text-xs font-semibold">
+                Todos
+            </button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 px-4 text-xs font-medium text-gray-600 dark:text-gray-300">
+                En Tránsito
+                <span class="material-symbols-outlined text-[18px]">keyboard_arrow_down</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 px-4 text-xs font-medium text-gray-600 dark:text-gray-300">
+                Esta semana
+                <span class="material-symbols-outlined text-[18px]">calendar_today</span>
+</button>
+</div>
+<!-- Section Title -->
+<div class="px-4 py-2">
+<h3 class="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">Pendientes de Recepción</h3>
+</div>
+<!-- List Items -->
+<div class="space-y-px bg-gray-200 dark:bg-gray-800">
+<!-- Incoming Item: In Transit -->
+<div class="bg-white dark:bg-background-dark px-4 py-4 flex flex-col gap-3 group active:bg-gray-50 dark:active:bg-gray-900 transition-colors">
+<div class="flex justify-between items-start">
+<div class="flex gap-4 items-center">
+<div class="flex items-center justify-center rounded-xl bg-primary/10 text-primary shrink-0 size-12">
+<span class="material-symbols-outlined text-2xl">local_shipping</span>
+</div>
+<div>
+<p class="text-[#111418] dark:text-white text-base font-bold leading-none mb-1">Traslado #TR-8821</p>
+<p class="text-[#617589] dark:text-gray-400 text-sm font-medium">Desde: Sucursal Norte</p>
+</div>
+</div>
+<div class="flex flex-col items-end gap-1">
+<span class="bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">En Tránsito</span>
+<p class="text-xs text-gray-400">12 Mar, 10:30 AM</p>
+</div>
+</div>
+<div class="flex items-center justify-between border-t border-gray-100 dark:border-gray-800 pt-3">
+<p class="text-sm font-medium text-gray-600 dark:text-gray-400">24 productos en total</p>
+<button class="bg-primary hover:bg-primary/90 text-white text-xs font-bold px-4 py-2 rounded-lg flex items-center gap-2">
+                        Verificar y Aceptar
+                    </button>
+</div>
+</div>
+<!-- Incoming Item: Received -->
+<div class="bg-white dark:bg-background-dark px-4 py-4 flex flex-col gap-3 group active:bg-gray-50 transition-colors">
+<div class="flex justify-between items-start">
+<div class="flex gap-4 items-center">
+<div class="flex items-center justify-center rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-400 shrink-0 size-12">
+<span class="material-symbols-outlined text-2xl">inventory_2</span>
+</div>
+<div>
+<p class="text-[#111418] dark:text-white text-base font-bold leading-none mb-1">Traslado #TR-8790</p>
+<p class="text-[#617589] dark:text-gray-400 text-sm font-medium">Desde: Centro Distribución</p>
+</div>
+</div>
+<div class="flex flex-col items-end gap-1">
+<span class="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">Recibido</span>
+<p class="text-xs text-gray-400">10 Mar, 04:15 PM</p>
+</div>
+</div>
+<div class="flex items-center justify-between border-t border-gray-100 dark:border-gray-800 pt-3">
+<p class="text-sm font-medium text-gray-600 dark:text-gray-400">156 productos • Ver detalles</p>
+<span class="material-symbols-outlined text-gray-300">chevron_right</span>
+</div>
+</div>
+<!-- Section Title -->
+<div class="px-4 py-4 bg-background-light dark:bg-background-dark">
+<h3 class="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">Historial Anterior</h3>
+</div>
+<!-- Incoming Item: Cancelled -->
+<div class="bg-white dark:bg-background-dark px-4 py-4 flex flex-col gap-3 group active:bg-gray-50 transition-colors">
+<div class="flex justify-between items-start">
+<div class="flex gap-4 items-center opacity-60">
+<div class="flex items-center justify-center rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-400 shrink-0 size-12">
+<span class="material-symbols-outlined text-2xl">block</span>
+</div>
+<div>
+<p class="text-[#111418] dark:text-white text-base font-bold leading-none mb-1">Traslado #TR-8655</p>
+<p class="text-[#617589] dark:text-gray-400 text-sm font-medium">Desde: Sucursal Poniente</p>
+</div>
+</div>
+<div class="flex flex-col items-end gap-1">
+<span class="bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">Cancelado</span>
+<p class="text-xs text-gray-400">08 Mar, 09:00 AM</p>
+</div>
+</div>
+</div>
+<!-- Item: Multi-branch load -->
+<div class="bg-white dark:bg-background-dark px-4 py-4 flex flex-col gap-3 group active:bg-gray-50 transition-colors">
+<div class="flex justify-between items-start">
+<div class="flex gap-4 items-center">
+<div class="flex items-center justify-center rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-400 shrink-0 size-12">
+<span class="material-symbols-outlined text-2xl">inventory_2</span>
+</div>
+<div>
+<p class="text-[#111418] dark:text-white text-base font-bold leading-none mb-1">Traslado #TR-8541</p>
+<p class="text-[#617589] dark:text-gray-400 text-sm font-medium">Desde: Almacén Central</p>
+</div>
+</div>
+<div class="flex flex-col items-end gap-1">
+<span class="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">Recibido</span>
+<p class="text-xs text-gray-400">05 Mar, 02:45 PM</p>
+</div>
+</div>
+<div class="flex items-center justify-between border-t border-gray-100 dark:border-gray-800 pt-3">
+<p class="text-sm font-medium text-gray-600 dark:text-gray-400">48 productos • Ver detalles</p>
+<span class="material-symbols-outlined text-gray-300">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Floating Action Button for Manual Entry (Optional) -->
+<button class="fixed bottom-24 right-6 size-14 rounded-full bg-primary text-white shadow-xl flex items-center justify-center active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+</main>
+<!-- Navigation Bottom Bar (Simulated Mobile App Style) -->
+<nav class="fixed bottom-0 left-0 right-0 bg-white/95 dark:bg-background-dark/95 ios-blur border-t border-gray-200 dark:border-gray-800 pb-6 pt-2">
+<div class="max-w-md mx-auto flex justify-around">
+<button class="flex flex-col items-center gap-1 text-gray-400">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-medium">Inicio</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-gray-400">
+<span class="material-symbols-outlined">inventory</span>
+<span class="text-[10px] font-medium">Stock</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined">sync_alt</span>
+<span class="text-[10px] font-bold">Traslados</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-gray-400">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-medium">Ajustes</span>
+</button>
+</div>
+</nav>
+</body></html>

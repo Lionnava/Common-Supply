@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mis Tickets de Soporte - Common Supply</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            -webkit-tap-highlight-color: transparent;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-white transition-colors duration-300">
+<div class="flex flex-col min-h-screen max-w-md mx-auto bg-background-light dark:bg-background-dark shadow-xl">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-50 bg-background-light dark:bg-background-dark/95 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+<div class="flex items-center p-4 justify-between">
+<div class="text-primary flex size-10 shrink-0 items-center justify-center cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</div>
+<h2 class="text-gray-900 dark:text-white text-lg font-bold leading-tight tracking-tight flex-1 text-center pr-10">Soporte Técnico</h2>
+</div>
+</header>
+<main class="flex-1 overflow-y-auto pb-10">
+<!-- SectionHeader: Form Title -->
+<section>
+<h2 class="text-gray-900 dark:text-white text-[22px] font-bold leading-tight tracking-tight px-4 pb-1 pt-6">Crear Nuevo Ticket</h2>
+<p class="px-4 text-sm text-gray-500 dark:text-gray-400">Cuéntanos el problema y nuestro equipo te ayudará pronto.</p>
+</section>
+<!-- Form Section -->
+<div class="px-4 py-4 space-y-4">
+<!-- TextField: Category -->
+<div class="flex flex-col">
+<label class="flex flex-col w-full">
+<p class="text-gray-700 dark:text-gray-300 text-sm font-semibold pb-2">Categoría del Problema</p>
+<div class="relative">
+<select class="form-input flex w-full appearance-none rounded-xl text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary border border-gray-300 dark:border-gray-700 bg-white dark:bg-[#1c2127] h-14 px-4 text-base font-normal leading-normal">
+<option disabled="" selected="" value="">Selecciona una categoría</option>
+<option value="inventory">Inventario y Stock</option>
+<option value="payments">Pagos y Facturación</option>
+<option value="bug">Error en la Aplicación</option>
+<option value="account">Gestión de Cuenta</option>
+<option value="other">Otro Motivo</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-500">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</div>
+</label>
+</div>
+<!-- TextField: Description -->
+<div class="flex flex-col">
+<label class="flex flex-col w-full">
+<p class="text-gray-700 dark:text-gray-300 text-sm font-semibold pb-2">Descripción</p>
+<textarea class="form-input flex w-full rounded-xl text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary border border-gray-300 dark:border-gray-700 bg-white dark:bg-[#1c2127] min-h-32 placeholder:text-gray-400 dark:placeholder:text-gray-500 p-4 text-base font-normal leading-normal" placeholder="Describe el problema detalladamente..."></textarea>
+</label>
+</div>
+<!-- ListItem: Attachments -->
+<div class="flex items-center gap-4 bg-white dark:bg-[#1c2127] border border-gray-300 dark:border-gray-700 px-4 min-h-14 justify-between rounded-xl cursor-pointer hover:border-primary transition-colors">
+<div class="flex items-center gap-3">
+<div class="text-primary flex items-center justify-center rounded-lg bg-primary/10 shrink-0 size-10">
+<span class="material-symbols-outlined">attach_file</span>
+</div>
+<p class="text-gray-900 dark:text-white text-base font-medium truncate">Adjuntar Capturas / Logs</p>
+</div>
+<div class="shrink-0">
+<div class="text-primary flex size-7 items-center justify-center">
+<span class="material-symbols-outlined">add_circle</span>
+</div>
+</div>
+</div>
+<!-- Action Button -->
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-xl shadow-lg shadow-primary/20 transition-all active:scale-[0.98]">
+                    Enviar Ticket
+                </button>
+</div>
+<div class="h-px bg-gray-200 dark:bg-gray-800 mx-4 my-6"></div>
+<!-- SectionHeader: History -->
+<section>
+<h2 class="text-gray-900 dark:text-white text-[22px] font-bold leading-tight tracking-tight px-4 pb-3">Mis Tickets Recientes</h2>
+</section>
+<!-- My Tickets List -->
+<div class="px-4 space-y-3">
+<!-- Ticket Card 1: Waiting for response -->
+<div class="flex flex-col bg-white dark:bg-[#1c2127] border border-gray-200 dark:border-gray-800 rounded-xl p-4 cursor-pointer hover:shadow-md transition-shadow group">
+<div class="flex justify-between items-start mb-2">
+<span class="bg-primary/10 text-primary text-[11px] font-bold px-2 py-1 rounded-md uppercase tracking-wider">Esperando Respuesta</span>
+<span class="text-xs text-gray-400">Hace 2 horas</span>
+</div>
+<div class="flex justify-between items-end">
+<div>
+<h3 class="text-gray-900 dark:text-white font-semibold text-base mb-1">Error al actualizar stock</h3>
+<p class="text-gray-500 dark:text-gray-400 text-xs">ID: #CS-89231 • Inventario</p>
+</div>
+<span class="material-symbols-outlined text-gray-400 group-hover:text-primary transition-colors">chevron_right</span>
+</div>
+</div>
+<!-- Ticket Card 2: In Review -->
+<div class="flex flex-col bg-white dark:bg-[#1c2127] border border-gray-200 dark:border-gray-800 rounded-xl p-4 cursor-pointer hover:shadow-md transition-shadow group">
+<div class="flex justify-between items-start mb-2">
+<span class="bg-amber-500/10 text-amber-500 text-[11px] font-bold px-2 py-1 rounded-md uppercase tracking-wider">En Revisión</span>
+<span class="text-xs text-gray-400">Ayer</span>
+</div>
+<div class="flex justify-between items-end">
+<div>
+<h3 class="text-gray-900 dark:text-white font-semibold text-base mb-1">Factura duplicada mes de Mayo</h3>
+<p class="text-gray-500 dark:text-gray-400 text-xs">ID: #CS-89104 • Pagos</p>
+</div>
+<span class="material-symbols-outlined text-gray-400 group-hover:text-primary transition-colors">chevron_right</span>
+</div>
+</div>
+<!-- Ticket Card 3: Resolved -->
+<div class="flex flex-col bg-white dark:bg-[#1c2127] border border-gray-200 dark:border-gray-800 rounded-xl p-4 cursor-pointer hover:shadow-md transition-shadow group">
+<div class="flex justify-between items-start mb-2">
+<span class="bg-emerald-500/10 text-emerald-500 text-[11px] font-bold px-2 py-1 rounded-md uppercase tracking-wider">Resuelto</span>
+<span class="text-xs text-gray-400">3 may.</span>
+</div>
+<div class="flex justify-between items-end">
+<div>
+<h3 class="text-gray-900 dark:text-white font-semibold text-base mb-1">Cambio de correo electrónico</h3>
+<p class="text-gray-500 dark:text-gray-400 text-xs">ID: #CS-88950 • Cuenta</p>
+</div>
+<span class="material-symbols-outlined text-gray-400 group-hover:text-primary transition-colors">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Reassuring Message -->
+<div class="mt-8 px-4 text-center">
+<div class="inline-flex items-center justify-center p-3 bg-gray-100 dark:bg-gray-800 rounded-full mb-3">
+<span class="material-symbols-outlined text-gray-400">support_agent</span>
+</div>
+<p class="text-sm text-gray-500 dark:text-gray-400 px-8">Estamos disponibles 24/7 para ayudarte a gestionar tu tienda sin interrupciones.</p>
+</div>
+</main>
+<!-- Bottom Navigation Spacer for iPhone Home Bar -->
+<div class="h-8 bg-background-light dark:bg-background-dark"></div>
+</div>
+</body></html>

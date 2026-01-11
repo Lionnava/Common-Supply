@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ajuste de Margen y Precios Global</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#111418] dark:text-white transition-colors duration-200">
+<div class="relative flex min-h-screen w-full max-w-[430px] mx-auto flex-col bg-white dark:bg-background-dark shadow-xl overflow-x-hidden">
+<!-- TopAppBar -->
+<div class="flex items-center bg-white dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-10 border-b border-gray-100 dark:border-gray-800">
+<div class="text-[#111418] dark:text-white flex size-12 shrink-0 items-center cursor-pointer">
+<span class="material-symbols-outlined">arrow_back_ios</span>
+</div>
+<h2 class="text-[#111418] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Ajuste Global</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-transparent text-[#111418] dark:text-white gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0">
+<span class="material-symbols-outlined">info</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col p-4 space-y-6">
+<!-- Section: Scope -->
+<div>
+<h3 class="text-[#111418] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] pb-3">Alcance del Ajuste</h3>
+<div class="flex bg-[#f0f2f4] dark:bg-gray-800 p-1 rounded-xl">
+<label class="flex cursor-pointer h-10 grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-gray-700 has-[:checked]:shadow-sm has-[:checked]:text-[#111418] dark:has-[:checked]:text-white text-[#617589] text-sm font-medium leading-normal">
+<span class="truncate">Todo el Inventario</span>
+<input checked="" class="invisible w-0" name="scope" type="radio" value="all"/>
+</label>
+<label class="flex cursor-pointer h-10 grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-gray-700 has-[:checked]:shadow-sm has-[:checked]:text-[#111418] dark:has-[:checked]:text-white text-[#617589] text-sm font-medium leading-normal">
+<span class="truncate">Por Proveedor</span>
+<input class="invisible w-0" name="scope" type="radio" value="provider"/>
+</label>
+</div>
+<p class="text-xs text-[#617589] mt-2 px-1">Este ajuste afectará a 1,240 artículos activos.</p>
+</div>
+<!-- Section: Adjustment Definition -->
+<div class="bg-primary/5 dark:bg-primary/10 rounded-2xl p-4 border border-primary/10">
+<h3 class="text-[#111418] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] pb-4">Configurar Cambio</h3>
+<div class="flex flex-wrap items-end gap-4">
+<label class="flex flex-col min-w-40 flex-1">
+<p class="text-[#111418] dark:text-gray-300 text-sm font-medium leading-normal pb-2">Porcentaje (%)</p>
+<div class="relative">
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111418] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary border border-[#dbe0e6] dark:border-gray-700 bg-white dark:bg-gray-800 h-14 placeholder:text-[#617589] p-[15px] text-xl font-bold leading-normal" placeholder="0.00" type="number" value="5.50"/>
+<span class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 font-bold">%</span>
+</div>
+</label>
+<label class="flex flex-col min-w-40 flex-1">
+<p class="text-[#111418] dark:text-gray-300 text-sm font-medium leading-normal pb-2">Operación</p>
+<select class="form-select flex w-full min-w-0 flex-1 rounded-xl text-[#111418] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary border border-[#dbe0e6] dark:border-gray-700 bg-white dark:bg-gray-800 h-14 p-[15px] text-base font-medium">
+<option>Incremento (+)</option>
+<option>Descuento (-)</option>
+</select>
+</label>
+</div>
+</div>
+<!-- Section: Preview -->
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<h3 class="text-[#111418] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Vista Previa</h3>
+<span class="text-xs font-semibold text-primary bg-primary/10 px-2 py-1 rounded-full uppercase tracking-wider">Simulación</span>
+</div>
+<div class="space-y-6">
+<!-- Top 5 Most Expensive -->
+<div class="space-y-3">
+<p class="text-xs font-bold text-[#617589] uppercase tracking-wider flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">trending_up</span> 5 Artículos más caros
+                        </p>
+<div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-100 dark:border-gray-700 overflow-hidden">
+<div class="flex justify-between items-center p-3 border-b border-gray-50 dark:border-gray-700">
+<span class="text-sm font-medium dark:text-gray-200">Whisky Premium 1L</span>
+<div class="text-right">
+<span class="text-xs text-gray-400 line-through">$1,200.00</span>
+<span class="block text-sm font-bold text-red-500">$1,266.00</span>
+</div>
+</div>
+<div class="flex justify-between items-center p-3 border-b border-gray-50 dark:border-gray-700">
+<span class="text-sm font-medium dark:text-gray-200">Aceite Oliva Extra V.</span>
+<div class="text-right">
+<span class="text-xs text-gray-400 line-through">$450.00</span>
+<span class="block text-sm font-bold text-red-500">$474.75</span>
+</div>
+</div>
+<div class="flex justify-between items-center p-3">
+<span class="text-sm font-medium dark:text-gray-200">Corte Rib Eye 1kg</span>
+<div class="text-right">
+<span class="text-xs text-gray-400 line-through">$380.00</span>
+<span class="block text-sm font-bold text-red-500">$400.90</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Top 5 Cheapest -->
+<div class="space-y-3">
+<p class="text-xs font-bold text-[#617589] uppercase tracking-wider flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">trending_down</span> 5 Artículos más económicos
+                        </p>
+<div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-100 dark:border-gray-700 overflow-hidden">
+<div class="flex justify-between items-center p-3 border-b border-gray-50 dark:border-gray-700">
+<span class="text-sm font-medium dark:text-gray-200">Chicle Individual</span>
+<div class="text-right">
+<span class="text-xs text-gray-400 line-through">$1.50</span>
+<span class="block text-sm font-bold text-red-500">$1.58</span>
+</div>
+</div>
+<div class="flex justify-between items-center p-3">
+<span class="text-sm font-medium dark:text-gray-200">Cerrillo Caja</span>
+<div class="text-right">
+<span class="text-xs text-gray-400 line-through">$2.00</span>
+<span class="block text-sm font-bold text-red-500">$2.11</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Section: Safety Lock -->
+<div class="bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800/50 rounded-2xl p-4">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-orange-600 dark:text-orange-400">lock</span>
+<div class="flex-1">
+<h4 class="text-orange-800 dark:text-orange-300 font-bold text-sm">Bloqueo de Seguridad</h4>
+<p class="text-orange-700 dark:text-orange-400 text-xs mt-1 leading-relaxed">
+                            Esta acción modificará los precios de venta de forma masiva. Los cambios no son reversibles automáticamente.
+                        </p>
+<label class="flex items-center gap-3 mt-4 cursor-pointer">
+<div class="relative inline-flex items-center">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-gray-300 dark:bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-orange-600"></div>
+</div>
+<span class="text-xs font-semibold text-orange-900 dark:text-orange-200">Entiendo el riesgo y deseo proceder</span>
+</label>
+</div>
+</div>
+</div>
+<!-- Action Button -->
+<div class="pb-8">
+<button class="w-full bg-primary text-white py-4 rounded-xl font-bold text-lg shadow-lg shadow-primary/20 flex items-center justify-center gap-2 hover:bg-primary/90 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined">rocket_launch</span>
+                    Aplicar Cambios Globales
+                </button>
+<p class="text-center text-xs text-gray-400 mt-4">
+                    Se enviará una notificación a todos los terminales de punto de venta.
+                </p>
+</div>
+</div>
+<!-- Tab Bar (iOS style) -->
+<div class="mt-auto border-t border-gray-100 dark:border-gray-800 bg-white dark:bg-background-dark px-6 py-3 flex justify-between items-center">
+<div class="flex flex-col items-center gap-1 text-[#617589]">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="text-[10px] font-medium">Inventario</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined">trending_up</span>
+<span class="text-[10px] font-medium">Márgenes</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-[#617589]">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-[10px] font-medium">Reportes</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-[#617589]">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-medium">Ajustes</span>
+</div>
+</div>
+</div>
+</body></html>

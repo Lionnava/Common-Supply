@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Logs de Integración y Errores - Common Supply</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .status-badge-success { background-color: #0bda5b; }
+        .status-badge-error { background-color: #ef4444; }
+        .status-badge-warning { background-color: #f59e0b; }
+        .ios-blur {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display">
+<!-- Top Navigation Bar -->
+<div class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 ios-blur border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center px-4 py-3 justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-slate-500 dark:text-slate-400">arrow_back_ios</span>
+<h1 class="text-lg font-bold leading-tight tracking-tight">Logs de Integración</h1>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center justify-center size-10 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-primary">sync</span>
+</button>
+<button class="flex items-center justify-center size-10 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-slate-500 dark:text-slate-400">more_horiz</span>
+</button>
+</div>
+</div>
+</div>
+<main class="flex flex-col min-h-screen pb-24">
+<!-- Search Bar -->
+<div class="px-4 py-4">
+<label class="flex flex-col min-w-40 h-11 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-xl h-full shadow-sm">
+<div class="text-slate-400 flex border-none bg-white dark:bg-[#1c2632] items-center justify-center pl-4 rounded-l-xl" data-icon="search">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-r-xl text-slate-900 dark:text-white focus:outline-0 focus:ring-0 border-none bg-white dark:bg-[#1c2632] h-full placeholder:text-slate-400 px-3 text-sm font-normal" placeholder="Buscar por endpoint, JSON o código..." value=""/>
+</div>
+</label>
+</div>
+<!-- Filters (Chips) -->
+<div class="flex gap-3 px-4 pb-4 overflow-x-auto no-scrollbar">
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary px-5 text-white shadow-lg shadow-primary/20">
+<span class="text-sm font-semibold">Todos</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-[#1c2632] px-4 border border-slate-200 dark:border-slate-800">
+<span class="text-sm font-medium text-slate-600 dark:text-slate-300">Errores (4xx/5xx)</span>
+<span class="material-symbols-outlined text-[18px]">expand_more</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-[#1c2632] px-4 border border-slate-200 dark:border-slate-800">
+<span class="text-sm font-medium text-slate-600 dark:text-slate-300">Webhooks</span>
+<span class="material-symbols-outlined text-[18px]">expand_more</span>
+</button>
+</div>
+<!-- Section: Today -->
+<div class="px-4 py-2 bg-slate-100/50 dark:bg-slate-900/50 border-y border-slate-200 dark:border-slate-800">
+<h3 class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Hoy • 24 de Mayo</h3>
+</div>
+<!-- Log List -->
+<div class="flex flex-col divide-y divide-slate-100 dark:divide-slate-800">
+<!-- Log Entry 1: Success -->
+<div class="flex flex-col gap-3 bg-white dark:bg-background-dark px-4 py-4 active:bg-slate-50 dark:active:bg-slate-900 transition-colors">
+<div class="flex justify-between items-start">
+<div class="flex gap-3">
+<div class="flex items-center justify-center rounded-lg bg-primary/10 text-primary shrink-0 size-11">
+<span class="material-symbols-outlined">api</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="text-xs font-bold text-primary bg-primary/10 px-1.5 py-0.5 rounded uppercase tracking-tighter">POST</span>
+<p class="text-sm font-semibold leading-tight">/v1/orders/sync</p>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-xs mt-1">Origen: Shopify Webhook</p>
+</div>
+</div>
+<div class="flex flex-col items-end gap-1">
+<span class="text-[11px] font-bold text-white bg-[#0bda5b] px-2 py-0.5 rounded-full">200 OK</span>
+<p class="text-[10px] text-slate-400">14:20:05</p>
+</div>
+</div>
+<div class="flex items-center gap-4 ml-14">
+<div class="flex items-center gap-1 text-[11px] text-slate-400 font-medium">
+<span class="material-symbols-outlined text-[14px]">timer</span>
+                        142ms
+                    </div>
+<div class="flex items-center gap-1 text-[11px] text-slate-400 font-medium">
+<span class="material-symbols-outlined text-[14px]">database</span>
+                        2.4 KB
+                    </div>
+</div>
+</div>
+<!-- Log Entry 2: Error -->
+<div class="flex flex-col gap-3 bg-slate-50/50 dark:bg-slate-900/20 px-4 py-4 active:bg-slate-100 dark:active:bg-slate-900 transition-colors">
+<div class="flex justify-between items-start">
+<div class="flex gap-3">
+<div class="flex items-center justify-center rounded-lg bg-red-500/10 text-red-500 shrink-0 size-11">
+<span class="material-symbols-outlined">webhook</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="text-xs font-bold text-red-500 bg-red-500/10 px-1.5 py-0.5 rounded uppercase tracking-tighter">POST</span>
+<p class="text-sm font-semibold leading-tight">/v1/inventory/update</p>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-xs mt-1">ERP: SAP Business One</p>
+</div>
+</div>
+<div class="flex flex-col items-end gap-1">
+<span class="text-[11px] font-bold text-white bg-red-500 px-2 py-0.5 rounded-full">500 ERR</span>
+<p class="text-[10px] text-slate-400">13:58:12</p>
+</div>
+</div>
+<div class="flex items-center gap-4 ml-14">
+<div class="flex items-center gap-1 text-[11px] text-red-400 font-bold">
+<span class="material-symbols-outlined text-[14px]">timer</span>
+                        4502ms (Timeout)
+                    </div>
+</div>
+</div>
+<!-- Log Entry 3: Warning/Delayed -->
+<div class="flex flex-col gap-3 bg-white dark:bg-background-dark px-4 py-4 active:bg-slate-50 dark:active:bg-slate-900 transition-colors">
+<div class="flex justify-between items-start">
+<div class="flex gap-3">
+<div class="flex items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-500 shrink-0 size-11">
+<span class="material-symbols-outlined">file_download</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="text-xs font-bold text-slate-500 bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded uppercase tracking-tighter">GET</span>
+<p class="text-sm font-semibold leading-tight">/v1/products/catalogue</p>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-xs mt-1">Origen: App Mobile</p>
+</div>
+</div>
+<div class="flex flex-col items-end gap-1">
+<span class="text-[11px] font-bold text-slate-700 bg-slate-200 px-2 py-0.5 rounded-full">304 NOT MOD</span>
+<p class="text-[10px] text-slate-400">13:45:00</p>
+</div>
+</div>
+<div class="flex items-center gap-4 ml-14">
+<div class="flex items-center gap-1 text-[11px] text-slate-400 font-medium">
+<span class="material-symbols-outlined text-[14px]">timer</span>
+                        85ms
+                    </div>
+</div>
+</div>
+<!-- Log Entry 4: Success -->
+<div class="flex flex-col gap-3 bg-white dark:bg-background-dark px-4 py-4 active:bg-slate-50 dark:active:bg-slate-900 transition-colors">
+<div class="flex justify-between items-start">
+<div class="flex gap-3">
+<div class="flex items-center justify-center rounded-lg bg-primary/10 text-primary shrink-0 size-11">
+<span class="material-symbols-outlined">api</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="text-xs font-bold text-primary bg-primary/10 px-1.5 py-0.5 rounded uppercase tracking-tighter">PUT</span>
+<p class="text-sm font-semibold leading-tight">/v1/customers/7281</p>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-xs mt-1">CRM: Salesforce Integration</p>
+</div>
+</div>
+<div class="flex flex-col items-end gap-1">
+<span class="text-[11px] font-bold text-white bg-[#0bda5b] px-2 py-0.5 rounded-full">201 CREATED</span>
+<p class="text-[10px] text-slate-400">12:30:15</p>
+</div>
+</div>
+<div class="flex items-center gap-4 ml-14">
+<div class="flex items-center gap-1 text-[11px] text-slate-400 font-medium">
+<span class="material-symbols-outlined text-[14px]">timer</span>
+                        310ms
+                    </div>
+</div>
+</div>
+</div>
+<!-- Section: Yesterday -->
+<div class="px-4 py-2 bg-slate-100/50 dark:bg-slate-900/50 border-y border-slate-200 dark:border-slate-800">
+<h3 class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Ayer • 23 de Mayo</h3>
+</div>
+<div class="flex flex-col divide-y divide-slate-100 dark:divide-slate-800">
+<!-- Repeat Log Entries for Previous Day -->
+<div class="flex flex-col gap-3 bg-white dark:bg-background-dark px-4 py-4 active:bg-slate-50 dark:active:bg-slate-900 transition-colors">
+<div class="flex justify-between items-start">
+<div class="flex gap-3">
+<div class="flex items-center justify-center rounded-lg bg-red-500/10 text-red-500 shrink-0 size-11">
+<span class="material-symbols-outlined">api</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="text-xs font-bold text-red-500 bg-red-500/10 px-1.5 py-0.5 rounded uppercase tracking-tighter">POST</span>
+<p class="text-sm font-semibold leading-tight">/v1/auth/token</p>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-xs mt-1">Origen: Unknown IP</p>
+</div>
+</div>
+<div class="flex flex-col items-end gap-1">
+<span class="text-[11px] font-bold text-white bg-red-500 px-2 py-0.5 rounded-full">401 UNAUTH</span>
+<p class="text-[10px] text-slate-400">23:55:01</p>
+</div>
+</div>
+<div class="flex items-center gap-4 ml-14">
+<div class="flex items-center gap-1 text-[11px] text-slate-400 font-medium">
+<span class="material-symbols-outlined text-[14px]">timer</span>
+                        12ms
+                    </div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Detail Preview (Slide up example for demonstration) -->
+<div class="fixed bottom-0 left-0 right-0 bg-white dark:bg-[#1a232e] border-t border-slate-200 dark:border-slate-800 rounded-t-2xl shadow-[0_-10px_30px_rgba(0,0,0,0.1)] z-50">
+<div class="flex justify-center py-2">
+<div class="w-10 h-1 bg-slate-300 dark:bg-slate-700 rounded-full"></div>
+</div>
+<div class="px-5 pt-2 pb-8">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h4 class="text-base font-bold">Detalle del Evento</h4>
+<p class="text-xs text-slate-500">ID: req_98a2z44k01</p>
+</div>
+<button class="flex items-center gap-1 text-primary text-sm font-semibold">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+                    Copiar
+                </button>
+</div>
+<!-- JSON Payload Simulation -->
+<div class="bg-slate-900 rounded-xl p-4 overflow-x-auto">
+<pre class="text-[11px] font-mono text-blue-300 leading-relaxed"><code>{
+  "event": "order.created",
+  "data": {
+    "id": "ORD-5520",
+    "status": "pending",
+    "customer": {
+      "email": "j.doe@example.com",
+      "name": "John Doe"
+    },
+    "total": 154.50,
+    "currency": "EUR"
+  }
+}</code></pre>
+</div>
+<div class="mt-4 flex gap-3">
+<button class="flex-1 bg-primary text-white text-sm font-bold py-3 rounded-xl">Re-intentar Entrega</button>
+<button class="flex items-center justify-center size-11 bg-slate-100 dark:bg-slate-800 rounded-xl text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Tab Bar (iOS Style) -->
+<nav class="fixed bottom-0 left-0 right-0 bg-white/95 dark:bg-background-dark/95 ios-blur border-t border-slate-200 dark:border-slate-800 flex justify-around py-3 px-2 z-40 hidden">
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-medium">Dashboard</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined">list_alt</span>
+<span class="text-[10px] font-medium">Logs</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">settings_ethernet</span>
+<span class="text-[10px] font-medium">ERP Setup</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-medium">Ajustes</span>
+</div>
+</nav>
+</body></html>
